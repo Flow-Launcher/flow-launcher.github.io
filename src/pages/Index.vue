@@ -227,7 +227,7 @@ export default {
         }
         return [
           {
-            icon: '/images/wiki.png', title: terms[1], subtitle: 'Search Wikipedia', link: `https://wikipedia.org/w/index.php?search=${terms[0]}`, color: '',
+            icon: '/images/wiki.png', title: terms[1], subtitle: 'Search Wikipedia', link: `https://wikipedia.org/w/index.php?search=${terms[1]}`, color: '',
           },
         ];
       }
