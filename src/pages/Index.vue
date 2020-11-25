@@ -55,12 +55,14 @@
       </div>
       <article class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-left q-pa-md text-justify">
         <p>
-          <strong>Flow</strong> is dedicated to make your workflow flow more seamlessly.
+          <strong class="text-secondary">Flow</strong> is dedicated
+          to make your workflow flow more seamlessly.
           Aimed at being more than an app launcher, it searches,
           integrates and expands on functionalities.
         </p>
         <p>
-          Flow will continue to evolve, designed to be open and built with
+          <strong class="text-secondary">Flow</strong>
+          will continue to evolve, designed to be open and built with
           the community at heart.
         </p>
         <p>
@@ -101,8 +103,8 @@
     <div id="download" class="row q-py-xl">
       <q-space />
         <div class="text-center">
-            <div class="text-h3 text-grey-8 q-pb-md">
-              Optimize your Work<strong>Flow</strong>!
+            <div class="text-h3 text-grey-8 q-pb-xl">
+              Optimize your Work<strong class="text-secondary">Flow</strong>!
             </div>
           <q-btn
             type="a"
