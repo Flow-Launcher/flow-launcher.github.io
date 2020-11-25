@@ -41,10 +41,19 @@
 
     <div class="row q-pt-xl">
       <q-space />
-      <div class="row col-md-2 col-xs-12 q-pa-md">
-        <img class="col-12" alt="Logo" src="/images/flow_extended_logo.png">
+      <div class="row col-lg-3 col-md-4 col-sm-6 col-xs-12 q-pa-md">
+        <q-space />
+        <div class="col-6">
+        <img
+          height="250"
+          width="250"
+          alt="Logo"
+          src="/images/flow_extended_logo.png"
+          >
+        </div>
+        <q-space />
       </div>
-      <article class="col-md-2 col-xs-12 text-left q-pa-md text-justify">
+      <article class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-left q-pa-md text-justify">
         <p>
           Dedicated to make your workflow flow more seamlessly.
           Aimed at being more than an app launcher, it searches,
