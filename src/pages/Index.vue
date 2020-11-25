@@ -55,7 +55,7 @@
       </div>
       <article class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-left q-pa-md text-justify">
         <p>
-          Dedicated to make your workflow flow more seamlessly.
+          <strong>Flow</strong> is dedicated to make your workflow flow more seamlessly.
           Aimed at being more than an app launcher, it searches,
           integrates and expands on functionalities.
         </p>
@@ -91,7 +91,7 @@
         <div class="text-h5 col-2">
           {{feature.title}}
         </div>
-        <div class="col-1">
+        <div class="col-1 q-pt-sm">
           {{feature.subtitle}}
         </div>
       </div>
