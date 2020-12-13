@@ -16,14 +16,14 @@ jobs:
       - name: Cache
         uses: actions/cache@v1
         with:
-          path: ~/.npm
+          path: ~/.yarn
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install
         run: yarn install --frozen-lockfile
       - name: Build
-        run: npm run build
+        run: yarn build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@master
         env:
