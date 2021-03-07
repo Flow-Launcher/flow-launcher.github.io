@@ -37,6 +37,11 @@
             label="Download"
             @click="scrollToElement('download')"
           />
+          <q-route-tab
+            icon="mdi-file-document"
+            label="Document"
+            to="/docs"
+          />
         </q-tabs>
       </q-toolbar>
     </q-header>
