@@ -53,7 +53,7 @@
     <q-toolbar class="row bg-grey-10 text-grey-4 shadow-up-4">
       <q-space />
       <div class="col-md-2 text-center col-xs-6">
-        The FlowLauncher Team © 2020
+        The FlowLauncher Team © 2021
       </div>
       <q-space />
     </q-toolbar>
