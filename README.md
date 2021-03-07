@@ -1,8 +1,8 @@
-# FlowLauncher Website
+# Flow Launcher Website
 
-Home of FlowLauncher!
+Home of Flow Launcher!
 
-The FlowLauncher website is written with the wonderfull quasar framework. (Based on `vue.js`)
+The Flow Launcher website is written with the wonderfull quasar framework. (Based on `vue.js`)
 
 ## Setup Development Environment
 
