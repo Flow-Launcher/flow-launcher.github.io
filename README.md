@@ -1,26 +1,31 @@
-# FlowLauncher Website (flowlauncher-website)
+# Flow Launcher Website
 
-Home of FlowLauncher!
-The FlowLauncher website is written with the wonderfull quasar framework. (Based on vue.js)
+Home of Flow Launcher!
 
-# Setup Development Environment
+The Flow Launcher website is written with the wonderfull quasar framework. (Based on `vue.js`)
 
-## Install the dependencies
+## Setup Development Environment
+
+### Install the dependencies
+
 ```bash
 yarn
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
+
 ```bash
 quasar dev
 ```
 
 ### Lint the files
+
 ```bash
 yarn run lint
 ```
 
 ### Build the app for production
+
 ```bash
 quasar build
 ```

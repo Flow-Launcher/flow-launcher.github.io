@@ -62,6 +62,12 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'prefer-promise-reject-errors': 'off',
 
+    // fix `Strings must use single quote`
+    "quotes": [1, "single"],
+    "quotes": [0, "double"],
+
+    // fix `'LF' but found 'CRLF' linebreak-style`
+    'linebreak-style': ["off", "windows"],
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
