@@ -6,12 +6,12 @@
           <img alt="FlowLauncher Logo" src="/images/logo.svg" />
         </q-avatar>
 
-        <q-toolbar-title> FlowLauncher </q-toolbar-title>
+        <q-toolbar-title>FlowLauncher</q-toolbar-title>
 
         <q-btn
-          size="sm"
           flat
           stretch
+          size="sm"
           icon="mdi-github"
           type="a"
           href="https://github.com/Flow-Launcher/Flow.Launcher"
@@ -37,10 +37,10 @@
             label="Download"
             @click="scrollToElement('download')"
           />
-          <q-route-tab
+          <q-tab
             icon="mdi-file-document"
             label="Document"
-            to="/docs"
+            @click="redirect('https://flow-launcher.github.io/docs/')"
           />
         </q-tabs>
       </q-toolbar>
@@ -74,6 +74,9 @@ export default {
       const offset = element.offsetTop;
       const duration = 600;
       setScrollPosition(target, offset, duration);
+    },
+    redirect(url) {
+      window.location.href = url;
     },
   },
 };
