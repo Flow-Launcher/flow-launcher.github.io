@@ -132,32 +132,32 @@ export default {
   name: "PageIndex",
   data() {
     return {
-      query: "FlowLauncher",
+      query: "Flow Launcher",
       possible_results: [
         {
           icon: "/images/logo.svg",
-          title: "FlowLauncher - a launcher for Windows",
+          title: "Flow Launcher - a launcher for Windows",
           subtitle: "Boost your productivity!",
           link: "",
           color: "",
         },
         {
           icon: "/images/logo.svg",
-          title: "FlowLauncher - Features",
+          title: "Flow Launcher - Features",
           subtitle: "Explore the possibilities!",
           link: "#feature",
           color: "",
         },
         {
           icon: "/images/logo.svg",
-          title: "FlowLauncher - Download",
+          title: "Flow Launcher - Download",
           subtitle: "Download from GitHub!",
           link: "https://github.com/Flow-Launcher/Flow.Launcher/releases",
           color: "",
         },
         {
           icon: "/images/logo.svg",
-          title: "FlowLauncher - Trouble?",
+          title: "Flow Launcher - Trouble?",
           subtitle: "Report an Issue!",
           link: "https://github.com/Flow-Launcher/Flow.Launcher/issues",
           color: "",
@@ -177,7 +177,7 @@ export default {
         {
           icon: "mdi-console-line",
           title: "Native Shell Support",
-          subtitle: "Execute (Power)Shell commands directly with FlowLauncher!",
+          subtitle: "Execute (Power)Shell commands directly with Flow Launcher!",
         },
       ],
     };
