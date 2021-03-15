@@ -138,14 +138,14 @@ export default {
           icon: "/images/logo.svg",
           title: "Flow Launcher - a launcher for Windows",
           subtitle: "Boost your productivity!",
-          link: "",
+          link: "/",
           color: "",
         },
         {
           icon: "/images/logo.svg",
           title: "Flow Launcher - Features",
           subtitle: "Explore the possibilities!",
-          link: "#feature",
+          link: "/#features",
           color: "",
         },
         {
@@ -177,7 +177,8 @@ export default {
         {
           icon: "mdi-console-line",
           title: "Native Shell Support",
-          subtitle: "Execute (Power)Shell commands directly with Flow Launcher!",
+          subtitle:
+            "Execute (Power)Shell commands directly with Flow Launcher!",
         },
       ],
     };
