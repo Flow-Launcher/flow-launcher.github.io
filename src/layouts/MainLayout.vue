@@ -3,10 +3,10 @@
     <q-header elevated>
       <q-toolbar class="bg-grey-9">
         <q-avatar square size="md">
-          <img alt="FlowLauncher Logo" src="/images/logo.svg" />
+          <img alt="Flow Launcher Logo" src="/images/logo.svg" />
         </q-avatar>
 
-        <q-toolbar-title>FlowLauncher</q-toolbar-title>
+        <q-toolbar-title>Flow Launcher</q-toolbar-title>
 
         <q-btn
           flat

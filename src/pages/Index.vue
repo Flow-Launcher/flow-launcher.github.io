@@ -2,40 +2,49 @@
   <q-page>
     <q-parallax id="home" class="row shadow-4" src="/images/backdrop.jpg">
       <div class="col-7">
-      <q-card class="bg-grey-9 q-pa-xs shadow-4" bordered>
-        <div class="row col-12">
-          <q-input class="text-h4 q-pl-md col-11" v-model="query" dark borderless></q-input>
-          <q-icon color="grey-7" size="xl" class="q-pt-xs col-1" name="mdi-magnify"></q-icon>
-        </div>
-
-        <a
-          style="text-decoration:none; cursor:default;"
-          v-for="(result, key) in results"
-          v-bind:key="result.title"
-          :href="result.link"
-          class="row col-12 q-pa-xs hover-effect"
-          >
-
-          <q-avatar
-            v-if='result.color'
-            square
-            size="md"
-            class="q-pt-xs"
-            v-bind:style="{'background-color': result.color}"
-            >
-          </q-avatar>
-
-          <q-avatar v-else square size="md" class="q-pt-xs">
-            <img :alt="result.title" :src="result.icon">
-          </q-avatar>
-
-          <div class="row col text-white q-pl-sm">
-            <div class="text-weight-bold col-11">{{result.title}}</div>
-            <div class="col-1 text-right text-grey-4">Alt+{{key+1}}</div>
-            <div class="text-grey-4">{{result.subtitle}}</div>
+        <q-card class="bg-grey-9 q-pa-xs shadow-4" bordered>
+          <div class="row col-12">
+            <q-input
+              class="text-h4 q-pl-md col-11"
+              v-model="query"
+              dark
+              borderless
+            ></q-input>
+            <q-icon
+              color="grey-7"
+              size="xl"
+              class="q-pt-xs col-1"
+              name="mdi-magnify"
+            ></q-icon>
           </div>
-        </a>
-      </q-card>
+
+          <a
+            style="text-decoration: none; cursor: default"
+            v-for="(result, key) in results"
+            v-bind:key="result.title"
+            :href="result.link"
+            class="row col-12 q-pa-xs hover-effect"
+          >
+            <q-avatar
+              v-if="result.color"
+              square
+              size="md"
+              class="q-pt-xs"
+              v-bind:style="{ 'background-color': result.color }"
+            >
+            </q-avatar>
+
+            <q-avatar v-else square size="md" class="q-pt-xs">
+              <img :alt="result.title" :src="result.icon" />
+            </q-avatar>
+
+            <div class="row col text-white q-pl-sm">
+              <div class="text-weight-bold col-11">{{ result.title }}</div>
+              <div class="col-1 text-right text-grey-4">Alt+{{ key + 1 }}</div>
+              <div class="text-grey-4">{{ result.subtitle }}</div>
+            </div>
+          </a>
+        </q-card>
       </div>
     </q-parallax>
 
@@ -44,39 +53,37 @@
       <div class="row col-lg-3 col-md-4 col-sm-6 col-xs-12 q-pa-md">
         <q-space />
         <div class="col-6">
-        <img
-          height="250"
-          width="250"
-          alt="Logo"
-          src="/images/flow_extended_logo.png"
-          >
+          <img
+            height="250"
+            width="250"
+            alt="Logo"
+            src="/images/flow_extended_logo.png"
+          />
         </div>
         <q-space />
       </div>
-      <article class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-left q-pa-md text-justify">
+      <article
+        class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-left q-pa-md text-justify"
+      >
         <p>
-          <strong class="text-secondary">Flow</strong> is dedicated
-          to make your workflow flow more seamlessly.
-          Aimed at being more than an app launcher, it searches,
-          integrates and expands on functionalities.
+          <strong class="text-secondary">Flow</strong> is dedicated to make your
+          workflow flow more seamlessly. Aimed at being more than an app
+          launcher, it searches, integrates and expands on functionalities.
         </p>
         <p>
           <strong class="text-secondary">Flow</strong>
-          will continue to evolve, designed to be open and built with
-          the community at heart.
+          will continue to evolve, designed to be open and built with the
+          community at heart.
         </p>
         <p>
-          This Project is under heavy development, but the code base is stable, so
-          contributions are very welcome. If you would like to help maintain
+          This Project is under heavy development, but the code base is stable,
+          so contributions are very welcome. If you would like to help maintain
           it, please do not hesistate to get in touch.
         </p>
       </article>
       <q-space />
     </div>
-    <div
-      class="row bg-primary text-white q-py-xl shadow-up-4"
-      id="features"
-    >
+    <div class="row bg-primary text-white q-py-xl shadow-up-4" id="features">
       <q-space />
       <div
         v-for="feature in features"
@@ -84,17 +91,13 @@
         class="column col-md-3 col-xs-12 q-pb-md text-center"
       >
         <div class="col-8">
-          <q-icon
-            size="100px"
-            :name="feature.icon"
-            color="white"
-          />
+          <q-icon size="100px" :name="feature.icon" color="white" />
         </div>
         <div class="text-h5 col-2">
-          {{feature.title}}
+          {{ feature.title }}
         </div>
         <div class="col-1 q-pt-sm">
-          {{feature.subtitle}}
+          {{ feature.subtitle }}
         </div>
       </div>
       <q-space />
@@ -102,22 +105,23 @@
 
     <div id="download" class="row q-py-xl">
       <q-space />
-        <div class="text-center">
-            <div class="text-h3 text-grey-8 q-pb-xl">
-              Optimize your Work<strong class="text-secondary">Flow</strong>!
-            </div>
-          <q-btn
-            type="a"
-            href="https://github.com/Flow-Launcher/Flow.Launcher/releases"
-            icon="mdi-github"
-            size="lg"
-            color="secondary">
-            &nbsp;Download from GitHub
-          </q-btn>
-          <p class="text-caption">
-            <strong>Flow</strong> is only available for Windows™ 7 and Newer
-          </p>
+      <div class="text-center">
+        <div class="text-h3 text-grey-8 q-pb-xl">
+          Optimize your Work<strong class="text-secondary">Flow</strong>!
         </div>
+        <q-btn
+          type="a"
+          href="https://github.com/Flow-Launcher/Flow.Launcher/releases"
+          icon="mdi-github"
+          size="lg"
+          color="secondary"
+        >
+          &nbsp;Download from GitHub
+        </q-btn>
+        <p class="text-caption">
+          <strong>Flow</strong> is only available for Windows™ 7 and Newer
+        </p>
+      </div>
       <q-space />
     </div>
   </q-page>
@@ -125,49 +129,56 @@
 
 <script>
 export default {
-  name: 'PageIndex',
+  name: "PageIndex",
   data() {
     return {
-      query: 'FlowLauncher',
+      query: "Flow Launcher",
       possible_results: [
         {
-          icon: '/images/logo.svg',
-          title: 'FlowLauncher - a launcher for Windows',
-          subtitle: 'Boost your productivity!',
-          link: '',
-          color: '',
+          icon: "/images/logo.svg",
+          title: "Flow Launcher - a launcher for Windows",
+          subtitle: "Boost your productivity!",
+          link: "/",
+          color: "",
         },
         {
-          icon: '/images/logo.svg',
-          title: 'FlowLauncher - Features',
-          subtitle: 'Explore the possibilities!',
-          link: '',
-          color: '',
+          icon: "/images/logo.svg",
+          title: "Flow Launcher - Features",
+          subtitle: "Explore the possibilities!",
+          link: "/#features",
+          color: "",
         },
         {
-          icon: '/images/logo.svg',
-          title: 'FlowLauncher - Download',
-          subtitle: 'Download from GitHub!',
-          link: 'https://github.com/Flow-Launcher/Flow.Launcher/releases',
-          color: '',
+          icon: "/images/logo.svg",
+          title: "Flow Launcher - Download",
+          subtitle: "Download from GitHub!",
+          link: "https://github.com/Flow-Launcher/Flow.Launcher/releases",
+          color: "",
         },
         {
-          icon: '/images/logo.svg',
-          title: 'FlowLauncher - Trouble?',
-          subtitle: 'Report an Issue!',
-          link: 'https://github.com/Flow-Launcher/Flow.Launcher/issues',
-          color: '',
+          icon: "/images/logo.svg",
+          title: "Flow Launcher - Trouble?",
+          subtitle: "Report an Issue!",
+          link: "https://github.com/Flow-Launcher/Flow.Launcher/issues",
+          color: "",
         },
       ],
       features: [
         {
-          icon: 'mdi-magnify', title: 'Search Everything', subtitle: 'Application, Files, Bookmarks, Youtube and more!',
+          icon: "mdi-magnify",
+          title: "Search Everything",
+          subtitle: "Application, Files, Bookmarks, Youtube and more!",
         },
         {
-          icon: 'mdi-toy-brick', title: 'Plugin Suppport', subtitle: 'Extend your Flow experience with a variety of Plugins!',
+          icon: "mdi-toy-brick",
+          title: "Plugin Suppport",
+          subtitle: "Extend your Flow experience with a variety of Plugins!",
         },
         {
-          icon: 'mdi-console-line', title: 'Native Shell Support', subtitle: 'Execute (Power)Shell commands directly with FlowLauncher!',
+          icon: "mdi-console-line",
+          title: "Native Shell Support",
+          subtitle:
+            "Execute (Power)Shell commands directly with Flow Launcher!",
         },
       ],
     };
@@ -176,65 +187,89 @@ export default {
     results() {
       const resultList = [];
 
-      if (this.query.trim() === '') {
+      if (this.query.trim() === "") {
         return resultList;
       }
 
       const mathRegex = /^(?:\d+|\+|-|\/|\*|\(|\))*$/gm;
       if (this.query.match(mathRegex)) {
-        const mathString = this.query.replace(/[^-()\d/*+.]/g, '');
+        const mathString = this.query.replace(/[^-()\d/*+.]/g, "");
 
-        resultList.push(
-          {
-            // eslint-disable-next-line no-eval
-            icon: '/images/calculator.png', title: eval(mathString), subtitle: 'Calculated from your expression', link: '', color: '',
-          },
-        );
+        resultList.push({
+          icon: "/images/calculator.png",
+          // eslint-disable-next-line no-eval
+          title: eval(mathString),
+          subtitle: "Calculated from your expression",
+          link: "",
+          color: "",
+        });
       }
 
       const colorRegex = /^#[a-fA-F0-9]{6}$/gm;
       if (this.query.match(colorRegex)) {
-        resultList.push(
-          {
-            icon: '', title: this.query, subtitle: '', link: '', color: this.query,
-          },
-        );
+        resultList.push({
+          icon: "",
+          title: this.query,
+          subtitle: "",
+          link: "",
+          color: this.query,
+        });
       }
 
-      const terms = this.query.split(' ');
-      if (terms[0] === 'g') {
+      const terms = this.query.split(" ");
+      if (terms[0] === "g") {
         if (terms.length < 2) {
           return [
             {
-              icon: '/images/google.png', title: 'Search Google', subtitle: '', link: '', color: '',
+              icon: "/images/google.png",
+              title: "Search Google",
+              subtitle: "",
+              link: "",
+              color: "",
             },
           ];
         }
         return [
           {
-            icon: '/images/google.png', title: terms[1], subtitle: 'Search Google', link: `https://www.google.com/search?q=${terms[1]}`, color: '',
+            icon: "/images/google.png",
+            title: terms[1],
+            subtitle: "Search Google",
+            link: `https://www.google.com/search?q=${terms[1]}`,
+            color: "",
           },
         ];
       }
 
-      if (terms[0] === 'wiki') {
+      if (terms[0] === "wiki") {
         if (terms.length < 2) {
           return [
             {
-              icon: '/images/wiki.png', title: 'Search Wikipedia', subtitle: '', link: '', color: '',
+              icon: "/images/wiki.png",
+              title: "Search Wikipedia",
+              subtitle: "",
+              link: "",
+              color: "",
             },
           ];
         }
         return [
           {
-            icon: '/images/wiki.png', title: terms[1], subtitle: 'Search Wikipedia', link: `https://wikipedia.org/w/index.php?search=${terms[1]}`, color: '',
+            icon: "/images/wiki.png",
+            title: terms[1],
+            subtitle: "Search Wikipedia",
+            link: `https://wikipedia.org/w/index.php?search=${terms[1]}`,
+            color: "",
           },
         ];
       }
 
       this.possible_results.forEach((possibleResult) => {
         if (resultList.length < 4) {
-          if (possibleResult.title.toLowerCase().includes(this.query.toLowerCase())) {
+          if (
+            possibleResult.title
+              .toLowerCase()
+              .includes(this.query.toLowerCase())
+          ) {
             resultList.push(possibleResult);
           }
         }
@@ -247,6 +282,6 @@ export default {
 
 <style>
 .hover-effect:hover {
-  background-color:#757575;
+  background-color: #757575;
 }
 </style>

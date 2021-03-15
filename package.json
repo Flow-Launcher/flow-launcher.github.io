@@ -2,7 +2,7 @@
   "name": "flowlauncher-website",
   "version": "0.0.1",
   "description": "Home of FlowLauncher!",
-  "productName": "FlowLauncher",
+  "productName": "Flow Launcher",
   "author": "Xenolphthalein",
   "private": true,
   "scripts": {
