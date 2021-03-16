@@ -39,7 +39,7 @@
           />
           <q-tab
             icon="mdi-file-document"
-            label="Document"
+            label="Documentation"
             @click="redirect('https://flow-launcher.github.io/docs/')"
           />
         </q-tabs>
