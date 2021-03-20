@@ -136,7 +136,7 @@ export default {
       possible_results: [
         {
           icon: "/images/logo.svg",
-          title: "Flow Launcher - a launcher for Windows",
+          title: "Flow Launcher - A launcher for Windows",
           subtitle: "Boost your productivity!",
           link: "/",
           color: "",
@@ -146,6 +146,13 @@ export default {
           title: "Flow Launcher - Features",
           subtitle: "Explore the possibilities!",
           link: "/#features",
+          color: "",
+        },
+        {
+          icon: "/images/logo.svg",
+          title: "Flow Launcher - Documentation",
+          subtitle: "How to develop, contribute, write new plugins and more!",
+          link: "https://flow-launcher.github.io/docs/",
           color: "",
         },
         {
@@ -264,7 +271,7 @@ export default {
       }
 
       this.possible_results.forEach((possibleResult) => {
-        if (resultList.length < 4) {
+        if (resultList.length < 5) {
           if (
             possibleResult.title
               .toLowerCase()
