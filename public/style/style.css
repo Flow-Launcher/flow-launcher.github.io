@@ -127,6 +127,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+html, body{
+    -webkit-text-size-adjust : none;
+    -ms-text-size-adjust : none; 
+    -moz-text-size-adjust : none; 
+    -o-text-size-adjust : none;
+  }
+
 h1 {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
