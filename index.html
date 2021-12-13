@@ -101,14 +101,19 @@
                         font-size: 12px; color: #fff; letter-spacing: 1px;  margin-top:14px; ">
                             Quick File Search & App Launcher for Windows</p>
                         <div class="alpha">
-                            <button
-                                class="btn btn-tetrary downloadButton"
-                                onclick="window.location.href='https://github.com/Flow-Launcher/Flow.Launcher/releases/'"
-                                style="font-weight:bold; Width:250px; height:60px; margin-top:32px; position:relative; white-space:nowrap;">
-                                Download From Github
-                                <br/>
-                                <p style="Font-size:11px; font-weight: 400; margin-top:0px; color:#ffffff85; white-space:nowrap;">Release v1.9 (09 Dec 2021)</p>
-                            </button>
+                            <div class="downloadButton">
+                                <button
+                                    class="btn btn-tetrary"
+                                    onclick="window.location.href='https://github.com/Flow-Launcher/Flow.Launcher/releases/'">
+                                    <div
+                                        style="font-weight:bold; position:relative; white-space:nowrap; width:200px;">
+                                        Download From Github
+                                        <br/>
+                                        <p
+                                            style="Font-size:11px; font-weight: 400; margin-top:0px; color:#ffffff85; white-space:nowrap;">Release v1.9 (09 Dec 2021)</p>
+                                    </div>
+                                </button>
+                            </div>
                             <div class="wingetDiv" id="winget">
                                 <p
                                     style="Font-size:0.7em; margin-left:8px; color:#ffffff85; text-align: left; vertical-align: middle; letter-spacing: 0.5; white-space:nowrap; ">
@@ -119,9 +124,7 @@
                                         class="copybtn"
                                         style="display:inline; border:solid 0px #cecece; background-color:transparent; float:right;  "
                                         data-clipboard-text="WinGet install &quot;Flow Launcher&quot;">
-                                        <img
-                                            src="public/images/copy.svg"
-                                            height="10">
+                                        <img src="public/images/copy.svg" height="10">
                                     </button>
                                 </p>
 
@@ -162,11 +165,6 @@
         <!--Header ends-->
 
         <!--Content starts-->
-
-
-
-        
-        
 
         <div class="content flex">
 
