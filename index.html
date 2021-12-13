@@ -86,12 +86,18 @@
                   <script>
                     loadRelease = async () => {
 
-                      var releaseRequest = await fetch(
+                      let releaseRequest = await fetch(
                         'https://api.github.com/repos/Flow-Launcher/Flow.Launcher/releases/latest');
-                      var release = await releaseRequest.json();
-                      var publishedAt = new Date(release.published_at);
-                      var name = release.name;
-                      $("#releaseInfo").text(`Release ${name} (${publishedAt.toLocaleDateString()})`);
+                      let release = await releaseRequest.json();
+                      let publishedAt = new Date(release.published_at);
+                      let name = release.name;
+                      const options = {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      };
+                      $("#releaseInfo").text(
+                        `Release ${name} (${publishedAt.toLocaleDateString(undefined, options)})`);
                     };
 
                     loadRelease();
