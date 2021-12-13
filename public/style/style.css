@@ -252,9 +252,13 @@ p {
     .screenshot{
         max-width:95%;
     }
+    .downloadButton{
+        Width:80%;
+    }
     .wingetDiv{
         left:0px;
-        
+        font-size:11px;
+        width:80%;
         margin:0 auto;
         margin-top:20px;
     }
