@@ -126,14 +126,14 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-
 html, body{
-    -webkit-text-size-adjust : none;
+    -webkit-text-size-adjust : none; 
     -ms-text-size-adjust : none; 
     -moz-text-size-adjust : none; 
-    -o-text-size-adjust : none;
+    -o-text-size-adjust : none; 
   }
+
+
 
 h1 {
     font-family: 'Lato', sans-serif;
@@ -213,7 +213,7 @@ p {
     height:auto;
 }
 .downloadButton{
-    left:-8px
+    left:-8px;
 }
 .wingetDiv {
     Background-color:rgba(0, 0, 0, 0.438); margin-top:12px; padding:10px; border-radius: 5px; width:250px; text-align: left; position: relative; left:-2;
@@ -265,7 +265,7 @@ p {
     }
     .wingetDiv{
         left:0px;
-        font-size:11px;
+        font-size:0.7rem;
         width:80%;
         margin:0 auto;
         margin-top:20px;
