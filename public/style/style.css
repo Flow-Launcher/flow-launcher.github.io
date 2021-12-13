@@ -262,11 +262,12 @@ p {
     }
     .downloadButton{
         Width:80%;
+        padding-bottom:12px;
     }
     .wingetDiv{
         left:0px;
-        font-size:0.7rem;
-        width:80%;
+        font-size:11px;
+        width:85%;
         margin:0 auto;
         margin-top:20px;
     }
