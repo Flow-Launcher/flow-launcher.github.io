@@ -150,7 +150,8 @@ p {
     padding-top: 50px;
     position: relative;
     text-align: center;
-    background: linear-gradient(60deg, rgb(50, 86, 204) 0%, rgba(0,172,193,1) 100%);
+    /* background: linear-gradient(60deg, rgb(50, 86, 204) 0%, rgba(0,172,193,1) 100%);*/
+    background:White;
     color: white;
 }
 .logo {
@@ -162,7 +163,7 @@ p {
 }
 
 .inner-header {
-    height: 65vh;
+    height: 60vh;
     width: 100%;
     margin: 0;
     padding: 0 0 0 0;
@@ -195,7 +196,7 @@ p {
 }
 /* Clear floats after the columns */
 .row {
-    width:880px;
+    width:900px;
     height:420px;
     margin: 0 auto;
     margin-top:50px;
@@ -209,7 +210,7 @@ p {
     clear: both;
 }
 .screenshot{
-    max-width:440px;
+    max-width:500px;
     height:auto;
 }
 .downloadButton{
@@ -218,7 +219,7 @@ p {
     left:-8px;
 }
 .wingetDiv {
-    Background-color:rgba(0, 0, 0, 0.438); margin-top:12px; padding:10px; border-radius: 5px; width:250px; text-align: left; position: relative; left:-2;
+    Background-color:rgba(0, 0, 0, 0.603); margin-top:12px; padding:10px; border-radius: 5px; width:250px; text-align: left; position: relative; left:-2;
 }
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 910px) {
@@ -299,7 +300,7 @@ p {
     position: relative;
     height: 20vh;
     text-align: center;
-    background-color: white;
+    background-color: #1493de;
 }
 
 /* Animation */
