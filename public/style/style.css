@@ -252,6 +252,12 @@ p {
     .screenshot{
         max-width:95%;
     }
+    .wingetDiv{
+        left:0px;
+        
+        margin:0 auto;
+        margin-top:20px;
+    }
 }
 
 
