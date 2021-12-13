@@ -1,0 +1,242 @@
+<html>
+    <head>
+        <title>Flow Launcher</title>
+        <meta charset="utf-8">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async="async"
+            src="https://www.googletagmanager.com/gtag/js?id=G-ZMW9NFVGQL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZMW9NFVGQL');
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="public/style/style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="128x128"
+            href="public/icons/favicon-128x128.png">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="public/icons/favicon-96x96.png">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="public/icons/favicon-32x32.png">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="public/icons/favicon-16x16.png">
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="public/icons/favicon-16x16.png">
+        <link rel="icon" type="image/ico" href="public/favicon.ico">
+    </head>
+
+    <body>
+        <div class="site-header">
+            <div class="wrapper site-header__wrapper">
+                <a href="#home" class="brand"><img src="public/images/titlelogo.png" height="18px" style="margin-right:20px;"></a>
+                <nav class="nav">
+                    <a href="javascript:void(0);" class="icon nav__toggle" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <!-- <button class="nav__toggle" aria-expanded="false" type="button"> menu
+                    </button> -->
+                    <ul class="nav__wrapper">
+                        <!-- <li class="nav__item"> <a href="#">Features</a> </li> <li
+                        class="nav__item"> <a href="#">Plugins</a> </li> -->
+                        <li class="nav__item">
+                            <a href="https://flow-launcher.github.io/docs/#/">Docs</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="https://github.com/Flow-Launcher/Flow.Launcher">Github</a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="https://github.com/Flow-Launcher/Flow.Launcher/releases/">Download</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header" id="home">
+            <!--Content before waves-->
+            <div style="width:100%;">
+                <div class="row inner-header">
+                    <div class="column columnText">
+                        <img src="public/images/flow_logo.png" width="250" style="margin-top:60px;">
+                        <p
+                            style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        font-size: 12px; color: #fff; letter-spacing: 1px;  margin-top:14px; ">
+                            Quick File Search & App Launcher for Windows</p>
+                        <div class="alpha">
+                            <button
+                                class="btn btn-tetrary downloadButton"
+                                onclick="window.location.href='https://github.com/Flow-Launcher/Flow.Launcher/releases/'"
+                                style="font-weight:bold; Width:250px; height:60px; margin-top:32px; position:relative;">
+                                Download From Github
+                                <br/>
+                                <p style="Font-size:11px; font-weight: 400; margin-top:0px; color:#ffffff85; ">Release v1.9 (09 Dec 2021)</p>
+                            </button>
+                            <div class="wingetDiv" id="winget">
+                                <p
+                                    style="Font-size:12px; margin-left:8px; color:#ffffff85; text-align: left; vertical-align: middle; letter-spacing: 0.5; ">
+                                    <span style="display:inline; user-select: none;">></span>
+                                    <span style="color:rgb(252, 255, 155)">WinGet</span>
+                                    install "Flow Launcher"
+                                    <button
+                                        class="copybtn"
+                                        style="display:inline; border:solid 0px #cecece; background-color:transparent; float:right;"
+                                        data-clipboard-text="WinGet install &quot;Flow Launcher&quot;">
+                                        <img
+                                            src="public/images/copy.svg"
+                                            height="12"
+                                            style="vertical-align: -webkit-baseline-middle;">
+                                    </button>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column columnImage">
+                        <img src="public/images/flow_launcher.png" class="Screenshot">
+                    </div>
+
+                </div>
+            </div>
+            <!--Waves Container-->
+            <div>
+                <svg
+                    class="waves"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewbox="0 24 150 28"
+                    preserveaspectratio="none"
+                    shape-rendering="auto">
+                    <defs>
+                        <path
+                            id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"/>
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"/>
+                    </g>
+                </svg>
+            </div>
+            <!--Waves end-->
+
+        </div>
+        <!--Header ends-->
+
+        <!--Content starts-->
+
+
+
+        
+        
+
+        <div class="content flex">
+
+            <p style="font-size:13px;">The Flow Launcher Team © 2021</p>
+        </div>
+        <!--Content ends-->
+        <script>
+
+            $('.copybtn').tooltip({trigger: 'click', placement: 'bottom'});
+
+            function setTooltip(message) {
+                $('.copybtn')
+                    .tooltip('hide')
+                    .attr('data-original-title', message)
+                    .tooltip('show');
+            }
+
+            function hideTooltip() {
+                setTimeout(function () {
+                    $('.copybtn').tooltip('hide');
+                }, 1000);
+            }
+
+            var clipboard = new ClipboardJS('.copybtn');
+
+            clipboard.on('success', function (e) {
+                setTooltip('Copied!');
+                hideTooltip();
+            });
+
+            clipboard.on('error', function (e) {
+                setTooltip('Failed!');
+                hideTooltip();
+            });
+        </script>
+    </body>
+    <script >
+        function scrollTo(hash) {
+            location.hash = "#" + hash;
+        }
+        let navToggle = document.querySelector(".nav__toggle");
+        let navWrapper = document.querySelector(".nav__wrapper");
+        navToggle.addEventListener("click", function () {
+            if (navWrapper.classList.contains("active")) {
+                this.setAttribute("aria-expanded", "false");
+                this.setAttribute("aria-label", "menu");
+                navWrapper
+                    .classList
+                    .remove("active");
+            } else {
+                navWrapper
+                    .classList
+                    .add("active");
+                this.setAttribute("aria-label", "close menu");
+                this.setAttribute("aria-expanded", "true");
+            }
+        });
+
+        /*  Toggle between showing and hiding the navigation menu links when the user cl
+ *  icks on the hamburger menu / bar icon
+
+ */
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+</html>

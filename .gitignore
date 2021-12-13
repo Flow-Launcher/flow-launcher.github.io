@@ -33,3 +33,5 @@ yarn-error.log*
 *.sln
 .vscode
 .history
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
