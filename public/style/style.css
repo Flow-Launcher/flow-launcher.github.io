@@ -219,7 +219,7 @@ p {
 	position:relative;
     left:-8px;
 }
-.wingetDiv {
+.cmdInstallDiv {
     Background-color:rgba(0, 0, 0, 0.603); margin-top:12px; padding:10px; border-radius: 5px; width:250px; text-align: left; position: relative; left:-2;
 }
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -227,7 +227,7 @@ p {
     .inner-header {
         height: 95vh;
     }
-    .wingetDiv{
+    .cmdInstallDiv{
         left:0px;
         
         margin:0 auto;
@@ -270,7 +270,7 @@ p {
         Width:80%;
 		margin-top:20px;
     }
-    .wingetDiv{
+    .cmdInstallDiv{
         left:0px;
         font-size:13px;
         width:240px;
