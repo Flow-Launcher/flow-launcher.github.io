@@ -126,7 +126,7 @@
                 <span style="display:inline; user-select: none;">></span>
                 <span style="color:rgb(252, 255, 155)">scoop</span>
                 install Flow-Launcher
-                <button class="copybtn"
+                <button class="copyScoopbtn"
                   style="display:inline; border:solid 0px #cecece; background-color:transparent; float:right;  "
                   data-clipboard-text="scoop install Flow-Launcher">
                   <img src="public/images/copy.svg" height="10">
@@ -199,6 +199,36 @@
     clipboard.on('error', function (e) {
       setTooltip('Failed!');
       hideTooltip();
+    });    
+    
+     $('.copyScoopbtn').tooltip({
+      trigger: 'click',
+      placement: 'bottom'
+    });
+
+    function setScoopTooltip(message) {
+      $('.copyScoopbtn')
+        .tooltip('hide')
+        .attr('data-original-title', message)
+        .tooltip('show');
+    }
+
+    function hideScoopTooltip() {
+      setTimeout(function () {
+        $('.copyScoopbtn').tooltip('hide');
+      }, 1000);
+    }
+
+    var clipboardScoop = new ClipboardJS('.copyScoopbtn');
+
+    clipboardScoop.on('success', function (e) {
+      setScoopTooltip('Copied!');
+      hideScoopTooltip();
+    });
+
+    clipboardScoop.on('error', function (e) {
+      setScoopTooltip('Failed!');
+      hideScoopTooltip();
     });
 
   </script>
