@@ -134,6 +134,21 @@
               </p>
 
             </div>
+			
+			<div class="cmdInstallDiv" id="choco">
+              <p
+                style="Font-size:0.7em; margin-left:8px; color:#ffffff85; text-align: left; vertical-align: middle; letter-spacing: 0.5; white-space:nowrap; ">
+                <span style="display:inline; user-select: none;">></span>
+                <span style="color:rgb(252, 255, 155)">choco</span>
+                install Flow-Launcher
+                <button class="copyChocobtn"
+                  style="display:inline; border:solid 0px #cecece; background-color:transparent; float:right;  "
+                  data-clipboard-text="choco install Flow-Launcher">
+                  <img src="public/images/copy.svg" height="10">
+                </button>
+              </p>
+
+            </div>
           </div>
         </div>
         <div class="column columnImage">
@@ -170,6 +185,7 @@
   </div>
   </div>
   <!--Content ends-->
+  
   <script>
     $('.copybtn').tooltip({
       trigger: 'click',
@@ -201,7 +217,8 @@
       hideTooltip();
     });    
     
-     $('.copyScoopbtn').tooltip({
+    
+	$('.copyScoopbtn').tooltip({
       trigger: 'click',
       placement: 'bottom'
     });
@@ -229,6 +246,37 @@
     clipboardScoop.on('error', function (e) {
       setScoopTooltip('Failed!');
       hideScoopTooltip();
+    });
+	
+	
+	$('.copyChocobtn').tooltip({
+      trigger: 'click',
+      placement: 'bottom'
+    });
+
+    function setChocoTooltip(message) {
+      $('.copyChocobtn')
+        .tooltip('hide')
+        .attr('data-original-title', message)
+        .tooltip('show');
+    }
+
+    function hideChocoTooltip() {
+      setTimeout(function () {
+        $('.copyChocobtn').tooltip('hide');
+      }, 1000);
+    }
+
+    var clipboardChoco = new ClipboardJS('.copyChocobtn');
+
+    clipboardChoco.on('success', function (e) {
+      setChocoTooltip('Copied!');
+      hideChocoTooltip();
+    });
+
+    clipboardChoco.on('error', function (e) {
+      setChocoTooltip('Failed!');
+      hideChocoTooltip();
     });
 
   </script>
