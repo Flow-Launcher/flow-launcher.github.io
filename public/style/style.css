@@ -99,9 +99,6 @@ nav,
 section {
   display: block;
 }
-body {
-  line-height: 1;
-}
 ol,
 ul {
   list-style: none;
@@ -123,16 +120,13 @@ table {
 }
 
 body {
-  margin: 0;
-  height: 100%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-html,
-body {
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -o-text-size-adjust: none;
+  line-height: 1;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
@@ -227,6 +221,45 @@ p {
   position: relative;
   left: -2;
 }
+
+.width-100 {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10rem 0;
+}
+
+.flex-center-column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sponsor-title {
+  font-weight: 600;
+  font-size: 1.9rem;
+  text-align: center;
+}
+
+.become-sponsor {
+  margin: 1.5rem 0;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  outline: none;
+  color: inherit;
+}
+
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 910px) {
   .inner-header {
@@ -271,14 +304,18 @@ p {
   .screenshot {
     max-width: 95%;
   }
+
   .downloadButton {
     width: 80%;
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
   }
+
   .cmdInstallDiv {
     left: 0px;
     font-size: 13px;
-    width: 240px;
+    width: 240;
     margin: 0 auto;
     margin-top: 10px;
   }
@@ -337,6 +374,7 @@ p {
     transform: translate3d(85px, 0, 0);
   }
 }
+
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
   .waves {
