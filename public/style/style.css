@@ -260,6 +260,10 @@ a:hover {
   color: inherit;
 }
 
+.sponsor-image {
+  width: 14rem;
+}
+
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 910px) {
   .inner-header {
