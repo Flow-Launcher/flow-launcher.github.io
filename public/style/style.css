@@ -231,7 +231,7 @@ p {
   justify-content: center;
   width: 80%;
   margin: 0 auto;
-  padding: 10rem 0;
+  padding: 5rem 0;
 }
 
 .flex-center-column {
@@ -241,16 +241,17 @@ p {
 }
 
 .sponsor-title {
-  font-weight: 600;
-  font-size: 1.9rem;
+  font-weight: 700;
+  font-size: 2rem;
   text-align: center;
 }
 
 .become-sponsor {
   margin: 1.5rem 0;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-align: center;
+  opacity: 0.7;
 }
 
 a:hover {
@@ -302,6 +303,10 @@ a:hover {
     margin-top: 12px;
     left: 0px;
   }
+
+  .container {
+    padding: 10rem 0;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -322,6 +327,9 @@ a:hover {
     width: 240px;
     margin: 0 auto;
     margin-top: 10px;
+  }
+  .container {
+    padding: 7rem 0;
   }
 }
 
