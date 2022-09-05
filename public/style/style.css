@@ -119,6 +119,14 @@ table {
   border-spacing: 0;
 }
 
+::-webkit-scrollbar {
+  width: 0.7rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #37a3e3;
+  border-radius: 20px;
+}
+
 body {
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: none;
