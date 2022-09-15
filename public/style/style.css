@@ -150,7 +150,7 @@ p {
 }
 
 .header {
-  padding-top: 5px;
+  padding-top: 50px;
   position: relative;
   text-align: center;
   /* background: linear-gradient(60deg, rgb(50, 86, 204) 0%, rgba(0,172,193,1) 100%);*/
@@ -362,7 +362,7 @@ a:hover {
 
 .content {
   position: relative;
-  height: 22vh;
+  height: 20vh;
   text-align: center;
   background-color: #1493de;
 }
@@ -529,7 +529,7 @@ a:hover {
   color: #6b139e;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
-/* 
+/*
 ** The Header Media Queries **
 ** Tweak as per your needs **
 */
