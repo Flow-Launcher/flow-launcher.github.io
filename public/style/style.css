@@ -99,9 +99,6 @@ nav,
 section {
   display: block;
 }
-body {
-  line-height: 1;
-}
 ol,
 ul {
   list-style: none;
@@ -122,17 +119,23 @@ table {
   border-spacing: 0;
 }
 
-body {
-  margin: 0;
-  height: 100%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+::-webkit-scrollbar {
+  width: 0.7rem;
 }
-html,
+::-webkit-scrollbar-thumb {
+  background-color: #37a3e3;
+  border-radius: 20px;
+}
+
 body {
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -o-text-size-adjust: none;
+  line-height: 1;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1493de
 }
 
 h1 {
@@ -197,9 +200,9 @@ p {
 /* Clear floats after the columns */
 .row {
   width: 900px;
-  height: 420px;
+  height: 381px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 45px;
   text-align: center;
   max-width: 1140px;
 }
@@ -227,6 +230,42 @@ p {
   position: relative;
   left: -2;
 }
+
+.width-100 {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  /* padding: 5rem 0; */
+}
+
+.flex-center-column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sponsor-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  outline: none;
+  color: inherit;
+}
+
+.sponsor-image {
+  width: 10rem;
+}
+
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 910px) {
   .inner-header {
@@ -256,6 +295,7 @@ p {
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    padding-top: 1rem;
   }
   .alpha {
     text-align: center;
@@ -265,22 +305,33 @@ p {
     margin-top: 12px;
     left: 0px;
   }
+
+  .container {
+    padding: 10rem 0;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .screenshot {
     max-width: 95%;
   }
+
   .downloadButton {
     width: 80%;
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
   }
+
   .cmdInstallDiv {
     left: 0px;
     font-size: 13px;
     width: 240px;
     margin: 0 auto;
     margin-top: 10px;
+  }
+  .container {
+    padding: 9rem 0;
   }
 }
 
@@ -337,6 +388,7 @@ p {
     transform: translate3d(85px, 0, 0);
   }
 }
+
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
   .waves {
@@ -348,6 +400,10 @@ p {
   }
   h1 {
     font-size: 24px;
+  }
+
+  .container {
+    padding: 10rem 0 1rem;
   }
 }
 
@@ -465,7 +521,7 @@ p {
   color: #6b139e;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
-/* 
+/*
 ** The Header Media Queries **
 ** Tweak as per your needs **
 */
