@@ -1,17 +1,35 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Flow Launcher</title>
-    <meta charset="utf-8" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="uisual" content="Made with Uisual (uisual.com)">
+    <meta name="author" content="#">
+    <meta name="description" content="#">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="index, follow">
+    <!-- SPEED -->
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- LINK -->
+    <link rel="me" href="#">
+    <link rel="canonical" href="#">
+    <link rel="icon" type="image/png" href="public/favicon.ico" sizes="32x32">
+    <!-- PERFORMANCE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="preload" as="style" href="public/style/style.css">
+    <link rel="stylesheet" href="public/style/style.css">
 
+    <!-- SCRIPTS -->
+    <script src="public/style/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+   
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async="async"
@@ -27,470 +45,473 @@
 
       gtag("config", "G-ZMW9NFVGQL");
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="public/style/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="128x128"
-      href="public/icons/favicon-128x128.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="public/icons/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="public/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="public/icons/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="public/icons/favicon-16x16.png"
-    />
-    <link rel="icon" type="image/ico" href="public/favicon.ico" />
-  </head>
-
-  <body>
-    <div class="site-header">
-      <div class="wrapper site-header__wrapper">
-        <a href="#home" class="brand"
-          ><img
-            src="public/images/titlelogo.png"
-            style="height: 18px; margin-right: 20px"
-        /></a>
-        <nav class="nav">
-          <a
-            href="javascript:void(0);"
-            class="icon nav__toggle"
-            onclick="myFunction()"
-          >
-            <i class="fa fa-bars"></i>
-          </a>
-          <!-- <button class="nav__toggle" aria-expanded="false" type="button"> menu
-                    </button> -->
-          <ul class="nav__wrapper">
-            <!-- <li class="nav__item"> <a href="#">Features</a> </li> <li
-                        class="nav__item"> <a href="#">Plugins</a> </li> -->
-            <li class="nav__item">
-              <a href="https://flow-launcher.github.io/docs/#/">Docs</a>
-            </li>
-
-            <li class="nav__item">
-              <a
-                href="https://github.com/Flow-Launcher/Flow.Launcher/releases/latest"
-                target="_blank"
-                >Download</a
-              >
-            </li>
-            <li class="nav__item">
-              <a
-                href="https://github.com/Flow-Launcher/Flow.Launcher"
-                target="_blank"
-                ><img
-                  src="public/images/GitHub-Mark-64px.png"
-                  style="height: 24px; opacity: 0.8"
-              /></a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
-    <!--  Header  -->
-    <div class="header" id="home">
-      <!--  Content before waves  -->
-      <div class="width-100">
-        <div class="row inner-header">
-          <div class="column columnText">
-            <img
-              src="public/images/flow_logo.png"
-              width="250"
-              style="margin-top: 25px"
-            />
-            <p
-              style="
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 12px;
-                color: rgb(68, 68, 68);
-                letter-spacing: 1px;
-                margin-top: 14px;
-              "
-            >
-              Quick File Search & App Launcher for Windows
-            </p>
-            <div class="alpha">
-              <div class="downloadButton">
-                <button
-                  class="btn btn-tetrary"
-                  onclick="window.location.href='https://github.com/Flow-Launcher/Flow.Launcher/releases/latest'"
-                >
-                  <div
-                    style="
-                      font-weight: bold;
-                      position: relative;
-                      white-space: nowrap;
-                      width: 200px;
-                    "
-                  >
-                    Download From Github
-                    <br />
-                    <p
-                      id="releaseInfo"
-                      style="
-                        font-size: 11px;
-                        font-weight: 400;
-                        margin-top: 0px;
-                        color: #ffffff85;
-                        white-space: nowrap;
-                      "
-                    ></p>
-                    <script>
-                      loadRelease = async () => {
-                        let releaseRequest = await fetch(
-                          "https://api.github.com/repos/Flow-Launcher/Flow.Launcher/releases/latest"
-                        );
-                        let release = await releaseRequest.json();
-                        let publishedAt = new Date(release.published_at);
-                        let name = release.name;
-                        const options = {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        };
-                        $("#releaseInfo").text(
-                          `Release ${name} (${publishedAt.toLocaleDateString(
-                            undefined,
-                            options
-                          )})`
-                        );
-                      };
-
-                      loadRelease();
-                    </script>
-                  </div>
-                </button>
-              </div>
-              <div class="cmdInstallDiv" id="winget">
-                <p
-                  style="
-                    font-size: 0.7em;
-                    margin-left: 8px;
-                    color: #ffffff85;
-                    text-align: left;
-                    vertical-align: middle;
-                    letter-spacing: 0.5;
-                    white-space: nowrap;
-                  "
-                >
-                  <span style="display: inline; user-select: none">></span>
-                  <span style="color: rgb(252, 255, 155)">winget</span>
-                  install "Flow Launcher"
-                  <button
-                    class="copybtn"
-                    style="
-                      display: inline;
-                      border: solid 0px #cecece;
-                      background-color: transparent;
-                      float: right;
-                    "
-                    data-clipboard-text='winget install "Flow Launcher"'
-                  >
-                    <img src="public/images/copy.svg" height="10" />
-                  </button>
-                </p>
-              </div>
-              <div class="cmdInstallDiv" id="scoop">
-                <p
-                  style="
-                    font-size: 0.7em;
-                    margin-left: 8px;
-                    color: #ffffff85;
-                    text-align: left;
-                    vertical-align: middle;
-                    letter-spacing: 0.5;
-                    white-space: nowrap;
-                  "
-                >
-                  <span style="display: inline; user-select: none">></span>
-                  <span style="color: rgb(252, 255, 155)">scoop</span>
-                  install Flow-Launcher
-                  <button
-                    class="copyScoopbtn"
-                    style="
-                      display: inline;
-                      border: solid 0px #cecece;
-                      background-color: transparent;
-                      float: right;
-                    "
-                    data-clipboard-text="scoop install Flow-Launcher"
-                  >
-                    <img src="public/images/copy.svg" height="10" />
-                  </button>
-                </p>
-              </div>
-
-              <div class="cmdInstallDiv" id="choco">
-                <p
-                  style="
-                    font-size: 0.7em;
-                    margin-left: 8px;
-                    color: #ffffff85;
-                    text-align: left;
-                    vertical-align: middle;
-                    letter-spacing: 0.5;
-                    white-space: nowrap;
-                  "
-                >
-                  <span style="display: inline; user-select: none">></span>
-                  <span style="color: rgb(252, 255, 155)">choco</span>
-                  install Flow-Launcher
-                  <button
-                    class="copyChocobtn"
-                    style="
-                      display: inline;
-                      border: solid 0px #cecece;
-                      background-color: transparent;
-                      float: right;
-                    "
-                    data-clipboard-text="choco install Flow-Launcher"
-                  >
-                    <img src="public/images/copy.svg" height="10" />
-                  </button>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="column columnImage">
-            <img src="public/images/flow_launcher.gif" class="Screenshot" />
-          </div>
-        </div>
-
-        <!-- Sponsors Content  -->
-        <div class="container">
-          <div class="flex-center-column">
-            <p class="sponsor-title">
-              <a
-                href="https://github.com/sponsors/Flow-Launcher"
-                target="_blank"
-                title="Become a Sponsor"
-              >
-                Sponsors</a
-              >
-            </p>
-            <div
-              style="
-                display: flex;
-                gap: 1.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-                width: 100%;
-              "
-            >
-              <a href="https://appwrite.io/" target="_blank">
-                <img
-                  class="sponsor-image"
-                  src="./public/images/sponsors/appwrite.svg"
-                  alt="AppWrite Sponsor"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Sponsors Content end  -->
-        
-      </div>
-      <!--  Content before waves end  -->
-
-      <!--  Waves  -->
-      <div>
-        <svg
-          class="waves"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewbox="0 24 150 28"
-          preserveaspectratio="none"
-          shape-rendering="auto"
-        >
-          <defs>
-            <path
-              id="gentle-wave"
-              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-            />
-          </defs>
-          <g class="parallax">
-            <use
-              xlink:href="#gentle-wave"
-              x="48"
-              y="0"
-              fill="rgba(20, 147, 222,0.7"
-            />
-            <use
-              xlink:href="#gentle-wave"
-              x="48"
-              y="3"
-              fill="rgba(20, 147, 222,0.5)"
-            />
-            <use
-              xlink:href="#gentle-wave"
-              x="48"
-              y="5"
-              fill="rgba(20, 147, 222,0.3)"
-            />
-            <use xlink:href="#gentle-wave" x="48" y="7" fill="#1493de" />
-          </g>
-        </svg>
-      </div>
-      <!--Waves end-->
-
-    </div>
-    <!--Header ends-->
-
-    <!--Content starts-->
-    <div class="content flex">
-      <p style="font-size: 13px; color: white">Flow Launcher Team © 2022</p>
-    </div>
-    <!--Content ends-->
-
+                  
     <script>
-      $(".copybtn").tooltip({
-        trigger: "click",
-        placement: "bottom",
-      });
+      loadRelease = async () => {
+        let releaseRequest = await fetch(
+          "https://api.github.com/repos/Flow-Launcher/Flow.Launcher/releases/latest"
+        );
+        let release = await releaseRequest.json();
+        let publishedAt = new Date(release.published_at);
+        let name = release.name;
+        const options = {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        };
+        $("#releaseInfo").text(
+          `${name} - ${publishedAt.toLocaleDateString(
+            undefined,
+            options
+          )}`
+        );
+      };
 
-      function setTooltip(message) {
-        $(".copybtn")
-          .tooltip("hide")
-          .attr("data-original-title", message)
-          .tooltip("show");
-      }
+      loadRelease();
 
-      function hideTooltip() {
-        setTimeout(function () {
-          $(".copybtn").tooltip("hide");
-        }, 1000);
-      }
-
-      var clipboard = new ClipboardJS(".copybtn");
-
-      clipboard.on("success", function (e) {
-        setTooltip("Copied!");
-        hideTooltip();
-      });
-
-      clipboard.on("error", function (e) {
-        setTooltip("Failed!");
-        hideTooltip();
-      });
-
-      $(".copyScoopbtn").tooltip({
-        trigger: "click",
-        placement: "bottom",
-      });
-
-      function setScoopTooltip(message) {
-        $(".copyScoopbtn")
-          .tooltip("hide")
-          .attr("data-original-title", message)
-          .tooltip("show");
-      }
-
-      function hideScoopTooltip() {
-        setTimeout(function () {
-          $(".copyScoopbtn").tooltip("hide");
-        }, 1000);
-      }
-
-      var clipboardScoop = new ClipboardJS(".copyScoopbtn");
-
-      clipboardScoop.on("success", function (e) {
-        setScoopTooltip("Copied!");
-        hideScoopTooltip();
-      });
-
-      clipboardScoop.on("error", function (e) {
-        setScoopTooltip("Failed!");
-        hideScoopTooltip();
-      });
-
-      $(".copyChocobtn").tooltip({
-        trigger: "click",
-        placement: "bottom",
-      });
-
-      function setChocoTooltip(message) {
-        $(".copyChocobtn")
-          .tooltip("hide")
-          .attr("data-original-title", message)
-          .tooltip("show");
-      }
-
-      function hideChocoTooltip() {
-        setTimeout(function () {
-          $(".copyChocobtn").tooltip("hide");
-        }, 1000);
-      }
-
-      var clipboardChoco = new ClipboardJS(".copyChocobtn");
-
-      clipboardChoco.on("success", function (e) {
-        setChocoTooltip("Copied!");
-        hideChocoTooltip();
-      });
-
-      clipboardChoco.on("error", function (e) {
-        setChocoTooltip("Failed!");
-        hideChocoTooltip();
-      });
-    </script>
-  </body>
-  <script>
-    function scrollTo(hash) {
-      location.hash = "#" + hash;
-    }
-    let navToggle = document.querySelector(".nav__toggle");
-    let navWrapper = document.querySelector(".nav__wrapper");
-    navToggle.addEventListener("click", function () {
-      if (navWrapper.classList.contains("active")) {
-        this.setAttribute("aria-expanded", "false");
-        this.setAttribute("aria-label", "menu");
-        navWrapper.classList.remove("active");
-      } else {
-        navWrapper.classList.add("active");
-        this.setAttribute("aria-label", "close menu");
-        this.setAttribute("aria-expanded", "true");
-      }
-    });
-
-    /*  Toggle between showing and hiding the navigation menu links when the user cl
- *  icks on the hamburger menu / bar icon
-
- */
-    function myFunction() {
-      var x = document.getElementById("myLinks");
-      if (x.style.display === "block") {
-        x.style.display = "none";
-      } else {
-        x.style.display = "block";
-      }
-    }
   </script>
+
+    <!-- TITLE -->
+    <title>Flow Launcher</title>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="#000">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z" fill="black" />
+          </svg>
+        </div>
+        <div class="details-modal-title">
+          <h3 style="margin:0px;">Downloads</h3>
+        </div>
+        <div class="details-modal-content">
+          <a href="#" class="installerBtn">
+            <i class="fa fa-download" style="margin:0px 5px;"></i> Installer
+            <p style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8;">EXE, 81 MB</p>
+          </a>
+          <a href="#" class="portableBtn">
+            <i class="fa fa-file-archive-o" style="margin:0px 10px"></i>Portable
+            <p style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8;">ZIP, 181 MB</p>
+          </a>
+          <hr class="modal-sep" />
+          <a href="https://github.com/Flow-Launcher/Flow.Launcher/releases" target="_blank" style="text-align:center; display:block; margin:0; font-size:12px;"><i class="fa fa-list" style="margin:0px 8px"></i>Release Notes</a>
+          <hr class="modal-sep" />
+
+          <div class="cmdInstallDiv" id="winget">
+            <p>
+              <span style="display: inline; user-select: none">&gt;</span>
+              <span style="color: rgb(252, 255, 155)">winget</span>
+              install "Flow Launcher"
+              <button class="btn" data-clipboard-text="winget install &quot;Flow Launcher&quot;" aria-label="Copied!">
+                <i class="fa fa-copy"></i>
+              </button>
+            </p>
+          </div>
+          <div class="cmdInstallDiv" id="scoop">
+            <p>
+              <span style="display: inline; user-select: none">&gt;</span>
+              <span style="color: rgb(252, 255, 155)">scoop</span>
+              install Flow-Launcher
+              <button class="btn" data-clipboard-text="scoop install flow-launcher" aria-label="Copied!">
+                <i class="fa fa-copy"></i>
+              </button>
+            </p>
+          </div>
+          <div class="cmdInstallDiv" id="choco">
+            <p>
+              <span style="display: inline; user-select: none">&gt;</span>
+              <span style="color: rgb(252, 255, 155)">choco</span>
+              install Flow-Launcher
+              <button class="btn" data-clipboard-text="choco install flow-launcher" aria-label="Copied!">
+                <i class="fa fa-copy"></i>
+              </button>
+            </p>
+          </div>
+          <hr class="modal-sep"/>
+          <p style="margin:0; font-size:11px; text-align:center;">Support Windows 7+ / Provided from github.com</p>
+        </div>
+      </div>
+    
+    </div>
+    <header role="banner" class="ui-section-header">
+      <div class="ui-layout-container">
+        <div class="ui-section-header__layout ui-layout-flex">
+          <!-- LOGO -->
+          <a href="#" role="link" aria-label="#" class="ui-section-header--logo">
+            <img src="public/images/titlelogo.png" style="height:18px;">
+          </a>
+          <!-- HAMBURGER -->
+          <input type="checkbox" id="ui-section-header--menu-id">
+          <label for="ui-section-header--menu-id" class="ui-section-header--menu-icon"></label>
+          <!-- MENU -->
+          <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
+            <div class="darkmode-btn">
+              <svg style="color:#2a3039;" width="16px" fill="red" class="theme-toggle-light hide-button" alt="Icon used for changing site theme to dark" onclick="toggle()" aria-hidden="true" focusable="false" data-prefix="far" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M494.2 221.9l-59.8-40.5 13.7-71c2.6-13.2-1.6-26.8-11.1-36.4-9.6-9.5-23.2-13.7-36.2-11.1l-70.9 13.7-40.4-59.9c-15.1-22.3-51.9-22.3-67 0l-40.4 59.9-70.8-13.7C98 60.4 84.5 64.5 75 74.1c-9.5 9.6-13.7 23.1-11.1 36.3l13.7 71-59.8 40.5C6.6 229.5 0 242 0 255.5s6.7 26 17.8 33.5l59.8 40.5-13.7 71c-2.6 13.2 1.6 26.8 11.1 36.3 9.5 9.5 22.9 13.7 36.3 11.1l70.8-13.7 40.4 59.9C230 505.3 242.6 512 256 512s26-6.7 33.5-17.8l40.4-59.9 70.9 13.7c13.4 2.7 26.8-1.6 36.3-11.1 9.5-9.5 13.6-23.1 11.1-36.3l-13.7-71 59.8-40.5c11.1-7.5 17.8-20.1 17.8-33.5-.1-13.6-6.7-26.1-17.9-33.7zm-112.9 85.6l17.6 91.2-91-17.6L256 458l-51.9-77-90.9 17.6 17.6-91.2-76.8-52 76.8-52-17.6-91.2 91 17.6L256 53l51.9 76.9 91-17.6-17.6 91.1 76.8 52-76.8 52.1zM256 152c-57.3 0-104 46.7-104 104s46.7 104 104 104 104-46.7 104-104-46.7-104-104-104zm0 160c-30.9 0-56-25.1-56-56s25.1-56 56-56 56 25.1 56 56-25.1 56-56 56z"></path></svg>
+              <svg style="color:#d8d8d8;" width="16px" fill="white" class="theme-toggle-dark" alt="Icon used for changing site theme to light" onclick="toggle()" aria-hidden="true" focusable="false" data-prefix="far" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M279.135 512c78.756 0 150.982-35.804 198.844-94.775 28.27-34.831-2.558-85.722-46.249-77.401-82.348 15.683-158.272-47.268-158.272-130.792 0-48.424 26.06-92.292 67.434-115.836 38.745-22.05 28.999-80.788-15.022-88.919A257.936 257.936 0 0 0 279.135 0c-141.36 0-256 114.575-256 256 0 141.36 114.576 256 256 256zm0-464c12.985 0 25.689 1.201 38.016 3.478-54.76 31.163-91.693 90.042-91.693 157.554 0 113.848 103.641 199.2 215.252 177.944C402.574 433.964 344.366 464 279.135 464c-114.875 0-208-93.125-208-208s93.125-208 208-208z"></path></svg>
+            </div>
+            <a href="#" role="link" aria-label="#" class="ui-section-header--nav-link">Docs</a>
+            <a href="#" role="link" aria-label="#" class="ui-section-header--nav-link">Github</a>
+            <a href="#" id="myBtn" role="link" aria-label="#" class="ui-section-header--nav-link">Download</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+      <section class="ui-section-hero">
+        <div class="ui-layout-container">
+          <div class="ui-section-hero__layout ui-layout-grid ui-layout-grid-2">
+            <!-- COPYWRITING -->
+            <div>
+              <h1 class="ui-text-title">Flow Launcher</h1>
+              <p class="ui-text-intro">Quick File Search & App Launcher for Windows</p>
+              <!-- CTA -->
+              <div class="ui-component-cta ui-layout-flex">
+                <!--<a href="#" role="link" aria-label="#" class="ui-component-button ui-component-button-normal ui-component-button-primary">Download</a>-->
+
+                
+                <button id="myBtn2" class="downloadBtn">
+                  <i class="fa fa-download"></i> Download
+                  <p id="releaseInfo" style="white-space: nowrap; font-size:12px; margin-top:2px; opacity: 0.8;"></p>
+                </button>
+
+              </div>
+            </div>
+            <!-- IMAGE -->
+            <picture class="ui-image-half-right" style="background: url('Public/images/screenshot_bg.png') no-repeat center center; background-size: contain;">
+              <source style="width:620px;"
+                srcset="public/images/dark_screenshot.png"
+                media="(prefers-color-scheme: dark)">
+              <img src="public/images/light_screenshot.png" style="margin-top:20px; width:620px;">
+            </picture>
+          </div>
+        </div>
+      </section>
+      <section class="ui-section-customer">
+        <div class="ui-layout-container">
+          <div class="ui-section-customer__layout ui-layout-flex">
+            <span style="font-size:14px; color:#898989;">Sponsored by</span><a href="https://appwrite.io/" target="_blank"><img src="public\images\sponsors\appwrite.svg" alt="#" class="ui-section-customer--logo"></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ui-section-sub">
+        <div class="ui-layout-container">    
+          <div class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2" style="margin-top:2rem; margin-bottom:2rem">
+                        <!-- IMAGE -->
+                        <img src="public/images/screenshots/screenshot_01.png" alt="#" class="ui-image-half-left">
+            <!-- FEATURE -->
+            <div>
+              <h2>Start Flow Launcher anytime, anywhere.</h2>
+              <p class="ui-text-intro">Use the hotkey what you want. A search window is displayed immediately.</p>
+              <p style="Font-size:13px;">※ Default hotkey is Alt+Space</p>
+            </div>
+          </div>
+          
+          </div>
+        
+      </section>
+
+      <section class="ui-section-feature">
+        <div class="ui-layout-container">
+          <h2 style="margin:0">Features</h2>    
+          <div class="ui-section-feature__layout ui-layout-grid ui-layout-column-center" style="margin-top:1rem; margin-bottom:1rem;">
+            <!-- Slider main container -->
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <div class="card-inside">
+                    <h5>Open Apps</h5>
+                    <p>Search for apps.</p>
+                    <img src="public/images/screenshots/bs_apps.png">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-inside">
+                    <h5>Search Files</h5>
+                    <p>Files or file contents by windows search indexer / everything.</p>
+                    <img src="public/images/screenshots/bs_files.png">
+                  <img>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-inside">
+                    <h5>Web Searches & Urls</h5>
+                    <p>Quick googling or open website in your desktop.</p>
+                    <img src="public/images/screenshots/bs_websearch.png">
+                  <img>
+                  </div>
+                </div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <!--<div class="swiper-scrollbar"></div>-->
+            </div>
+          </div>
+      </section>
+
+      <section class="ui-section-custom">
+        <div class="ui-layout-container">
+          <h2>Customazations</h2>
+          <p class="ui-text-intro">Support Themes, Animation & Sounds, Dark Scheme.</p>    
+          <div class="ui-section-feature__layout ui-layout-grid ui-layout-grid-custom" style="margin-top:2rem; margin-bottom:2rem">
+            <!-- IMAGE -->
+            <img src="public/images/screenshots/cm_modern.png"/>
+            <!-- FEATURE -->
+            <div>
+              <img src="public/images/screenshots/cm_theme.png"/>
+            </div>
+          </div>
+          
+          </div>
+      </section>
+      
+      <section class="ui-section-feature">
+        <div class="ui-layout-container" style="margin-top:2rem; margin-bottom:2rem;">    
+          <h2>Community-made plugins</h2>
+            <p class="ui-text-intro" style="margin-bottom:2rem;">We support C#, F#, Python, JavaScript, TypeScript.</p>
+          <div class="ui-section-feature__layout ui-layout-grid ui-layout-column-center">
+            
+            <!-- Slider main container -->
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <div class="card-inside">
+                    <img src="public/images/screenshots/icon_sp.png" class="card-icon">
+                    <h5>Spotify Preimum</h5>
+                    <p>Spotify Premium for Flow Launcher</p>
+                    <img src="public/images/screenshots/bs_sp.png">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-inside">
+                    <img src="public/images/screenshots/icon_st.png" class="card-icon">
+                    <h5>Steam Search</h5>
+                    <p>Search and launch your Steam Game library</p>
+                    <img src="public/images/screenshots/bs_st.png">
+                  <img>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-inside">
+                    <img src="public/images/screenshots/icon_op.png" class="card-icon">
+                    <h5>Obsidian Notes</h5>
+                    <p>Search Obsidian notes</p>
+                    <img src="public/images/screenshots/bs_op.png">
+                  <img>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-inside">
+                    <img src="public/images/screenshots/icon_gh.png" class="card-icon">
+                    <h5>Github-Notification</h5>
+                    <p>View your github notifications</p>
+                    <img src="public/images/screenshots/bs_gn.png">
+                  <img>
+                  </div>
+                </div>
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <!--<div class="swiper-scrollbar"></div>-->
+            </div>
+          </div>
+      </section>
+
+      <section class="ui-section-close">
+        <div class="ui-layout-container">
+          <div class="ui-layout-column-6 ui-layout-column-center">
+            <h2>Flow Launcher is Free & Open source software.</h2>
+            <p class="ui-text-intro">Support blahblah</p>
+            <!-- CTA -->
+            <div class="ui-component-cta ui-layout-flex">
+              <a href="#" role="link" aria-label="#" class="ui-component-button ui-component-button-normal ui-component-button-primary">Become A Sponsor</a>
+            </div>
+          </div>
+        </div>
+      </section>
+   
+    </main>
+    <footer role="contentinfo" class="ui-section-footer">
+      <div class="ui-layout-container">
+        <div class="ui-section-footer__layout ui-layout-flex">
+          <!-- COPYRIGHT -->
+          <p class="ui-section-footer--copyright ui-text-note"><small>Flow Launcher Team &copy;  2022</small></p>
+          <!-- MENU -->
+        </div>
+      </div>
+    </footer>
+  </body>
+ <script>
+      $(document).on("click", ".naccs .menu div", function() {
+	var numberIndex = $(this).index();
+
+	if (!$(this).is("active")) {
+		$(".naccs .menu div").removeClass("active");
+		$(".naccs ul li").removeClass("active");
+
+		$(this).addClass("active");
+		$(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
+
+		var listItemHeight = $(".naccs ul")
+			.find("li:eq(" + numberIndex + ")")
+			.innerHeight();
+		$(".naccs ul").height(listItemHeight + "px");
+	}
+});
+    </script>
+    <Script>
+      var theme, prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      if (prefersDarkScheme.matches)
+        theme = document.body.classList.contains("light-mode") ? "light" : "dark";
+      else
+        theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+
+    function toggle() {
+      const svgs = document.querySelectorAll("svg");
+    svgs.forEach(btn => {
+        btn.classList.toggle("hide-button");
+    });
+        var currentTheme = localStorage.getItem("theme");
+        if (currentTheme == "dark")
+            document.body.classList.toggle("light-mode");
+        else if (currentTheme == "light")
+            document.body.classList.toggle("dark-mode");
+    }
+    </Script>
+    <Script>
+        const swiper = new Swiper('.swiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        breakpoints: {
+            // when window width is >= 320px
+            // when window width is >= 480px
+            480: {
+              slidesPerView: 1,
+              spaceBetween: 30
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          },
+        // Optional parameters
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        //scrollbar: {
+        //  el: '.swiper-scrollbar',
+        //},
+      });
+    </Script>
+    <Script>
+            // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+      var btn2 = document.getElementById("myBtn2");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks on the button, open the modal
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      btn2.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </Script>
+    <Script>
+            var clipboard = new Clipboard('.btn');
+
+        var btns = document.querySelectorAll('.btn');
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn');
+            e.currentTarget.removeAttribute('aria-label');
+          });
+        }
+        clipboard.on('success', function(e) {
+          console.info('Action:', e.action);
+          console.info('Text:', e.text);
+          console.info('Trigger:', e.trigger);
+          showTooltip(e.trigger,'Copied!');
+          e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+          console.error('Action:', e.action);
+          console.error('Trigger:', e.trigger);
+          showTooltip(e.trigger,fallbackMessage(e.action));
+        });
+        function showTooltip(elem, msg) {
+          elem.setAttribute('class', 'btn tooltipped tooltipped-s');
+          elem.setAttribute('aria-label', msg);
+        }
+        function fallbackMessage(action) {
+          var actionMsg = '';
+          var actionKey = (action === 'cut' ? 'X' : 'C');
+          if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+          } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+          } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+          }
+          return actionMsg;
+        }
+    </Script>
 </html>
