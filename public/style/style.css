@@ -172,6 +172,12 @@ a {color: var(--link-for-light);}
   box-sizing: border-box;
 }
 
+
+.details-modal-content a{
+  color:#5e5e5e;
+}
+
+
 .downloadBtn {
   background-color: DodgerBlue;
   border: none;
@@ -180,6 +186,7 @@ a {color: var(--link-for-light);}
   padding: 14px 30px;
   cursor: pointer;
   font-size: 20px;
+  transition: all 200ms linear;
 }
 
 /* Darker background on mouse-over */
@@ -329,6 +336,7 @@ a {color: var(--link-for-light);}
 
 a {
   position: relative;
+  color: #fff;
   transition: all 200ms linear;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -947,8 +955,8 @@ div label[for=ui-component-toggle__yearly] {
   position:fixed;
   z-index:200;
   /* transition: all 200ms linear;*/
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 1.2rem;
+  padding-top: 1.2rem;
   filter: drop-shadow(rgba(0, 0, 0, 0.08) 0px 1px 4px);
 }
 
@@ -1025,7 +1033,7 @@ div label[for=ui-component-toggle__yearly] {
   left: 0;
   opacity: 0;
   /*padding: 7.375rem var(--ui-layout-container) 5rem;*/
-  padding:3.5rem 0 0rem;
+  padding:3.9rem 0 0rem;
   position: absolute;
   right: 0;
   top: -1rem;
@@ -1280,9 +1288,12 @@ div label[for=ui-component-toggle__yearly] {
   margin-right: auto;
 }
 
+.darkbtnSvg {
+  width:32px;
+}
 .darkmode-btn {
-  visibility: collapse;
   height:0;
+  visibility: collapse;
 }
 
 .ui-section-header--nav a{
@@ -1291,7 +1302,7 @@ div label[for=ui-component-toggle__yearly] {
   margin:0;
   border-top:1px solid #82828226;
   padding-left:20px;
-  height:60px;
+  height:70px;
   padding:14x;
 }
 
@@ -1299,6 +1310,10 @@ div label[for=ui-component-toggle__yearly] {
   background-color: #7676760c;
 }
 
+#myBtn3 {
+  height:0; padding:0;
+  visibility:collapse;
+}
 /*--------------------------------------------------------------
 8.0 MEDIA
 --------------------------------------------------------------*/
@@ -1314,9 +1329,17 @@ div label[for=ui-component-toggle__yearly] {
   /*------------------------------------------------------------
   VARIABLE
   ------------------------------------------------------------*/
+
+
+   #mobile-darkbtn {
+    width:0; margin:-1rem;
+    visibility:collapse; 
+    padding:0;
+  }
   .ui-section-header--nav{
     gap: var(--ui-gap-header);
   }
+
   .ui-section-header--nav a{
     border:0px;
     background-color: transparent;
@@ -1324,13 +1347,58 @@ div label[for=ui-component-toggle__yearly] {
     width:auto;
     text-align:right;
   }
-  .darkmode-btn {
-    margin-bottom:17px;
-    visibility: visible;
-  }
   .ui-section-header--nav a:hover{
     background-color: transparent;
   }
+
+  #myBtn {
+    padding:0;
+    height:0; width:0;
+    visibility:collapse;
+  }
+
+  #myBtn3 {
+    transition: all 200ms linear;
+    padding:20px 30px;
+    margin-left:10px;
+    background-color:dodgerblue;
+    border:1px;
+    float:right;
+    border-radius: 64px;
+    visibility:visible;
+  }
+  #myBtn3:hover {
+    background-color:#4278e2;
+  }
+
+  a.pc-download {
+    font-size:16px;
+    color:white;
+    text-decoration: none;
+  }
+  
+  .darkmode-btn {
+  border-radius:64px;
+  z-index:999;
+  margin:0;
+  height:auto;
+  background-color:rgba(224, 224, 224, 0.227);
+  padding:8px;
+  visibility: visible;
+  transition: all 200ms linear;
+}
+
+.darkmode-btn:hover {
+  border-radius:64px;
+  z-index:999;
+  margin:0;
+  height:auto;
+  background-color:rgba(31, 31, 31, 0.315);
+  padding:8px;
+  visibility: visible;
+
+}
+  
   :root {
 
     /*----------------------------------------------------------
@@ -1792,7 +1860,8 @@ div label[for=ui-component-toggle__yearly] {
     text-align: center;
     
   }
-  
+
+
   /* Responsive columns - one column layout (vertical) on small screens */
   @media screen and (max-width: 600px) {
     .column {
