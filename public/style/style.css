@@ -329,7 +329,6 @@ a {color: var(--link-for-light);}
 
 a {
   position: relative;
-  color: #fff;
   transition: all 200ms linear;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -740,11 +739,6 @@ body {
 /*--------------------------------------------------------------
 3.0 TYPOGRAPHY
 --------------------------------------------------------------*/
-
-a {
-  color: var(--ui-color-brand);
-  text-decoration-color: var(--ui-color-typography-note);
-}
 
 h1,
 h2,
