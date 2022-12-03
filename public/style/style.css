@@ -438,7 +438,7 @@ a .uil {
 .modal-content {
   position: relative;
   background-color:var(--modal-for-light);
-  Width:80%;
+  Width:86%;
   Max-width:400px;
   border-radius: 6px;
   left: 50%;
