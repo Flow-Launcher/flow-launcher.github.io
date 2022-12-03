@@ -95,6 +95,9 @@ a {color: var(--link-for-light);}
   border-top: 1px solid #aaa;
 }
 
+.swiper .swiper-pagination-bullet {
+  background-color: dodgerblue;
+}
 /* Scrollbar */
 
 /* custom scrollbar */
