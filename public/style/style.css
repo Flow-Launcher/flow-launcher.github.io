@@ -130,13 +130,16 @@ a {color: var(--link-for-light);}
   | Slider
   |
   ------------------------------------------------------------*/
-
+  
+.swiper-button-next, .swiper-button-prev {
+    visibility:collapse !important;
+}
 .swiper-slide{
   padding:0;
 }
 .swiper {
   width: 100%;
-  height: 28rem;
+  height: 29.5rem;
 }
 .swiper-slide h5{
   font-size:14pt;
@@ -147,7 +150,7 @@ a {color: var(--link-for-light);}
   position:absolute !important;
   background-color:rgba(255, 255, 255, 0.917);
   padding:5px;
-  top:46%;
+  top:44%;
   right:12px;
   border-radius: 8px;
   margin: 0px 0px 4px 0px;
@@ -157,7 +160,7 @@ a {color: var(--link-for-light);}
   overflow:hidden;
   background-color: var(--card-for-light); border-color: var(--sep-for-light);
   border-radius: 8px;
-  height:24rem;
+  height:26rem;
   border:1px solid #cccccc;
   padding:0px;
 }
@@ -1390,6 +1393,9 @@ div label[for=ui-component-toggle__yearly] {
   /*------------------------------------------------------------
   VARIABLE
   ------------------------------------------------------------*/
+  .swiper-button-next, .swiper-button-prev {
+    visibility:visible !important;
+  }
   .ui-layout-grid-gif {
     padding-left: var(--ui-layout-gutter);
     column-gap: var(--ui-layout-gutter);
