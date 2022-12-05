@@ -418,6 +418,7 @@ a .uil {
 
 /* ---------------------------------*/
 
+
 /* The Modal (background) */
 
 .modal {
@@ -451,6 +452,26 @@ a .uil {
 @media (prefers-color-scheme: dark) {
   .modal-content {background-color:var(--modal-for-dark);}
 }
+
+
+/* Modal Content/Box */
+.videomodal-content {
+  position: relative;
+  background-color:var(--modal-for-light);
+  Width:86%;
+  Max-width:600px;
+  border-radius: 6px;
+  left: 50%;
+  margin-top:5%;
+  /* bring your own prefixes */
+  transform: translateX(-50%);
+  padding: 0px;
+  border: 0px solid #888;
+}
+@media (prefers-color-scheme: dark) {
+  .videomodal-content {background-color:var(--modal-for-dark);}
+}
+
 .details-modal {
   background: #ffffff;
   border-radius: 0.5em;
@@ -1115,8 +1136,8 @@ div label[for=ui-component-toggle__yearly] {
   border-color: var(--sep-for-light);
   border-width:1px  0px 0px 0;
   border-style:solid;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1317,10 +1338,40 @@ div label[for=ui-component-toggle__yearly] {
   height:0; padding:0;
   visibility:collapse;
 }
+
+.gif-image {
+  border:0px solid red; border-radius: 12px; overflow: hidden;
+  grid-row-start:2 !important;
+}
+.gif-text {
+  grid-row-start:1 !important;
+}
 /*--------------------------------------------------------------
 8.0 MEDIA
 --------------------------------------------------------------*/
 
+@media screen and (min-width: 640px) {
+
+  /*------------------------------------------------------------
+  VARIABLE
+  ------------------------------------------------------------*/
+  .ui-layout-grid-gif {
+    padding-left: var(--ui-layout-gutter);
+    column-gap: var(--ui-layout-gutter);
+    /*grid-template-columns: repeat(2, 1fr);*/
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .gif-image {
+    grid-column-start:1 !important;
+    grid-row-start:1 !important;
+  }
+  .gif-text {
+    grid-column-start:2 !important;
+    grid-row-start:1 !important;
+  }
+}
 /*--------------------------------------------------------------
 |
 | 8.1 768PX
@@ -1332,7 +1383,13 @@ div label[for=ui-component-toggle__yearly] {
   /*------------------------------------------------------------
   VARIABLE
   ------------------------------------------------------------*/
-
+  .ui-layout-grid-gif {
+    /*padding-left: var(--ui-layout-gutter);*/
+    column-gap: var(--ui-layout-gutter);
+    /*grid-template-columns: repeat(2, 1fr);*/
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
 
    #mobile-darkbtn {
     width:0; margin:-1rem;
@@ -1442,7 +1499,7 @@ div label[for=ui-component-toggle__yearly] {
   ------------------------------------------------------------*/
 
   .ui-image-half-left {
-    padding-right: 0;
+    margin-right: 1rem;
   }
 
   /*------------------------------------------------------------
