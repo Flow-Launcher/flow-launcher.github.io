@@ -1317,11 +1317,16 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-section-close {
-  
+  background-color: var(--bkg-for-light);
+  border-color: var(--sep-for-light);
+  border-style: solid;
+  border-width: 1px  0px 0px 0;  
   padding-bottom: 5rem;
   padding-top: 5rem;
   text-align: center;
 }
+
+
 
 /*--------------------------------------------------------------
 |
