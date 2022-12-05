@@ -73,7 +73,7 @@ a {color: var(--link-for-light);}
 
 .light-mode .card-inside{background-color: var(--card-for-light); border-color: var(--sep-for-light);}
 .dark-mode .card-inside { background-color: var(--card-for-dark); border-color: var(--sep-for-dark);}
-.dark-mode .ui-section-close { background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark)}
+.dark-mode .ui-section-close { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
 
 @media (prefers-color-scheme: dark) {
     body {color: var(--text-for-dark); background-color: var(--bkg-for-dark); transition: all 200ms linear;}
@@ -85,7 +85,7 @@ a {color: var(--link-for-light);}
     .ui-text-title {color: var(--text-for-dark);}
     .ui-section-close { background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark)}
     .card-inside { background-color: var(--card-for-dark); border-color: var(--sep-for-dark)}
-    
+    .ui-section-close { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
 
 }
 
@@ -132,25 +132,57 @@ a {color: var(--link-for-light);}
   ------------------------------------------------------------*/
 
 .swiper-slide{
+  padding:0;
 }
 .swiper {
   width: 100%;
-  height: 450px;
+  height: 28rem;
 }
 .swiper-slide h5{
   font-size:14pt;
   font-weight:500;
   margin:0px;
 }
-.card-icon {margin:4px;
+.card-icon {
+  position:absolute !important;
+  background-color:rgba(255, 255, 255, 0.917);
+  padding:5px;
+  top:46%;
+  right:12px;
+  border-radius: 8px;
+  margin: 0px 0px 4px 0px;
   height:32px;
 }
 .card-inside{
+  overflow:hidden;
   background-color: var(--card-for-light); border-color: var(--sep-for-light);
   border-radius: 8px;
-  height:370px;
-  border:0px solid #cccccc;
+  height:24rem;
+  border:1px solid #cccccc;
+  padding:0px;
+}
+
+.author {
+  font-size:13px;
+  vertical-align: center;
+  margin-left:10px;
+}
+.screenshot{
+  padding:10px;
+  height:15rem;
+  border-radius:8px 8px 0 0;
+}
+.screenshot img{
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+.card-details{
   padding:20px;
+}
+.name {
+  font-weight:500;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -529,6 +561,9 @@ a .uil {
 }
 
 /* ---------------------------------*/
+
+
+
 /* ---------------------------------*/
 /* ---------------------------------*/
 /* ---------------------------------*/
@@ -1458,7 +1493,11 @@ div label[for=ui-component-toggle__yearly] {
   visibility: visible;
 
 }
-  
+
+
+@media (prefers-color-scheme: dark) {
+  .ui-section-close { background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark)}
+}
   :root {
 
     /*----------------------------------------------------------
@@ -1886,6 +1925,9 @@ div label[for=ui-component-toggle__yearly] {
     padding-top: 7.5rem;
   }
   
+  @media (prefers-color-scheme: dark) {
+    .ui-section-close { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
+  }
   /*------------------------------------------------------------
   |
   | FOOTER
