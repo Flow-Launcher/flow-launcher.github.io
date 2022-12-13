@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://www.flowlauncher.com/">
     <meta property="og:title" content="Flow Launcher">
     <meta property="og:description" content="Quick file search & app launcher for Windows with community-made plugins">
-    <meta property="og:image" content="public/images/flowlauncher_large.jpg">
+    <meta property="og:image" content="https://flowlauncher.com/public/images/flowlauncher_large.jpg">
     <meta property="og:site_name" content="Flow Launcher">
     <meta property="og:locale" content="en_US">
     <meta property="og:image:width" content="1500">
@@ -30,7 +30,7 @@
     <meta property="twitter:url" content="https://www.flowlauncher.com/">
     <meta property="twitter:title" content="Flow Launcher">
     <meta property="twitter:description" content="Quick file search & app launcher for Windows with community-made plugins">
-    <meta property="twitter:image" content="public/images/flowlauncher_large.jpg">
+    <meta property="twitter:image" content="https://flowlauncher.com/public/images/flowlauncher_large.jpg">
 
     <!-- SPEED -->
     <link rel="preconnect" href="https://res.cloudinary.com">
@@ -80,6 +80,16 @@
         );
         let release = await releaseRequest.json();
         let publishedAt = new Date(release.published_at);
+        let assets = release.assets;
+
+        let portableAssetsIndex = assets.findIndex(obj => obj.name=="Flow-Launcher-Portable.zip");
+        let installerAssetsIndex = assets.findIndex(obj => obj.name=="Flow-Launcher-Setup.exe");
+
+        let portableDownload = assets[portableAssetsIndex].browser_download_url;        
+        let installerDownload = assets[installerAssetsIndex].browser_download_url;
+        let portableSize = "ZIP, " + Math.floor((assets[portableAssetsIndex].size / (1024*1024)).toFixed(2)) + "MB";        
+        let installerSize = "EXE, " + Math.floor((assets[installerAssetsIndex].size / (1024*1024)).toFixed(2)) + "MB";        
+
         let name = release.name;
         const options = {
           year: "numeric",
@@ -91,7 +101,11 @@
             undefined,
             options
           )}`
-        );
+        );        
+        $("#installer").attr('href', installerDownload);
+        $("#portable").attr('href', portableDownload);
+        $("#installerSize").text(installerSize);
+        $("#portableSize").text(portableSize);
       };
 
       loadRelease();
@@ -115,13 +129,13 @@
           <h3 style="margin:0px;">Downloads</h3>
         </div>
         <div class="details-modal-content">
-          <a href="#" class="installerBtn">
+          <a id="installer" class="installerBtn">
             <i class="fa fa-download" style="margin:0px 5px; color:white;"></i><span style="color:white;">Installer</span>
-            <p style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8; color:white;">EXE, 81 MB</p>
+            <p id="installerSize" style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8; color:white;"></p>
           </a>
-          <a href="#" class="portableBtn">
+          <a  id="portable" class="portableBtn">
             <i class="fa fa-file-archive-o" style="margin:0px 10px; color:white;"></i><span style="color:white;">Portable</span>
-            <p style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8; color:white;">ZIP, 181 MB</p>
+            <p id="portableSize" style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8; color:white;"></p>
           </a>
           <hr class="modal-sep" />
           <a href="https://github.com/Flow-Launcher/Flow.Launcher/releases" target="_blank" style="text-align:center; display:block; margin:0; font-size:12px;"><i class="fa fa-list" style="margin:0px 8px"></i>Release Notes</a>
@@ -176,8 +190,8 @@
           <!-- MENU -->
           <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
             <a href="#" id="myBtn" role="link" aria-label="#" class="ui-section-header--nav-link">Download</a>
-            <a href="https://github.com/Flow-Launcher/Flow.Launcher" target="_blank" role="link" aria-label="#" class="ui-section-header--nav-link">Docs</a>
-            <a href="#" role="link" aria-label="#" class="ui-section-header--nav-link">Github</a>
+            <a href="https://www.flowlauncher.com/docs/" role="link" aria-label="#" class="ui-section-header--nav-link">Docs</a>
+            <a href="https://github.com/Flow-Launcher/Flow.Launcher" role="link" aria-label="#" class="ui-section-header--nav-link">Github</a>
             <a href="#" id="mobile-darkbtn" role="link" aria-label="#" onclick="toggle()" class="ui-section-header--nav-link mobile-darkbtn">Toggle Theme</a>
             <a href="#" id="myBtn3" role="link" aria-label="#" class="pc-download">Download</a>
               <div class="darkmode-btn">
@@ -470,7 +484,7 @@
             <p class="ui-text-intro">Support this project.</p>
             <!-- CTA -->
             <div class="ui-component-cta ui-layout-flex">
-              <a href="#" role="link" aria-label="#" class="ui-component-button ui-component-button-normal ui-component-button-primary">Become A Sponsor</a>
+              <a href="https://github.com/sponsors/Flow-Launcher?frequency=one-time" role="link" aria-label="#" class="ui-component-button ui-component-button-normal ui-component-button-primary">Become A Sponsor</a>
             </div>
           </div>
         </div>
