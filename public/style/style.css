@@ -254,7 +254,7 @@ a {color: var(--link-for-light);}
 .portableBtn {
   text-align:center;
   display:inline-block;
-  background-color: #42b986;
+  background-color: #9a5dd6;
   border: none;
   width:100%;
   border-radius: 6px;
@@ -266,7 +266,7 @@ a {color: var(--link-for-light);}
 
 /* Darker background on mouse-over */
 .portableBtn:hover {
-  background-color: #2d9e95;
+  background-color: #7e36ca;
 }
 
 .is-unselectable{
