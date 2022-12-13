@@ -35,6 +35,3 @@ yarn-error.log*
 .history
 /.vs/ProjectSettings.json
 /.vs/slnx.sqlite
-.vs/flow-launcher.github.io/FileContentIndex/read.lock
-.vs/flow-launcher.github.io/FileContentIndex/07cb03aa-1231-4ee4-b3ee-eb8231ac6d6d.vsidx
-.vs/VSWorkspaceState.json
