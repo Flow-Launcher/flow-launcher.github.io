@@ -52,7 +52,7 @@
     <script src="public/style/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
-   
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async="async"
@@ -72,7 +72,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
-                  
+
     <script>
       loadRelease = async () => {
         let releaseRequest = await fetch(
@@ -85,10 +85,10 @@
         let portableAssetsIndex = assets.findIndex(obj => obj.name=="Flow-Launcher-Portable.zip");
         let installerAssetsIndex = assets.findIndex(obj => obj.name=="Flow-Launcher-Setup.exe");
 
-        let portableDownload = assets[portableAssetsIndex].browser_download_url;        
+        let portableDownload = assets[portableAssetsIndex].browser_download_url;
         let installerDownload = assets[installerAssetsIndex].browser_download_url;
-        let portableSize = "ZIP, " + Math.floor((assets[portableAssetsIndex].size / (1024*1024)).toFixed(2)) + "MB";        
-        let installerSize = "EXE, " + Math.floor((assets[installerAssetsIndex].size / (1024*1024)).toFixed(2)) + "MB";        
+        let portableSize = "ZIP, " + Math.floor((assets[portableAssetsIndex].size / (1024*1024)).toFixed(2)) + "MB";
+        let installerSize = "EXE, " + Math.floor((assets[installerAssetsIndex].size / (1024*1024)).toFixed(2)) + "MB";
 
         let name = release.name;
         const options = {
@@ -101,7 +101,7 @@
             undefined,
             options
           )}`
-        );        
+        );
         $("#installer").attr('href', installerDownload);
         $("#portable").attr('href', portableDownload);
         $("#installerSize").text(installerSize);
@@ -172,10 +172,10 @@
             </p>
           </div>
           <hr class="modal-sep"/>
-          <p style="margin:0; font-size:11px; text-align:center;">Support Windows 7+ / Provided from github.com</p>
+          <p style="margin:0; font-size:11px; text-align:center;">Supports Windows 7+ / Downloads are via GitHub</p>
         </div>
       </div>
-    
+
     </div>
     <header role="banner" class="ui-section-header">
       <div class="ui-layout-container">
@@ -198,7 +198,7 @@
                 <svg style="color:#d8d8d8;" width="20px" fill="red" class="theme-toggle-light hide-button" alt="Changing site theme to dark" onclick="toggle()" aria-hidden="true" focusable="false" data-prefix="far" data-icon="moon" class="svg-inline--fa fa-moon fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M494.2 221.9l-59.8-40.5 13.7-71c2.6-13.2-1.6-26.8-11.1-36.4-9.6-9.5-23.2-13.7-36.2-11.1l-70.9 13.7-40.4-59.9c-15.1-22.3-51.9-22.3-67 0l-40.4 59.9-70.8-13.7C98 60.4 84.5 64.5 75 74.1c-9.5 9.6-13.7 23.1-11.1 36.3l13.7 71-59.8 40.5C6.6 229.5 0 242 0 255.5s6.7 26 17.8 33.5l59.8 40.5-13.7 71c-2.6 13.2 1.6 26.8 11.1 36.3 9.5 9.5 22.9 13.7 36.3 11.1l70.8-13.7 40.4 59.9C230 505.3 242.6 512 256 512s26-6.7 33.5-17.8l40.4-59.9 70.9 13.7c13.4 2.7 26.8-1.6 36.3-11.1 9.5-9.5 13.6-23.1 11.1-36.3l-13.7-71 59.8-40.5c11.1-7.5 17.8-20.1 17.8-33.5-.1-13.6-6.7-26.1-17.9-33.7zm-112.9 85.6l17.6 91.2-91-17.6L256 458l-51.9-77-90.9 17.6 17.6-91.2-76.8-52 76.8-52-17.6-91.2 91 17.6L256 53l51.9 76.9 91-17.6-17.6 91.1 76.8 52-76.8 52.1zM256 152c-57.3 0-104 46.7-104 104s46.7 104 104 104 104-46.7 104-104-46.7-104-104-104zm0 160c-30.9 0-56-25.1-56-56s25.1-56 56-56 56 25.1 56 56-25.1 56-56 56z"></path></svg>
                 <svg style="color:#d8d8d8;" width="20px" fill="white" class="theme-toggle-dark" alt="Changing site theme to light" onclick="toggle()" aria-hidden="true" focusable="false" data-prefix="far" data-icon="sun" class="svg-inline--fa fa-sun fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M279.135 512c78.756 0 150.982-35.804 198.844-94.775 28.27-34.831-2.558-85.722-46.249-77.401-82.348 15.683-158.272-47.268-158.272-130.792 0-48.424 26.06-92.292 67.434-115.836 38.745-22.05 28.999-80.788-15.022-88.919A257.936 257.936 0 0 0 279.135 0c-141.36 0-256 114.575-256 256 0 141.36 114.576 256 256 256zm0-464c12.985 0 25.689 1.201 38.016 3.478-54.76 31.163-91.693 90.042-91.693 157.554 0 113.848 103.641 199.2 215.252 177.944C402.574 433.964 344.366 464 279.135 464c-114.875 0-208-93.125-208-208s93.125-208 208-208z"></path></svg>
               </div>
-            
+
           </nav>
         </div>
       </div>
@@ -215,7 +215,7 @@
               <div class="ui-component-cta ui-layout-flex">
                 <!--<a href="#" role="link" aria-label="#" class="ui-component-button ui-component-button-normal ui-component-button-primary">Download</a>-->
 
-                
+
                 <button id="myBtn2" class="downloadBtn">
                   <i class="fa fa-download"></i> Download
                   <p id="releaseInfo" style="white-space: nowrap; font-size:12px; margin-top:2px; opacity: 0.8;"></p>
@@ -242,7 +242,7 @@
       </section>
 
       <section class="ui-section-sub">
-        <div class="ui-layout-container">    
+        <div class="ui-layout-container">
           <div class="ui-section-feature__layout ui-layout-grid ui-layout-grid-gif" style="margin-top:2rem; margin-bottom:2rem">
                         <!-- IMAGE -->
                         <div class="ui-image-half-left gif-image">
@@ -252,18 +252,18 @@
             <!-- FEATURE -->
             <div class="gif-text">
               <h2>Start Flow Launcher anytime, anywhere.</h2>
-              <p class="ui-text-intro">Use the hotkey what you want. A search window is displayed immediately.</p>
+              <p class="ui-text-intro">Use your customizable hotkey to trigger the search window immediately.</p>
               <p style="Font-size:13px;">※ Default hotkey is Alt+Space</p>
             </div>
           </div>
-          
+
           </div>
-        
+
       </section>
 
       <section class="ui-section-feature">
         <div class="ui-layout-container">
-          <h2 style="margin:0">Features</h2>    
+          <h2 style="margin:0">Features</h2>
           <div class="ui-section-feature__layout ui-layout-grid ui-layout-column-center" style="margin-top:1rem; margin-bottom:1rem;">
             <!-- Slider main container -->
             <div class="swiper">
@@ -277,8 +277,8 @@
                     </div>
                     <div class="card-details">
                       <div class="name">Open Apps</div>
-                      <p>Search for Apps</p>
-                    </div>              
+                      <p>Search and launch apps quickly.</p>
+                    </div>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -288,8 +288,8 @@
                     </div>
                     <div class="card-details">
                       <div class="name">Search Files</div>
-                      <p>Files or file contents by windows search indexer / everything.</p>
-                    </div>              
+                      <p>Use Everything or Windows Search to find files and file contents.</p>
+                    </div>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -299,8 +299,8 @@
                     </div>
                     <div class="card-details">
                       <div class="name">Web Searches</div>
-                      <p>Quick googling in your desktop.</p>
-                    </div>              
+                      <p>Browse the Internet with your favorite search engine.</p>
+                    </div>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -310,8 +310,8 @@
                     </div>
                     <div class="card-details">
                       <div class="name">Search Bookmarks</div>
-                      <p>Search Browser's bookmarks</p>
-                    </div>              
+                      <p>Quickly find bookmarks from your different browsers.</p>
+                    </div>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -321,10 +321,10 @@
                     </div>
                     <div class="card-details">
                       <div class="name">System Commands</div>
-                      <p>Restart, Reboot, Shutdown, Etc...</p>
-                    </div>              
+                      <p>Restart, reboot or shutdown, manage your computer with a couple of keystrokes.</p>
+                    </div>
                   </div>
-                </div>  
+                </div>
                 <div class="swiper-slide">
                   <div class="card-inside">
                     <div class="screenshot" style="background-color:#b9b9b9;">
@@ -332,10 +332,10 @@
                     </div>
                     <div class="card-details">
                       <div class="name">Shell Commands</div>
-                      <p>Run batch and PowerShell commands as Administrator or a different user</p>
-                    </div>              
+                      <p>Easily run batch and PowerShell commands as an Administrator or different user.</p>
+                    </div>
                   </div>
-                </div>  
+                </div>
                 <div class="swiper-slide">
                   <div class="card-inside">
                     <div class="screenshot" style="background-color:#c1e1df;">
@@ -343,10 +343,10 @@
                     </div>
                     <div class="card-details">
                       <div class="name">Calculator</div>
-                      <p>Do mathematical calculations and copy the result to clipboard.</p>
-                    </div>              
+                      <p>Do mathematical calculations then copy the result to clipboard for later use.</p>
+                    </div>
                   </div>
-                </div>  
+                </div>
                 <div class="swiper-slide">
                   <div class="card-inside">
                     <div class="screenshot" style="background-color:#dddfc9;">
@@ -355,9 +355,9 @@
                     <div class="card-details">
                       <div class="name">Windows Settings</div>
                       <p>Search for Windows & Control Panel settings.</p>
-                    </div>              
+                    </div>
                   </div>
-                </div>  
+                </div>
                 <div class="swiper-slide">
                   <div class="card-inside">
                     <div class="screenshot" style="background-color:#b09cd0;">
@@ -365,11 +365,11 @@
                     </div>
                     <div class="card-details">
                       <div class="name">Plugin Store</div>
-                      <p>You can view the full plugin list or quickly install a plugin via the Plugin Store menu inside Settings.</p>
-                    </div>              
+                      <p>Browse and install many different types of plugins to add new search capabilities.</p>
+                    </div>
                   </div>
-                </div>  
-         
+                </div>
+
               </div>
               <!-- If we need pagination -->
               <div class="swiper-pagination"></div>
@@ -386,8 +386,8 @@
 
       <section class="ui-section-custom">
         <div class="ui-layout-container">
-          <h2>Customazations</h2>
-          <p class="ui-text-intro">Support Themes, Animation & Sounds, Dark Scheme.</p>    
+          <h2>Customizations</h2>
+          <p class="ui-text-intro">Different Themes, Animation & Sound, Or Simply Build Your Own</p>
           <div class="ui-section-feature__layout ui-layout-grid ui-layout-grid-custom" style="margin-top:2rem; margin-bottom:2rem">
             <!-- IMAGE -->
             <img src="public/images/screenshots/cm_modern.png"/>
@@ -396,16 +396,16 @@
               <img src="public/images/screenshots/cm_theme.png"/>
             </div>
           </div>
-          
+
           </div>
       </section>
-      
+
       <section class="ui-section-feature">
-        <div class="ui-layout-container" style="margin-top:2rem; margin-bottom:2rem;">    
-          <h2>Community-made plugins</h2>
-            <p class="ui-text-intro" style="margin-bottom:2rem;">We support C#, F#, Python, JavaScript, TypeScript.</p>
+        <div class="ui-layout-container" style="margin-top:2rem; margin-bottom:2rem;">
+          <h2>Community-made Plugins</h2>
+            <p class="ui-text-intro" style="margin-bottom:2rem;">Write your own plugins in C#, F#, Python, JavaScript or TypeScript.</p>
           <div class="ui-section-feature__layout ui-layout-grid ui-layout-column-center">
-            
+
             <!-- Slider main container -->
             <div class="swiper">
               <!-- Additional required wrapper -->
@@ -418,11 +418,11 @@
                     </div>
                     <div class="card-details">
                       <img src="public/images/screenshots/icon_sp.png" class="card-icon">
-                      <div class="name">Spotify Preimum<span class="author">- fow5040</span></div>
-                      <p>Spotify Premium for Flow Launcher</p>
-                    </div>              
+                      <div class="name">Spotify Premium<span class="author">- fow5040</span></div>
+                      <p>Control your Spotify directly from Flow Launcher</p>
+                    </div>
                   </div>
-                </div>  
+                </div>
 
                 <div class="swiper-slide">
                   <div class="card-inside">
@@ -432,10 +432,10 @@
                     <div class="card-details">
                       <img src="public/images/screenshots/icon_st.png" class="card-icon">
                       <div class="name">Steam Search<span class="author">- Garulf</span></div>
-                      <p>Search and launch your Steam Game library</p>
-                    </div>              
+                      <p>Search your Steam Game library and launch the game</p>
+                    </div>
                   </div>
-                </div> 
+                </div>
 
                 <div class="swiper-slide">
                   <div class="card-inside">
@@ -445,10 +445,10 @@
                     <div class="card-details">
                       <img src="public/images/screenshots/icon_op.png" class="card-icon">
                       <div class="name">Obsidian Notes<span class="author">- Garulf</span></div>
-                      <p>Search Obsidian notes</p>
-                    </div>              
+                      <p>Search through your Obsidian notes</p>
+                    </div>
                   </div>
-                </div> 
+                </div>
 
                 <div class="swiper-slide">
                   <div class="card-inside">
@@ -458,10 +458,10 @@
                     <div class="card-details">
                       <img src="public/images/screenshots/icon_gh.png" class="card-icon">
                       <div class="name">Github-Notification<span class="author">- Garulf</span></div>
-                      <p>View your github notifications</p>
-                    </div>              
+                      <p>View your GitHub notifications directly from Flow Launcher</p>
+                    </div>
                   </div>
-                </div> 
+                </div>
 
               </div>
               <!-- If we need pagination -->
@@ -480,7 +480,7 @@
       <section class="ui-section-close">
         <div class="ui-layout-container">
           <div class="ui-layout-column-6 ui-layout-column-center">
-            <h2>Flow Launcher is a Free & Open Source Software</h2>
+            <h2>Flow Launcher is a free and open-source software</h2>
             <p class="ui-text-intro">Support this project.</p>
             <!-- CTA -->
             <div class="ui-component-cta ui-layout-flex">
@@ -489,7 +489,7 @@
           </div>
         </div>
       </section>
-   
+
     </main>
     <footer role="contentinfo" class="ui-section-footer">
       <div class="ui-layout-container">
