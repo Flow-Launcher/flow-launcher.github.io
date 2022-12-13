@@ -246,11 +246,9 @@ a {color: var(--link-for-light);}
   font-size: 20px;
 }
 
-/* Darker background on mouse-over */
 .installerBtn:hover {
   background-color: RoyalBlue;
 }
-
 .portableBtn {
   text-align:center;
   display:inline-block;
@@ -264,7 +262,6 @@ a {color: var(--link-for-light);}
   font-size: 20px;
 }
 
-/* Darker background on mouse-over */
 .portableBtn:hover {
   background-color: #7e36ca;
 }
