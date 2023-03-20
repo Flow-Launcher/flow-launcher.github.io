@@ -1144,7 +1144,9 @@ div label[for=ui-component-toggle__yearly] {
 | 7.3 CUSTOMER
 |
 --------------------------------------------------------------*/
-
+.SponsorTitle{
+  font-size:14px; color:#898989; text-align: center; margin-bottom:1rem;
+}
 .ui-section-customer__layout {
   flex-direction: row;
   column-gap: var(--ui-gap-customer);
