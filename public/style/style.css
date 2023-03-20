@@ -768,7 +768,7 @@ a .uil {
   /*--ui-gap-cta        : .75rem;*/
   --ui-gap-cta        : 0px;
   --ui-gap-hero       : 2rem;
-  --ui-gap-customer   : 2rem;
+  --ui-gap-customer   : 0.5rem;
   --ui-gap-feature    : 1rem;
   --ui-gap-card       : 1.25rem;
   --ui-gap-pricing    : 2rem;
@@ -1146,13 +1146,13 @@ div label[for=ui-component-toggle__yearly] {
 --------------------------------------------------------------*/
 
 .ui-section-customer__layout {
-  flex-direction: column;
-  /*row-gap: var(--ui-gap-customer);*/
+  flex-direction: row;
+  column-gap: var(--ui-gap-customer);
   margin-bottom:3em;
 }
 
 .ui-section-customer--logo {
-  height: 2rem;
+  height: 2.5rem;
   width: auto;
 }
 
@@ -1661,6 +1661,7 @@ div label[for=ui-component-toggle__yearly] {
   .ui-section-customer--logo {
     margin-left: 0;
     margin-right: 0;
+    height:3rem;
   }
 
   /*------------------------------------------------------------
@@ -1798,7 +1799,7 @@ div label[for=ui-component-toggle__yearly] {
     /* GAP */
 
     --ui-gap-header  : 2rem;
-    --ui-gap-customer: 4rem;
+    --ui-gap-customer: 0.5rem;
     --ui-gap-card    : 2rem;
     --ui-gap-pricing : 3rem;
     
@@ -1867,7 +1868,7 @@ div label[for=ui-component-toggle__yearly] {
   |
   ------------------------------------------------------------*/
 
-  .ui-section-customer--logo { height: 2rem; }
+  .ui-section-customer--logo { height: 3.5rem; }
   
   .ui-section-customer--logo-str { height: 2.25rem; }
   
