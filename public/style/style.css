@@ -1492,6 +1492,7 @@ div label[for=ui-component-toggle__yearly] {
   padding:8px;
   visibility: visible;
   transition: all 200ms linear;
+  border: none;
 }
 
 .darkmode-btn:hover {
