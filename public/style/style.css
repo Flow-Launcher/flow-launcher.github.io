@@ -1484,7 +1484,7 @@ div label[for=ui-component-toggle__yearly] {
   }
   
   .darkmode-btn {
-  border-radius:64px;
+  border-radius:50%;
   z-index:999;
   margin:0;
   height:auto;
@@ -1492,6 +1492,7 @@ div label[for=ui-component-toggle__yearly] {
   padding:8px;
   visibility: visible;
   transition: all 200ms linear;
+  border: none;
 }
 
 .darkmode-btn:hover {
@@ -1503,6 +1504,10 @@ div label[for=ui-component-toggle__yearly] {
   padding:8px;
   visibility: visible;
 
+}
+
+.darkmode-btn svg {
+  max-width: unset;
 }
 
 
