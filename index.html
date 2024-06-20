@@ -9,6 +9,13 @@
     <meta name="description" content="#">
     <meta name="referrer" content="unsafe-url">
     <meta name="robots" content="index, follow">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
     <!-- Primary Meta Tags -->
     <title>Flow Launcher</title>
     <meta name="title" content="Flow Launcher">
@@ -102,6 +109,12 @@
             options
           )}`
         );
+        $("#releaseInfo2").text(
+          `${name} - ${publishedAt.toLocaleDateString(
+            undefined,
+            options
+          )}`
+        );
         $("#installer").attr('href', installerDownload);
         $("#portable").attr('href', portableDownload);
         $("#installerSize").text(installerSize);
@@ -121,59 +134,64 @@
       <!-- Modal content -->
       <div class="modal-content">
         <div class="close">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="#000">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z" fill="black" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" class="CloseBtn">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z" />
           </svg>
         </div>
         <div class="details-modal-title">
           <h3 style="margin:0px;">Downloads</h3>
         </div>
         <div class="details-modal-content">
+          <div style="display: flex; margin: 8px;">
+          <p id="releaseInfo2" style="white-space: nowrap; font-size:12px; margin:0px;"></p>
+          <a class="infolink" style="white-space: nowrap; font-size:12px; margin:0px 0px 0px 8px; display: inline;" href="https://github.com/Flow-Launcher/Flow.Launcher/releases" target="_blank" ><p>Release Note</p></a>
+          </div>
           <a id="installer" class="installerBtn">
-            <i class="fa fa-download" style="margin:0px 5px; color:white;"></i><span style="color:white;">Installer</span>
-            <p id="installerSize" style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8; color:white;"></p>
+            <i class="fa fa-download" style="margin:0px 5px;"></i><span>Installer</span>
+            <p id="installerSize" style="color:#fff !important; white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8; "></p>
           </a>
           <a  id="portable" class="portableBtn">
-            <i class="fa fa-file-archive-o" style="margin:0px 10px; color:white;"></i><span style="color:white;">Portable</span>
-            <p id="portableSize" style="white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8; color:white;"></p>
+            <i class="fa fa-file-archive-o" style="margin:0px 10px;"></i><span>Portable</span>
+            <p id="portableSize" style="color:#fff !important; white-space: nowrap; font-size:12px; margin-top:0px; opacity: 0.8;"></p>
           </a>
-          <hr class="modal-sep" />
-          <a href="https://github.com/Flow-Launcher/Flow.Launcher/releases" target="_blank" style="text-align:center; display:block; margin:0; font-size:12px;"><i class="fa fa-list" style="margin:0px 8px"></i>Release Notes</a>
-          <hr class="modal-sep" />
-
-          <div class="cmdInstallDiv" id="winget">
-            <p>
-              <span style="display: inline; user-select: none">&gt;</span>
-              <code><span style="color: rgb(252, 255, 155)">winget</span>
-              install "Flow Launcher"</code>
-              <button class="btn" data-clipboard-text="winget install &quot;Flow Launcher&quot;" aria-label="Copied!">
-                <i class="fa fa-copy"></i>
-              </button>
-            </p>
-          </div>
-          <div class="cmdInstallDiv" id="scoop">
-            <p>
-              <span style="display: inline; user-select: none">&gt;</span>
-              <code><span style="color: rgb(252, 255, 155)">scoop</span>
-              install Flow-Launcher</code>
-              <button class="btn" data-clipboard-text="scoop install flow-launcher" aria-label="Copied!">
-                <i class="fa fa-copy"></i>
-              </button>
-            </p>
-          </div>
-          <div class="cmdInstallDiv" id="choco">
-            <p>
-              <span style="display: inline; user-select: none">&gt;</span><code>
-              <span style="color: rgb(252, 255, 155)">choco</span>
-              install Flow-Launcher</code>
-              <button class="btn" data-clipboard-text="choco install flow-launcher" aria-label="Copied!">
-                <i class="fa fa-copy"></i>
-              </button>
-            </p>
-          </div>
-          <hr class="modal-sep"/>
-          <p style="margin:0; font-size:11px; text-align:center;">Supports Windows 7+ / Downloads are via GitHub</p>
+        
         </div>
+        <div class="details-modal-content-winget">
+        <div style="margin-bottom:4px;">Windows Package Manager</div>
+        <div class="cmdInstallDiv" id="winget">
+          <p>
+            <span style="display: inline; user-select: none">&gt;</span>
+            <code><span style="color: rgb(252, 255, 155)">winget</span>
+            install "Flow Launcher"</code>
+            <button class="btn" data-clipboard-text="winget install &quot;Flow Launcher&quot;" aria-label="Copied!">
+              <p>Copy</p>
+            </button>
+          </p>
+        </div>
+        <div class="cmdInstallDiv" id="scoop">
+          <p>
+            <span style="display: inline; user-select: none">&gt;</span>
+            <code><span style="color: rgb(252, 255, 155)">scoop</span>
+            install Flow-Launcher</code>
+            <button class="btn" data-clipboard-text="scoop install flow-launcher" aria-label="Copied!">
+              <p>Copy</p>
+            </button>
+          </p>
+        </div>
+        <div class="cmdInstallDiv" id="choco">
+          <p>
+            <span style="display: inline; user-select: none">&gt;</span>
+            <code><span style="color: rgb(252, 255, 155)">choco</span>
+            install Flow-Launcher</code>
+            <button class="btn" data-clipboard-text="choco install flow-launcher" aria-label="Copied!">
+              <p>Copy</p>
+            </button>
+          </p>
+        </div>
+      </div>
+      <div class="details-modal-content-winget" style="padding:1em;">
+        <p class="supportText">Supports Windows 7+ / Downloads are via GitHub</p>
+      </div>
       </div>
 
     </div>
@@ -190,6 +208,7 @@
           <!-- MENU -->
           <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
             <a href="#" id="myBtn" role="link" aria-label="#" class="ui-section-header--nav-link">Download</a>
+            <a href="https://www.flowlauncher.com/docs/#/plugins" role="link" aria-label="#" class="ui-section-header--nav-link">Plugins</a>
             <a href="https://www.flowlauncher.com/docs/" role="link" aria-label="#" class="ui-section-header--nav-link">Docs</a>
             <a href="https://github.com/Flow-Launcher/Flow.Launcher" role="link" aria-label="#" class="ui-section-header--nav-link">GitHub</a>
             <a href="#" id="mobile-darkbtn" role="link" aria-label="#" onclick="toggle()" class="ui-section-header--nav-link mobile-darkbtn">Toggle Theme</a>
@@ -218,7 +237,7 @@
 
                 <button id="myBtn2" class="downloadBtn">
                   <i class="fa fa-download"></i> Download
-                  <p id="releaseInfo" style="white-space: nowrap; font-size:12px; margin-top:2px; opacity: 0.8;"></p>
+                  <p id="releaseInfo" style="color:#fff !important; white-space: nowrap; font-size:12px; margin-top:2px; "></p>
                 </button>
 
               </div>

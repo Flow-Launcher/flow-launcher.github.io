@@ -37,7 +37,7 @@ TABLE OF CONTENT
   --bkg-for-dark: #0d1117;
   --link-for-dark: #c9d1d9;
   --sep-for-light: #cecece;
-  --sep-for-dark: #1c2128;
+  --sep-for-dark: #0f1115;
   --card-for-light: #fff;
   --card-for-dark: #161b22;
 
@@ -51,8 +51,11 @@ TABLE OF CONTENT
   --modal-for-dark: #2c2c2c;
 }
 
-body {color: var(--text-for-light); background-color: var(--bkg-for-light); transition: all 200ms linear;}
+body {font-family: "Noto Sans", sans-serif !important; color: var(--text-for-light); background-color: var(--bkg-for-light); transition: all 200ms linear;}
 a {color: var(--link-for-light);}
+
+p {color: var(--text-for-light) !important;}
+.dark-mode p {color: var(--text-for-dark) !important;}
 
 .dark-mode {color: var(--text-for-dark); background-color: var(--bkg-for-dark);}
 .dark-mode a {color: var(--link-for-dark);}
@@ -217,6 +220,8 @@ a {color: var(--link-for-light);}
 
 
 .downloadBtn {
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   background-color: DodgerBlue;
   border: none;
   border-radius: 6px;
@@ -227,12 +232,19 @@ a {color: var(--link-for-light);}
   transition: all 200ms linear;
 }
 
+.installerBtn i, span, p{color:White}
+.portableBtn i, span, p{color:White}
+
 /* Darker background on mouse-over */
 .downloadBtn:hover {
   background-color: RoyalBlue;
 }
-
+code {
+  font-size:1em;
+  font-family: "Source Code Pro", monospace;
+}
 .installerBtn {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   text-align:center;
   display:inline-block;
   background-color: DodgerBlue;
@@ -250,11 +262,13 @@ a {color: var(--link-for-light);}
   background-color: RoyalBlue;
 }
 .portableBtn {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   text-align:center;
   display:inline-block;
-  background-color: #9a5dd6;
+  background-color: rgb(49, 81, 176); 
   border: none;
   width:100%;
+  margin-top: 6px;
   border-radius: 6px;
   color: white;
   padding: 20px 20px;
@@ -263,7 +277,7 @@ a {color: var(--link-for-light);}
 }
 
 .portableBtn:hover {
-  background-color: #7e36ca;
+  background-color: rgb(31, 60, 146);
 }
 
 .is-unselectable{
@@ -271,29 +285,51 @@ a {color: var(--link-for-light);}
 }
 
 .cmdInstallDiv {
-  background-color: rgba(0, 0, 0, 0.649);
-  margin-top: 12px;
+  background-color: rgba(0, 0, 0, 0.849);
+  margin-top: 6px;
   padding: 10px;
   border-radius: 5px;
   width: 100%;
   text-align: left;
-  position: relative;
+
   left: -2;
 }
 .cmdInstallDiv p {
-  font-size: 0.65em;
+  font-size: 0.75em;
   margin-left: 8px;
-  color: #ffffffbb;
+  color: #ffffffbb !important;
   text-align: left;
   vertical-align: middle;
   letter-spacing: 0.5;
   white-space: nowrap;
 }
+
+.supportText {
+  margin:0px 0px 0px 8px; font-size:11px; text-align:left;
+}
 .cmdInstallDiv .btn {
-  display: inline;
+  position: relative;
+  right: .5em;
+  top: 50%;
+  transform: translate(20%,-5%);
+  display:none;
   border: solid 0px #cecece;
-  background-color: transparent;
+  padding: 4px 8px; 
+  border-radius: 4px;
+  background-color: #4f4f4f;
   float: right;
+}
+
+.cmdInstallDiv .btn:hover {
+  background-color: #7e7e7e;
+}
+.cmdInstallDiv .btn:active {
+  background-color: #131313;
+}
+
+.btn p {
+ margin:0px;
+ font-size:11px !important;
 }
 .cmdInstallDiv i {
   font-size:16px;
@@ -373,8 +409,8 @@ a {
   position: relative;
   color: #fff;
   transition: all 200ms linear;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: "Noto Sans", sans-serif !important;
+  font-weight: 400;
   font-size: 15px;
   border-radius: 2px;
   margin: 2px 0;
@@ -436,7 +472,13 @@ a .uil {
   filter: brightness(10%);
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (min-width: 400px) {
+  .cmdInstallDiv .btn {
+    display:block;
+  }
+  .supportText {
+    margin:0px 0px 0px 8px; font-size:11px; text-align:center;
+  }
 .logo {
 	top: 30px;
 	left: 20px;
@@ -454,6 +496,7 @@ a .uil {
 /* The Modal (background) */
 
 .modal {
+  backdrop-filter: blur(50px);
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -464,15 +507,16 @@ a .uil {
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   position: relative;
   background-color:var(--modal-for-light);
   Width:86%;
-  Max-width:400px;
+  Max-width:450px;
   border-radius: 6px;
   left: 50%;
   margin-top:5%;
@@ -528,13 +572,33 @@ a .uil {
   width: calc(100% - 4.5em);
 }
 
+.CloseBtn {
+  fill:var(--text-for-light);
+}
+.dark-mode .CloseBtn {
+  fill:var(--text-for-dark);
+}
+
+.infolink p:hover{text-decoration: underline;}
 
 .details-modal-content {
   border-top: 1px solid #e0e0e0;
-  padding: 10px 2em 2em 2em;
+  padding: 10px 2em 1em 2em;
   pointer-events: all;
   overflow: auto;
 }
+
+.details-modal-content-winget {
+  border-top: 1px solid #e0e0e0;
+  padding: 1.2em 2em 2em 2em;
+  pointer-events: all;
+  overflow: auto;
+}
+
+.dark-mode .details-modal-content-winget {
+  border-color: var(--sep-for-dark);
+}
+
 @media (prefers-color-scheme: dark) {
   .details-modal-content {border-color:var(--sep-for-dark)}
 }
@@ -1393,7 +1457,7 @@ div label[for=ui-component-toggle__yearly] {
 --------------------------------------------------------------*/
 
 @media screen and (min-width: 640px) {
-
+  
   /*------------------------------------------------------------
   VARIABLE
   ------------------------------------------------------------*/
