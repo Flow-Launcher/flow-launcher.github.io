@@ -35,3 +35,4 @@ yarn-error.log*
 .history
 /.vs/ProjectSettings.json
 /.vs/slnx.sqlite
+/.vs
