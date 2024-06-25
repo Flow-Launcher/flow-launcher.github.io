@@ -90,7 +90,12 @@ p {color: var(--text-for-light);}
 .details-modal-content {border-top: 1px solid var(--sep-for-light);}
 .light-mode .details-modal-content {border-top: 1px solid var(--sep-for-light);}
 .dark-mode .details-modal-content {border-top: 1px solid var(--sep-for-dark);}
-
+.details-modal-content-winget {
+    border: 1px solid var(--sep-for-light);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
 .ui-section-header--nav { 
   background-color: var(--bkg-header-for-light); 
   border-color: var(--sep-for-light)
