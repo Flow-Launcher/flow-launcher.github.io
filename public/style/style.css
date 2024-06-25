@@ -98,15 +98,15 @@ p {color: var(--text-for-light);}
 }
 .ui-section-header--nav { 
   background-color: var(--bkg-header-for-light); 
-  border-color: var(--sep-for-light)
+  border-color: var(--sep-for-light);
 }
 .dark-mode .ui-section-header--nav { 
   background-color: var(--bkg-header-for-dark); 
-  border-color: var(--sep-for-dark)
+  border-color: var(--sep-for-dark);
 }
 .light-mode .ui-section-header--nav { 
   background-color: var(--bkg-header-for-light); 
-  border-color: var(--sep-for-light)
+  border-color: var(--sep-for-light);
 }
 
 @media (prefers-color-scheme: dark) {
