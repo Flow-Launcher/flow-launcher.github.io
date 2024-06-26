@@ -53,9 +53,8 @@ TABLE OF CONTENT
 
 body {font-family: "Noto Sans", sans-serif !important; color: var(--text-for-light); background-color: var(--bkg-for-light); transition: all 200ms linear;}
 a {color: var(--link-for-light);}
-
-p {color: var(--text-for-light) !important;}
-.dark-mode p {color: var(--text-for-dark) !important;}
+p {color: var(--text-for-light);}
+.dark-mode p {color: var(--text-for-dark);}
 
 .dark-mode {color: var(--text-for-dark); background-color: var(--bkg-for-dark);}
 .dark-mode a {color: var(--link-for-dark);}
@@ -63,36 +62,113 @@ p {color: var(--text-for-light) !important;}
 .light-mode a {color: var(--text-for-light);}
 
 .light-mode .ui-section-header{ background-color: var(--bkg-header-for-light); }
-.light-mode .ui-section-feature{ background-color: var(--bkg-for-light); border-color: var(--sep-for-light);}
-.light-mode .ui-section-sub{ background-color: var(--bkg-header-for-light); }
 .dark-mode .ui-section-header{ background-color: var(--bkg-header-for-dark); }
+.ui-section-sub{ background-color: var(--bkg-header-for-light); border-color: var(--sep-for-light); }
+.light-mode .ui-section-sub{ background-color: var(--bkg-header-for-light); border-color: var(--sep-for-light); }
+.light-mode .ui-section-dark{ background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark); }
 .dark-mode .ui-section-feature{ background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark);}
 .dark-mode .ui-section-sub{ background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark);}
+.ui-section-custom{  background-color: var(--bkg-header-for-light);border-color: var(--sep-for-light);}
 .dark-mode .ui-section-custom{ background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark);}
 .light-mode .ui-text-title {color: var(--text-for-light);}
 .dark-mode .ui-text-title {color: var(--text-for-dark);}
+.light-mode .ui-section-footer { background-color: var(--copyright-for-light); border-color: var(--sep-for-light)}
 .dark-mode .ui-section-footer { background-color: var(--copyright-for-dark); border-color: var(--sep-for-dark)}
-.dark-mode .modal-content { background-color: var(--modal-for-dark); border-color: var(--sep-for-dark)}
+.dark-mode .modal-content { background-color: var(--modal-for-dark); border: 1px solid var(--sep-for-dark)}
+.modal-content { background-color: var(--modal-for-light); border: 1px solid var(--sep-for-light)}
+.light-mode .modal-content { background-color: var(--modal-for-light); border: 1px solid var(--sep-for-light)}
+.light-mode .CloseBtn {fill:var(--text-for-light);}
+.dark-mode .CloseBtn {fill:var(--text-for-dark);}
 
 .light-mode .card-inside{background-color: var(--card-for-light); border-color: var(--sep-for-light);}
 .dark-mode .card-inside { background-color: var(--card-for-dark); border-color: var(--sep-for-dark);}
-.dark-mode .ui-section-close { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
+.ui-section-close { background-color: var(--bkg-header-for-light); border-color: var(--sep-for-light)}
+.dark-mode .ui-section-close { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}    .ui-section-footer--copyright p {color: var(--ui-color-typography-note);}
+.details-modal-content-winget {border-top: 1px solid var(--sep-for-light);}
+.light-mode .details-modal-content-winget {border-top: 1px solid var(--sep-for-light);}
+.dark-mode .details-modal-content-winget {border-top: 1px solid var(--sep-for-dark);}
+.details-modal-content {border-top: 1px solid var(--sep-for-light);}
+.light-mode .details-modal-content {border-top: 1px solid var(--sep-for-light);}
+.dark-mode .details-modal-content {border-top: 1px solid var(--sep-for-dark);}
+.details-modal-content-winget {
+    border: 1px solid var(--sep-for-light);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+.ui-section-header--nav { 
+  background-color: var(--bkg-header-for-light); 
+  border-color: var(--sep-for-light);
+}
+.dark-mode .ui-section-header--nav { 
+  background-color: var(--bkg-header-for-dark); 
+  border-color: var(--sep-for-dark);
+}
+.light-mode .ui-section-header--nav { 
+  background-color: var(--bkg-header-for-light); 
+  border-color: var(--sep-for-light);
+}
 
 @media (prefers-color-scheme: dark) {
     body {color: var(--text-for-dark); background-color: var(--bkg-for-dark); transition: all 200ms linear;}
     a {color: var(--link-for-dark);}
+    p {color: var(--text-for-dark);}
+    .light-mode p{color: var(--text-for-light);}
+    .dark-mode p{color: var(--text-for-dark);}
     .ui-section-header { background-color: var(--bkg-header-for-dark); transition: all 200ms linear;}
+    .light-mode .ui-section-header { background-color: var(--bkg-header-for-light); transition: all 200ms linear;}
+    .dark-mode .ui-section-header { background-color: var(--bkg-header-for-light); transition: all 200ms linear;}
     .ui-section-feature { background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark)}
     .ui-section-sub { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
-    .ui-section-custom { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
+    .ui-section-sub .dark-mode{ background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
+    .ui-section-sub .light-mode{ background-color: var(--bkg-header-for-light); border-color: var(--sep-for-light)}
+    .ui-section-custom { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark);}
+    .ui-section-custom .dark-mode{ background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark);}
+    .ui-section-custom .light-mode{ background-color: var(--bkg-header-for-light); border-color: var(--sep-for-light);}
+    .ui-section-footer { background-color: var(--copyright-for-dark); border-color: var(--sep-for-dark);}
+    .ui-section-footer .light-mode{ background-color: var(--copyright-for-light); border-color: var(--sep-for-light);}
+    .ui-section-footer .dark-mode{ background-color: var(--copyright-for-dark); border-color: var(--sep-for-dark);}
     .ui-text-title {color: var(--text-for-dark);}
-    .ui-section-close { background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark)}
+    .ui-section-close { background-color: var(--bkg-for-light); border-color: var(--sep-for-light)}
+    .light-mode .ui-section-close { background-color: var(--bkg-for-light); border-color: var(--sep-for-light)}
+    .dark-mode .ui-section-close{ background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark)}
     .card-inside { background-color: var(--card-for-dark); border-color: var(--sep-for-dark)}
+    .card-inside .light-mode { background-color: var(--card-for-light); border-color: var(--sep-for-light)}
+    .card-inside .dark-mode{ background-color: var(--card-for-dark); border-color: var(--sep-for-dark)}
     .ui-section-close { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
-
+    .ui-section-footer--copyright p {color: var(--ui-color-typography-note);}
+    .ui-component-cta a {color:#fff !important}
+    .modal-content { background-color: var(--modal-for-dark); border: 1px solid var(--sep-for-dark)}
+    .modal-content .dark-mode { background-color: var(--modal-for-dark); border: 1px solid var(--sep-for-dark)}
+    .modal-content .light-mode { background-color: var(--modal-for-light); border: 1px solid var(--sep-for-light)}
+    .CloseBtn {fill: var(--text-for-dark);}
+    .CloseBtn .dark-mode {fill: var(--text-for-dark);}
+    .CloseBtn .light-mode {fill: var(--text-for-light);}
+    .details-modal-content-winget {border-top: 1px solid var(--sep-for-dark);}
+    .light-mode .details-modal-content-winget {border-top: 1px solid var(--sep-for-light);}
+    .dark-mode .details-modal-content-winget {border-top: 1px solid var(--sep-for-dark);}
+    .details-modal-content {border-top: 1px solid var(--sep-for-dark);}
+    .light-mode .details-modal-content {border-top: 1px solid var(--sep-for-light);}
+    .dark-mode .details-modal-content {border-top: 1px solid var(--sep-for-dark);}
+    .ui-section-header--nav { 
+      background-color: var(--bkg-header-for-dark); 
+      border-color: var(--sep-for-dark)
+    }
+    .dark-mode .ui-section-header--nav { 
+      background-color: var(--bkg-header-for-dark); 
+      border-color: var(--sep-for-dark)
+    }
+    .light-mode .ui-section-header--nav { 
+      background-color: var(--bkg-header-for-light); 
+      border-color: var(--sep-for-light)
+    }
 }
 
-.modal-sep {
+.ui-component-cta a:hover{
+  border: 1px solid transparent;
+  background: dodgerblue;
+}
+.modal-sep {  
   width:100%;
   border : 0;;
   border-top: 1px solid #aaa;
@@ -215,7 +291,7 @@ p {color: var(--text-for-light) !important;}
 
 
 .details-modal-content a{
-  color:#5e5e5e;
+  color:#fff;
 }
 
 
@@ -232,8 +308,8 @@ p {color: var(--text-for-light) !important;}
   transition: all 200ms linear;
 }
 
-.installerBtn i, span, p{color:White}
-.portableBtn i, span, p{color:White}
+/*.installerBtn i, span, p{color:White}
+.portableBtn i, span, p{color:White}*/
 
 /* Darker background on mouse-over */
 .downloadBtn:hover {
@@ -514,7 +590,6 @@ a .uil {
 .modal-content {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   position: relative;
-  background-color:var(--modal-for-light);
   Width:86%;
   Max-width:450px;
   border-radius: 6px;
@@ -523,12 +598,7 @@ a .uil {
   /* bring your own prefixes */
   transform: translateX(-50%);
   padding: 0px;
-  border: 1px solid #888;
 }
-@media (prefers-color-scheme: dark) {
-  .modal-content {background-color:var(--modal-for-dark);}
-}
-
 
 /* Modal Content/Box */
 .videomodal-content {
@@ -572,38 +642,20 @@ a .uil {
   width: calc(100% - 4.5em);
 }
 
-.CloseBtn {
-  fill:var(--text-for-light);
-}
-.dark-mode .CloseBtn {
-  fill:var(--text-for-dark);
-}
 
 .infolink p:hover{text-decoration: underline;}
 
 .details-modal-content {
-  border-top: 1px solid #e0e0e0;
   padding: 10px 2em 1em 2em;
   pointer-events: all;
   overflow: auto;
 }
 
 .details-modal-content-winget {
-  border-top: 1px solid #e0e0e0;
   padding: 1.2em 2em 2em 2em;
   pointer-events: all;
   overflow: auto;
 }
-
-.dark-mode .details-modal-content-winget {
-  border-color: var(--sep-for-dark);
-}
-
-@media (prefers-color-scheme: dark) {
-  .details-modal-content {border-color:var(--sep-for-dark)}
-}
-
-.dark-mode .details-modal-content {border-color:var(--sep-for-dark)}
 
 
 /* The Close Button */
@@ -760,7 +812,7 @@ a .uil {
   |
   ------------------------------------------------------------*/
 
-  --ui-color-brand: #353535;
+  --ui-color-brand: #000;
 
   /* COLOR PALETTE */
 
@@ -1149,7 +1201,6 @@ div label[for=ui-component-toggle__yearly] {
 /* MENU */
 
 .ui-section-header--nav {
-  background-color: var(--bkg-header-for-light);
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.05);
   flex-direction: column;
   gap: 0;
@@ -1160,18 +1211,9 @@ div label[for=ui-component-toggle__yearly] {
   position: absolute;
   right: 0;
   top: -1rem;
-  /* transition: all 200ms linear;*/
   visibility: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  .ui-section-header--nav { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
-}
-
-.dark-mode .ui-section-header--nav { 
-  background-color: var(--bkg-header-for-dark); 
-  border-color: var(--sep-for-dark)
-}
 
 #ui-section-header--menu-id:checked ~
 .ui-section-header--nav {
@@ -1233,17 +1275,12 @@ div label[for=ui-component-toggle__yearly] {
 --------------------------------------------------------------*/
 
 .ui-section-sub {
-  background-color: var(--bkg-header-for-light);
-  border-color: var(--sep-for-light);
   border-width:1px  0px 0px 0;
   border-style:solid;
   padding-bottom: 1rem;
   padding-top: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  .ui-section-sub { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
-}
 
 .ui-section-feature {
   background-color: var(--bkg-for-light);
@@ -1368,20 +1405,13 @@ div label[for=ui-component-toggle__yearly] {
 .ui-section-custom {
   border-style:solid;
   border-width:1px  0px 0px 0;
-  background-color: var(--bkg-header-for-light);
-  border-color: var(--sep-for-light);
   padding-bottom: 4rem;
   padding-top: 4rem;
   text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  .ui-section-custom { background-color: var(--bkg-header-for-dark); border-color: var(--sep-for-dark)}
-}
 
 .ui-section-close {
-  background-color: var(--bkg-for-light);
-  border-color: var(--sep-for-light);
   border-style: solid;
   border-width: 1px  0px 0px 0;  
   padding-bottom: 5rem;
@@ -1400,13 +1430,8 @@ div label[for=ui-component-toggle__yearly] {
 .ui-section-footer {
   padding-bottom: 2rem;
   padding-top: 2rem;
-  background-color: var(--copyright-for-light); 
-  border-color: var(--sep-for-light);
   border-style:solid;
   border-width:1px  0px 0px 0;
-}
-@media (prefers-color-scheme: dark) {
-  .ui-section-footer { background-color: var(--copyright-for-dark); border-color: var(--sep-for-dark)}
 }
 
 .ui-section-footer__layout {
@@ -1487,7 +1512,7 @@ div label[for=ui-component-toggle__yearly] {
 |
 --------------------------------------------------------------*/
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 54rem) { /*Default was 48rem*/
 
   /*------------------------------------------------------------
   VARIABLE
@@ -1575,9 +1600,6 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 
-@media (prefers-color-scheme: dark) {
-  .ui-section-close { background-color: var(--bkg-for-dark); border-color: var(--sep-for-dark)}
-}
   :root {
 
     /*----------------------------------------------------------
@@ -1693,7 +1715,10 @@ div label[for=ui-component-toggle__yearly] {
   .ui-section-header--menu-icon { display: none; }
 
   /* NAV */
-
+  .light-mode .ui-section-header--nav{
+    background-color: transparent;
+  }
+  
   .ui-section-header--nav {
     background-color: transparent;
     box-shadow: none;
