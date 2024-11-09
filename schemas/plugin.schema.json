@@ -18,6 +18,7 @@
       "type": "string",
       "description": "The keyword that triggers the plugin. If you want the plugin to trigger without the keyword, set this to *",
       "minLength": 1,
+      "maxLength": 32,
       "default": "*",
       "examples": ["*", "myplugin", "web"]
     },

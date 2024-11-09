@@ -6,7 +6,8 @@
       "properties": {
         "name": {
           "type": "string",
-          "pattern": "(?i)^[a-z_][a-z_0-9]*$"
+          "pattern": "(?i)^[a-z_][a-z_0-9]*$",
+          "maxLength": 64
         },
         "label": {
           "type": "string"
@@ -48,6 +49,8 @@
   "properties": {
     "body": {
       "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
       "items": {
         "type": "object",
         "required": [
@@ -65,13 +68,16 @@
                 "type": "object",
                 "properties": {
                   "description": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   }
-                }
+                },
+                "required": ["description"]
               }
             },
             "required": [
-              "type"
+              "type",
+              "attributes"
             ]
           },
           {
@@ -100,6 +106,8 @@
                 "properties": {
                   "options": {
                     "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
                     "items": {
                       "type": ["string", "number", "boolean"]
                     }
