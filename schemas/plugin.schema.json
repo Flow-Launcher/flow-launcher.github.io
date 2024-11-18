@@ -14,13 +14,15 @@
       ],
       "description": "A unique identifier in the form of UUID so Flow Launcher can distinguish between plugins."
     },
-    "ActionKeyword": {
-      "type": "string",
-      "description": "The keyword that triggers the plugin. If you want the plugin to trigger without the keyword, set this to *",
-      "minLength": 1,
-      "maxLength": 32,
-      "default": "*",
-      "examples": ["*", "myplugin", "web"]
+    "ActionKeywords": {
+      "type": "array",
+      "description": "The keywords that trigger the plugin. If you want the plugin to trigger without a keyword, set this to [\"*\"]",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "default": "*"
+      }
     },
     "Name": {
       "type": "string",
@@ -121,7 +123,7 @@
   ],
   "required": [
     "ID",
-    "ActionKeyword",
+    "ActionKeywords",
     "Name",
     "Description",
     "Author",
