@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "ID": {
+      "type": "string",
+      "oneOf": [
+        {
+          "pattern": "(?i)^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
+        },
+        {
+          "pattern": "(?i)^[a-f0-9]{32}$"
+        }
+      ],
+      "description": "A unique identifier in the form of UUID so Flow Launcher can distinguish between plugins."
+    },
+    "ActionKeywords": {
+      "type": "array",
+      "description": "The keywords that trigger the plugin. If you want the plugin to trigger without a keyword, set this to [\"*\"]",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "default": "*"
+      }
+    },
+    "Name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Language": {
+      "type": "string"
+    },
+    "Website": {
+      "type": "string",
+      "pattern": "^https?://.+$"
+    },
+    "ExecuteFileName": {
+      "type": "string"
+    },
+    "IcoPath": {
+      "type": "string",
+      "pattern": "(?i)[.]png$"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "Language": {
+          "enum": [
+            "javascript",
+            "javascript_v2"
+          ]
+        },
+        "ExecuteFileName": {
+          "pattern": "(?i)[.][mc]?js$"
+        }
+      }
+    },
+    {
+      "properties": {
+        "Language": {
+          "enum": [
+            "typescript",
+            "typescript_v2"
+          ]
+        },
+        "ExecuteFileName": {
+          "pattern": "(?i)[.]([mc]?j|t)s$"
+        }
+      }
+    },
+    {
+      "properties": {
+        "Language": {
+          "enum": [
+            "python",
+            "python_v2"
+          ]
+        },
+        "ExecuteFileName": {
+          "pattern": "(?i)[.]pyc?$"
+        }
+      }
+    },
+    {
+      "properties": {
+        "Language": {
+          "enum": [
+            "executable",
+            "executable_v2"
+          ]
+        },
+        "ExecuteFileName": {
+          "pattern": "(?i)[.]exe$"
+        }
+      }
+    },
+    {
+      "properties": {
+        "Language": {
+          "enum": [
+            "csharp",
+            "fsharp"
+          ]
+        },
+        "ExecuteFileName": {
+          "pattern": "(?i)[.]dll$"
+        }
+      }
+    }
+  ],
+  "required": [
+    "ID",
+    "ActionKeywords",
+    "Name",
+    "Description",
+    "Author",
+    "Version",
+    "Language",
+    "Website",
+    "ExecuteFileName",
+    "IcoPath"
+  ]
+}
