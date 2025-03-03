@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import {GET} from "@/pages/plugins.json";
+import {getPluginsJson} from "@/getPluginsJson";
 import type {ExtendedPlugin} from "@/pages/plugins/_types";
 import {getCollection, render} from "astro:content";
 import SectionHeader from "@/components/SectionHeader.astro";
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const pluginsManifest = await GET().then(v => v.json()) as ExtendedPlugin[];
+  const pluginsManifest = await getPluginsJson();
   const plugins = await getCollection("plugins");
 
   const data = await getCollection("pluginBlog");

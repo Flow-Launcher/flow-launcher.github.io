@@ -1,7 +1,7 @@
-import {GET} from "@/pages/plugins.json.ts";
+import {getPluginsJson} from "@/getPluginsJson.ts";
 
 export async function getStaticPaths() {
-  const data = await GET().then(v => v.json());
+  const data = await getPluginsJson();
   return data.map((v: any) => ({
     params: {
       slug: v.slug,

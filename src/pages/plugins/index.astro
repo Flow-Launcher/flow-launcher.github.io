@@ -1,5 +1,5 @@
 ---
-import {GET} from "@/pages/plugins.json";
+import {getPluginsJson} from "@/getPluginsJson";
 import Plugin from "@/components/plugins/Plugin.astro";
 import Layout from "@/layouts/Layout.astro";
 import Section from "@/components/Section.astro";
@@ -8,10 +8,9 @@ import SectionSubheader from "@/components/SectionSubheader.astro";
 import LabelValue from "@/components/plugins/LabelValue.astro";
 import {TAGS} from "@/constants";
 import featuredPluginIds from "@/data/featured-plugins.yml";
-import type { ExtendedPlugin } from "@/pages/plugins/_types";
 import Swiper from "@/components/Swiper.astro";
 
-const plugins = await GET().then(v => v.json()) as ExtendedPlugin[];
+const plugins = await getPluginsJson();
 const featured = plugins
   .filter(v => featuredPluginIds.includes(v.id))
   .sort((a, b) => featuredPluginIds.indexOf(a.id) - featuredPluginIds.indexOf(b.id));

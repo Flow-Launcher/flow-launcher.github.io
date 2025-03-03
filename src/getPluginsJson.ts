@@ -1,7 +1,7 @@
 import {getCollection} from "astro:content";
 import {slugify} from "@/utils.ts";
 import builtInPluginIds from "@/data/built-in-plugins.yml";
-import {dirname, basename} from "node:path";
+import type {ExtendedPlugin} from "@/pages/plugins/_types.ts";
 
 interface FlowPlugin {
   ID: string;
@@ -18,17 +18,17 @@ interface FlowPlugin {
   LatestReleaseDate: string;
 }
 
-let cachedData: any = null;
+let cachedData: ExtendedPlugin[] = [];
 
-export async function GET() {
-  if (!cachedData) {
+export async function getPluginsJson() {
+  if (!cachedData?.length) {
     const data: FlowPlugin[] = await fetch("https://fastly.jsdelivr.net/gh/Flow-Launcher/Flow.Launcher.PluginsManifest@plugin_api_v2/plugins.json").then(v => v.json());
     const plugins = await getCollection("plugins");
 
     cachedData = data.map(v => {
       const plugin = plugins.find(p => p.data.id === v.ID);
       if (plugin && !plugin.data.slug) {
-        plugin.data.slug = basename(dirname(plugin.filePath!));
+        plugin.data.slug = `${slugify(v.Name)}-${v.ID}`;
       }
 
       return {
@@ -50,5 +50,5 @@ export async function GET() {
     }).sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  return new Response(JSON.stringify(cachedData));
+  return cachedData;
 }
