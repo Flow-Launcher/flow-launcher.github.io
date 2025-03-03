@@ -56,8 +56,8 @@ const description = post.data.summary;
         <img src={plugin.icon} alt="Plugin icon" class="plugin-icon"/>
       </a>
 
-      <SectionHeader>
-        <a href={pluginLink}>{plugin.name} Plugin</a> <a href={pluginBlogLink}>Blog</a>
+      <SectionHeader flex>
+        <span><a href={pluginLink}>{plugin.name} Plugin</a> <a href={pluginBlogLink}>Blog</a></span>
         {plugin.isBuiltIn ? <BuiltInTag /> : null}
       </SectionHeader>
     </div>

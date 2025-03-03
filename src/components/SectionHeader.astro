@@ -1,11 +1,12 @@
 ---
 interface Props {
   bigger?: boolean;
+  flex?: boolean;
 }
 
-const { bigger } = Astro.props;
+const { bigger, flex } = Astro.props;
 ---
-<h1 class:list={["section-header", {bigger}]}>
+<h1 class:list={["section-header", {bigger, flex}]}>
   <slot />
 </h1>
 
@@ -16,13 +17,16 @@ const { bigger } = Astro.props;
     font-size: 35px;
     line-height: 1.33;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
 }
 
 .bigger {
     font-size: 44px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 @include breakpoints.sm {

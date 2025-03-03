@@ -31,8 +31,8 @@ const description = plugin.description;
       </a>
 
       <div class="title">
-        <SectionHeader>
-          <a href={pluginLink}>{plugin.name} Plugin</a> Blog
+        <SectionHeader flex>
+          <span><a href={pluginLink}>{plugin.name} Plugin</a> Blog</span>
           {plugin.isBuiltIn ? <BuiltInTag /> : null}
         </SectionHeader>
         <SectionSubheader>{plugin.description}</SectionSubheader>
