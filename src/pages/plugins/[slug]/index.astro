@@ -14,6 +14,7 @@ import type {ExtendedPlugin} from "@/pages/plugins/_types";
 import {getPluginBlogPosts} from "@/pages/plugins/[slug]/_get-plugin-blog-posts";
 import type {ImageMetadata} from "astro";
 import InstallPlugin from "@/components/plugins/InstallPlugin.astro";
+import BuiltInTag from "@/components/BuiltInTag.astro";
 
 export {getStaticPaths} from "@/pages/plugins/[slug]/_static-paths";
 
@@ -61,7 +62,10 @@ const hasCarousel = videos.length > 0 || images.length > 0;
       <img src={plugin.icon} alt="" class="icon"/>
 
       <div>
-        <SectionHeader>{plugin.name}</SectionHeader>
+        <SectionHeader>
+          {plugin.name}
+          {plugin.isBuiltIn ? <BuiltInTag /> : null}
+        </SectionHeader>
         <p class="author">by {plugin.author}</p>
       </div>
     </div>

@@ -7,6 +7,7 @@ import BlogArticleCard from "@/components/blog/BlogArticleCard.astro";
 import {getBaseUrl} from "@/utils";
 import {getPluginBlogPosts} from "@/pages/plugins/[slug]/_get-plugin-blog-posts";
 import type {ExtendedPlugin} from "@/pages/plugins/_types";
+import BuiltInTag from "@/components/BuiltInTag.astro";
 
 export {getStaticPaths} from "@/pages/plugins/[slug]/_static-paths";
 
@@ -30,7 +31,10 @@ const description = plugin.description;
       </a>
 
       <div class="title">
-        <SectionHeader><a href={pluginLink}>{plugin.name} Plugin</a> Blog</SectionHeader>
+        <SectionHeader>
+          <a href={pluginLink}>{plugin.name} Plugin</a> Blog
+          {plugin.isBuiltIn ? <BuiltInTag /> : null}
+        </SectionHeader>
         <SectionSubheader>{plugin.description}</SectionSubheader>
       </div>
     </div>

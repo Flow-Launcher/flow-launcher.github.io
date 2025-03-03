@@ -1,4 +1,5 @@
 ---
+import BuiltInTag from "@/components/BuiltInTag.astro";
 import Tag from "@/components/plugins/Tag.astro";
 import type {ExtendedPlugin} from "@/pages/plugins/_types";
 import {getBaseUrl} from "@/utils";
@@ -28,7 +29,7 @@ const href = getBaseUrl(true) + `/plugins/${plugin.slug}`;
     <div class="title">
       <div class="name">
         {plugin.name}
-        {plugin.isBuiltIn ? <span class="built-in" title="A built-in plugin maintained by the core team">Official</span> : null}
+        {plugin.isBuiltIn ? <BuiltInTag /> : null}
       </div>
       <div class="author">by {plugin.author}</div>
     </div>
@@ -96,16 +97,6 @@ const href = getBaseUrl(true) + `/plugins/${plugin.slug}`;
     gap: 4px;
     font-size: 18px;
     font-weight: 500;
-}
-
-.built-in {
-    font-size: 12px;
-    cursor: default;
-    padding: 4px;
-    border-radius: 4px;
-    background-color: var(--plugin-official-background);
-    color: var(--plugin-official-text);
-    margin-left: 4px;
 }
 
 .author {

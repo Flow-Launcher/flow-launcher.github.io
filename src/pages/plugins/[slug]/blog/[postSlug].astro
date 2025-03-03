@@ -7,6 +7,7 @@ import SectionHeader from "@/components/SectionHeader.astro";
 import Section from "@/components/Section.astro";
 import {formatDate, getBaseUrl} from "@/utils";
 import path from "node:path";
+import BuiltInTag from "@/components/BuiltInTag.astro";
 
 interface Props {
   plugin: ExtendedPlugin;
@@ -55,7 +56,10 @@ const description = post.data.summary;
         <img src={plugin.icon} alt="Plugin icon" class="plugin-icon"/>
       </a>
 
-      <SectionHeader><a href={pluginLink}>{plugin.name} Plugin</a> <a href={pluginBlogLink}>Blog</a></SectionHeader>
+      <SectionHeader>
+        <a href={pluginLink}>{plugin.name} Plugin</a> <a href={pluginBlogLink}>Blog</a>
+        {plugin.isBuiltIn ? <BuiltInTag /> : null}
+      </SectionHeader>
     </div>
   </Section>
   <Section padding="32">
