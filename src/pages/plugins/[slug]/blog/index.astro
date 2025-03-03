@@ -1,0 +1,77 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/components/Section.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import SectionSubheader from "@/components/SectionSubheader.astro";
+import BlogArticleCard from "@/components/blog/BlogArticleCard.astro";
+import {getBaseUrl} from "@/utils";
+import {getPluginBlogPosts} from "@/pages/plugins/[slug]/_get-plugin-blog-posts";
+import type {ExtendedPlugin} from "@/pages/plugins/_types";
+
+export {getStaticPaths} from "@/pages/plugins/[slug]/_static-paths";
+
+interface Props {
+  plugin: ExtendedPlugin;
+}
+const {plugin} = Astro.props;
+const pluginBlogs = await getPluginBlogPosts(plugin.id);
+
+const pluginLink = getBaseUrl(true) + `/plugins/${plugin.slug}`;
+
+const title = `${plugin.name} | Plugin Blog | Flow Launcher`;
+const description = plugin.description;
+---
+
+<Layout {title} {description}>
+  <Section padding="16">
+    <div class="header">
+      <a href={pluginLink}>
+        <img src={plugin.icon} alt="Plugin icon" class="plugin-icon"/>
+      </a>
+
+      <div class="title">
+        <SectionHeader><a href={pluginLink}>{plugin.name} Plugin</a> Blog</SectionHeader>
+        <SectionSubheader>{plugin.description}</SectionSubheader>
+      </div>
+    </div>
+  </Section>
+
+  <Section even fullHeight>
+    <div class="blog-grid">
+      {pluginBlogs.map(v =>
+        <BlogArticleCard
+          date={v.data.date}
+          slug={v.data.slug}
+          summary={v.data.summary}
+          title={v.data.title}
+          pluginSlug={plugin.slug}
+        />)}
+    </div>
+  </Section>
+</Layout>
+
+<style>
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.plugin-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+</style>

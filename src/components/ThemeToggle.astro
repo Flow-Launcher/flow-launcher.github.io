@@ -1,0 +1,68 @@
+---
+import IconMoon from "@/components/icons/Moon.svg";
+import IconSun from "@/components/icons/Sun.svg";
+---
+
+<button class="theme-toggle-button" aria-label="Toggle theme" data-theme-toggle-button>
+  <IconMoon data-moon />
+  <IconSun data-sun />
+</button>
+
+<style>
+.theme-toggle-button {
+    font-size: 20px;
+    width: 36px;
+    aspect-ratio: 1;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    line-height: 1;
+    background-color: var(--theme-toggle-button);
+    color: var(--theme-toggle-button-icon);
+    transition: background-color 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.theme-toggle-button:hover {
+    background-color: var(--theme-toggle-button-hover);
+}
+
+.theme-toggle-button:active {
+    background-color: var(--theme-toggle-button-active);
+}
+
+.theme-toggle-button svg {
+    width: calc(100% - 12px);
+    aspect-ratio: 1;
+}
+
+:global(html[data-theme="dark"]) [data-moon] {
+    display: none;
+}
+
+:global(html[data-theme="light"]) [data-sun] {
+    display: none;
+}
+</style>
+
+<script>
+import {setTheme, setUpThemeToggleButton} from "@/utils";
+
+const storedTheme = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (storedTheme) {
+  setTheme(storedTheme);
+} else {
+  setTheme(prefersDark.matches ? "dark" : "light");
+}
+
+setUpThemeToggleButton(".theme-toggle-button[data-theme-toggle-button]");
+
+setTimeout(() => {
+  document.documentElement.classList.remove("no-transition");
+}, 100);
+</script>

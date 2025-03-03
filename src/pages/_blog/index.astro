@@ -1,0 +1,41 @@
+---
+import {getCollection} from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Section from "@/components/Section.astro";
+import BlogArticle from "@/components/blog/BlogArticleCard.astro";
+
+const allBlogPosts = await getCollection("blog");
+---
+
+<Layout title="Flow Launcher Blog" description="This is the place where the Flow Launcher team will share our latest news, features, and updates.">
+  <Section>
+    <h1>The Flow Launcher Blog</h1>
+    <p class="blog-subheader">where the team shares our latest news, features, and updates</p>
+  </Section>
+  <Section even class="blog-grid-container" containerClass="blog-grid">
+    {allBlogPosts.map(post =>
+      <BlogArticle
+        date={post.data.date}
+        slug={post.data.slug}
+        summary={post.data.summary}
+        title={post.data.title}
+      />
+    )}
+  </Section>
+</Layout>
+
+<style>
+.blog-subheader {
+    margin-top: 12px;
+}
+
+.blog-grid-container {
+    flex-grow: 1;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+</style>

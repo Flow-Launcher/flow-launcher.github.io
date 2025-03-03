@@ -1,0 +1,33 @@
+<script>
+const buttons = document.querySelectorAll("[data-copy-text]") as NodeListOf<HTMLElement>;
+
+for (const button of buttons) {
+  button.addEventListener("click", copyCommand);
+}
+
+async function copyCommand(e: MouseEvent): Promise<void> {
+  const button = e.currentTarget as HTMLButtonElement;
+  const text = button.dataset.copyText;
+
+  if (!text) {
+    return;
+  }
+
+  await navigator.clipboard.writeText(text);
+
+  copySuccess(button);
+}
+
+function copySuccess(btn: HTMLButtonElement): void {
+  if (btn.dataset.timerId) {
+    clearTimeout(btn.dataset.timerId);
+  }
+
+  btn.textContent = "Copied!";
+
+  btn.dataset.timerId = setTimeout(() => {
+    btn.textContent = "Copy";
+    delete btn.dataset.timerId;
+  }, 1000).toString();
+}
+</script>

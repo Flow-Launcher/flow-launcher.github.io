@@ -1,38 +1,24 @@
-.DS_Store
-.thumbs.db
-node_modules
+# build output
+dist/
 
-# Quasar core related directories
-.quasar
-/dist
+# generated types
+.astro/
 
-# Cordova related directories and files
-/src-cordova/node_modules
-/src-cordova/platforms
-/src-cordova/plugins
-/src-cordova/www
+# dependencies
+node_modules/
 
-# Capacitor related directories and files
-/src-capacitor/www
-/src-capacitor/node_modules
-
-# BEX related directories and files
-/src-bex/www
-/src-bex/js/core
-
-# Log files
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Editor directories and files
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-.vscode
-.history
-/.vs/ProjectSettings.json
-/.vs/slnx.sqlite
-/.vs
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/

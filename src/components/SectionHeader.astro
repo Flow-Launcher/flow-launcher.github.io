@@ -1,0 +1,34 @@
+---
+interface Props {
+  bigger?: boolean;
+}
+
+const { bigger } = Astro.props;
+---
+<h1 class:list={["section-header", {bigger}]}>
+  <slot />
+</h1>
+
+<style lang="scss">
+@use "$styles/breakpoints";
+
+.section-header {
+    font-size: 35px;
+    line-height: 1.33;
+    font-weight: 700;
+}
+
+.bigger {
+    font-size: 44px;
+}
+
+@include breakpoints.sm {
+    .section-header {
+        font-size: 25px;
+    }
+
+    .bigger {
+        font-size: 31px;
+    }
+}
+</style>

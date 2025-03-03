@@ -1,0 +1,79 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import SectionSubheader from "@/components/SectionSubheader.astro";
+import SmallText from "@/components/SmallText.astro";
+import {Picture} from "astro:assets";
+import ImageTaskbar from "@/assets/main-page/taskbar_bg.png";
+import {getBaseUrl} from "@/utils";
+
+const base = getBaseUrl(true);
+
+const webp = base + "/flow-launcher.webp";
+const gif = base + "/flow-launcher.gif";
+---
+<Section even>
+  <div class="grid">
+    <div class="gif-container">
+      <picture>
+        <source srcset={webp} type="image/webp"/>
+        <img alt="Flow Launcher start anywhere gif" src={gif} class="gif" />
+      </picture>
+      <Picture alt="" src={ImageTaskbar} formats={["avif", "webp"]} class="taskbar" />
+    </div>
+    <div class="text">
+      <SectionHeader>Start Flow Launcher anytime, anywhere.</SectionHeader>
+      <SectionSubheader>Use your customizable hotkey to trigger the search window immediately.</SectionSubheader>
+      <SmallText smaller class="margin">※ Default hotkey is Alt+Space</SmallText>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss">
+@use "$styles/breakpoints";
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.gif-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gif {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1047 / 678;
+}
+
+.taskbar {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1114 / 87;
+}
+
+.margin {
+    margin-top: 20px;
+}
+
+@include breakpoints.sm {
+    .grid {
+        grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .gif-container {
+        order: 2;
+    }
+
+    .text {
+        order: 1;
+    }
+}
+</style>

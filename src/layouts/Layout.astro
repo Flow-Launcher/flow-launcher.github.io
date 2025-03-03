@@ -1,0 +1,244 @@
+---
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import {getBaseUrl} from "@/utils";
+import DownloadDialog from "@/components/DownloadDIalog.astro";
+import CopyButtonsScript from "../components/CopyButtonsScript.astro";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const {
+	title = "Flow Launcher",
+	description = "Quick file search & app launcher for Windows with community-made plugins",
+	image = "/flowlauncher_large.jpg",
+} = Astro.props;
+
+const base = getBaseUrl();
+const favIconLink = `${base === '/' ? '' : base}/favicon.ico`;
+---
+<!doctype html>
+<html lang="en" class="no-transition">
+	<head>
+		<script is:inline>
+		let theme = localStorage.getItem('theme');
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+		if (!theme) {
+			theme = prefersDark ? 'dark' : 'light';
+		}
+
+		document.documentElement.setAttribute('data-theme', theme);
+		</script>
+
+		<!-- Meta -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="referrer" content="unsafe-url" />
+		<meta name="robots" content="index, follow" />
+		<base href={base} />
+		<link rel="icon" type="image/x-icon" href={favIconLink} />
+
+		<!-- Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+
+		<!-- Primary -->
+		<title>{title}</title>
+		<meta name="description" content={description}/>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content={Astro.request.url}/>
+		<meta property="og:title" content={title}/>
+		<meta property="og:description" content={description}/>
+		<meta property="og:image" content={image}/>
+		<meta property="og:site_name" content="Flow Launcher"/>
+		<meta property="og:locale" content="en_US"/>
+		<meta property="og:image:width" content="1500"/>
+		<meta property="og:image:height" content="500"/>
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image"/>
+		<meta property="twitter:url" content={Astro.request.url}/>
+		<meta property="twitter:title" content={title}/>
+		<meta property="twitter:description" content={description}/>
+		<meta property="twitter:image" content={image}/>
+	</head>
+	<body>
+		<Header />
+		<main class="main-content">
+			<slot />
+		</main>
+		<Footer />
+		<DownloadDialog />
+	  <CopyButtonsScript />
+	</body>
+</html>
+
+<style is:global>
+@import '../assets/styles/reset.css';
+@import '../assets/styles/variables.css';
+@import '../assets/styles/utils.css';
+
+
+html {
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: var(--font-family), sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	min-height: 100dvh;
+}
+
+h1 {
+	font-size: 1.9375rem;
+	line-height: 1.2em;
+}
+
+h2 {
+	font-size: 1.5625rem;
+	line-height: 1.2em;
+}
+
+h3 {
+	font-size: 1rem;
+	line-height: 1.2em;
+}
+
+p {
+	font-size: 1rem;
+	line-height: 1.5em;
+}
+
+a {
+	color: var(--link);
+}
+
+button {
+	border: none;
+	font-family: var(--font-family), sans-serif;
+}
+
+.blog-content {
+	line-height: 1.25;
+}
+
+.blog-content h1 {
+	font-size: 2.25rem;
+}
+
+.blog-content h2 {
+	font-size: 1.875rem;
+}
+
+.blog-content h3 {
+	font-size: 1.5rem;
+}
+
+.blog-content h4 {
+	font-size: 1.3rem;
+}
+
+.blog-content h5 {
+	font-size: 1.15rem;
+}
+
+.blog-content h6 {
+	font-size: 1.05rem;
+}
+
+.blog-content h1:has(+ *),
+.blog-content h2:has(+ *),
+.blog-content h3:has(+ *),
+.blog-content h4:has(+ *),
+.blog-content h5:has(+ *),
+.blog-content h6:has(+ *) {
+	margin-bottom: 0.5em;
+}
+
+.blog-content p:has(+ *),
+.blog-content ul:has(+ *),
+.blog-content ol:has(+ *),
+.blog-content pre:has(+ *) {
+	margin-bottom: 1em;
+}
+
+.blog-content li + li {
+	margin-top: 0.25em;
+}
+
+.blog-content * + h1,
+.blog-content * + h2,
+.blog-content * + h3,
+.blog-content * + h4,
+.blog-content * + h5,
+.blog-content * + h6 {
+	margin-top: 2em;
+}
+
+.blog-content * + pre {
+	margin-top: 1em;
+}
+
+.blog-content pre {
+	padding: 16px;
+}
+
+.blog-content pre:last-child {
+	margin-bottom: 1em;
+}
+
+.blog-content code {
+	font-family: 'Source Code Pro', 'Fira Code', 'JetBrains Mono', monospace;
+	background-color: var(--code-bg);
+	padding: 0.1em 0.3em;
+	border-radius: 4px;
+}
+
+.astro-code,
+.astro-code span {
+	background-color: var(--code-bg) !important;
+}
+
+.blog-content pre > code {
+	padding: 0;
+	background-color: transparent;
+}
+
+.blog-content img {
+	width: 100%;
+	max-width: 100%;
+	max-height: 50vh;
+	height: auto;
+	display: block;
+	object-fit: scale-down;
+}
+
+.blog-content ul,
+.blog-content ol {
+	padding-left: revert;
+	list-style: revert;
+}
+
+[data-theme="dark"] .astro-code,
+[data-theme="dark"] .astro-code span {
+	color: var(--shiki-dark) !important;
+}
+</style>
+
+<style>
+.main-content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+</style>

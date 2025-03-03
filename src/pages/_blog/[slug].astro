@@ -1,0 +1,61 @@
+---
+import {getCollection, getEntry, render} from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/components/Section.astro";
+import {formatDate} from "@/utils";
+
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection("blog");
+  return allBlogPosts.map(v => ({
+    params: {
+      slug: v.data.slug,
+    },
+  }));
+}
+
+const {slug} = Astro.params;
+
+const blog = await getEntry("blog", slug);
+const title = `${blog.data.title} | Flow Launcher`;
+const {Content} = await render(blog);
+---
+<Layout {title} description={blog.data.summary}>
+  <Section padding="0" containerClass="blog-header">
+    <h1>{blog.data.title}</h1>
+    <div class="post-data">
+      <span class="muted">by</span>
+      {blog.data.author}
+      <span class="muted">on</span>
+      <time datetime={blog.data.date}>{formatDate(blog.data.date)}</time>
+    </div>
+  </Section>
+  <Section even padding="18" class="blog-content">
+    <Content />
+  </Section>
+</Layout>
+
+<style>
+.post-data {
+    margin: 16px 0 0;
+    font-size: 14px;
+}
+
+.muted {
+    opacity: 0.5;
+}
+
+.blog-header {
+    padding: 55px 0 55px;
+}
+
+.blog-content {
+    flex-grow: 1;
+}
+</style>
+
+<script>
+import 'fslightbox';
+import {addLightboxToBlogPostImages} from "@/utils";
+
+addLightboxToBlogPostImages();
+</script>

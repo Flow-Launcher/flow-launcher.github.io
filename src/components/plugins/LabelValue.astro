@@ -1,0 +1,29 @@
+---
+interface Props {
+  label: string;
+  value?: string;
+}
+---
+
+<div class="label-value">
+  <span class="label">{Astro.props.label}</span>
+  <span class="value"><slot>{Astro.props.value}</slot></span>
+</div>
+
+<style>
+.label-value {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    font-size: 14px;
+    color: var(--muted-text);
+}
+
+.value {
+    font-size: 16px;
+    color: var(--text);
+}
+</style>

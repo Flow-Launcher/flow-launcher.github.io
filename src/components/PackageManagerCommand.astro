@@ -1,0 +1,63 @@
+---
+interface Props {
+  packageManager: string;
+  command: string;
+}
+
+const { packageManager, command } = Astro.props;
+
+const fullCommand = `${packageManager} ${command}`;
+---
+<div class="package-manager-command">
+  <div class="command">
+    <span class="prompt">&gt; </span>
+    <span class="package-manager">{packageManager}</span>
+    {command}
+  </div>
+  <button type="button" class="copy-package-manager-command" data-copy-text={fullCommand}>
+    Copy
+  </button>
+</div>
+
+<style>
+.package-manager-command {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg);
+    padding: 9px 9px 9px 18px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid var(--sep);
+}
+
+.prompt {
+    user-select: none;
+}
+
+.package-manager {
+    color: var(--package-manager-name);
+}
+
+.command {
+    font-family: var(--font-family-mono), monospace;
+}
+
+.copy-package-manager-command {
+    font-size: 11px;
+    color: var(--text);
+    background-color: var(--button-copy);
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.1s;
+}
+
+.copy-package-manager-command:hover {
+    background-color: var(--button-copy-hover);
+}
+
+.copy-package-manager-command:active {
+    background-color: var(--button-copy-active);
+}
+</style>
