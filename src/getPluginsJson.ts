@@ -2,6 +2,7 @@ import {getCollection} from "astro:content";
 import {slugify} from "@/utils.ts";
 import builtInPluginIds from "@/data/built-in-plugins.yml";
 import type {ExtendedPlugin} from "@/pages/plugins/_types.ts";
+import {dirname, basename} from "node:path";
 
 interface FlowPlugin {
   ID: string;
@@ -28,7 +29,7 @@ export async function getPluginsJson() {
     cachedData = data.map(v => {
       const plugin = plugins.find(p => p.data.id === v.ID);
       if (plugin && !plugin.data.slug) {
-        plugin.data.slug = `${slugify(v.Name)}-${v.ID}`;
+        plugin.data.slug = basename(dirname(plugin.filePath!));
       }
 
       return {
