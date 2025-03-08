@@ -1,0 +1,62 @@
+---
+import IconPlay from "@/components/icons/Play.svg";
+
+interface Props {
+  video: string;
+  imageOnly?: boolean;
+  fullWidth?: boolean;
+}
+
+const {video, imageOnly, fullWidth} = Astro.props;
+
+let id = video;
+if (video.startsWith("https://youtube.com/") || video.startsWith("https://www.youtube.com/")) {
+  const url = new URL(video);
+  id = url.searchParams.get("v") || "";
+} else if (video.startsWith("https://youtu.be/")) {
+  const url = new URL(video);
+  id = url.pathname.slice(1);
+}
+
+const src = !imageOnly ? `https://www.youtube.com/embed/${id}` : `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+---
+{imageOnly ? <div class="yt-thumbnail-container">
+  <img src={src} alt="" class:list={{fullWidth}}/>
+  <IconPlay class="yt-thumbnail-play-icon" />
+</div> : <iframe
+  {src}
+  class:list={{fullWidth}}
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>}
+
+<style>
+.yt-thumbnail-container {
+    position: relative;
+}
+
+.yt-thumbnail-play-icon {
+    width: 48px;
+    aspect-ratio: 1;
+    fill: #0008;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, fill 0.2s;
+}
+
+.yt-thumbnail-container:hover .yt-thumbnail-play-icon {
+    width: 64px;
+    height: 64px;
+    fill: #000B;
+}
+
+.fullWidth {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+</style>

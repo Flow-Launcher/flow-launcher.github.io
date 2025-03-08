@@ -1,0 +1,57 @@
+---
+import {Picture} from "astro:assets";
+import type {ImageMetadata} from "astro";
+
+interface Props {
+  alt: string;
+  src: ImageMetadata | Promise<{ default: ImageMetadata }>;
+  href: string;
+  label?: string;
+  rounded?: boolean;
+}
+
+const {
+  alt,
+  src,
+  href,
+  label,
+  rounded,
+} = Astro.props;
+---
+
+<a {href} target="_blank" class="sponsor">
+  <Picture {src} {alt} class:list={["img", {square: !!label, rounded}]} formats={["avif", "webp"]} loading="eager" />
+  {label ? <span>{label}</span> : null}
+</a>
+
+<style>
+.sponsor {
+    display: inline-flex;
+    border: 1px solid var(--sep);
+    width: 170px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: var(--sponsor);
+    gap: 4px;
+    color: var(--sponsor-text);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.img {
+    height: 26px;
+    object-fit: contain;
+}
+
+.square {
+    width: 34px;
+    height: 34px;
+}
+
+.rounded {
+    border-radius: 50%;
+}
+</style>

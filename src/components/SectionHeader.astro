@@ -1,0 +1,41 @@
+---
+interface Props {
+  bigger?: boolean;
+  flex?: boolean;
+}
+
+const { bigger, flex } = Astro.props;
+---
+<h1 class:list={["section-header", {bigger, flex}]}>
+  <slot />
+</h1>
+
+<style lang="scss">
+@use "$styles/breakpoints";
+
+.section-header {
+    font-size: 35px;
+    line-height: 1.33;
+    font-weight: 700;
+}
+
+.bigger {
+    font-size: 44px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@include breakpoints.sm {
+    .section-header {
+        font-size: 25px;
+    }
+
+    .bigger {
+        font-size: 31px;
+    }
+}
+</style>

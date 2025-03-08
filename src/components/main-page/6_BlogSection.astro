@@ -1,0 +1,35 @@
+---
+import {getCollection} from "astro:content";
+import Section from "@/components/Section.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import BlogArticle from "@/components/blog/BlogArticleCard.astro";
+
+const blogPosts = (await getCollection("blog")).slice(0, 3);
+---
+<Section even>
+  <SectionHeader>Latest blog posts</SectionHeader>
+
+  {blogPosts.length > 0 ? (
+    <div class="blog-grid">
+      {blogPosts.map(post => (
+        <BlogArticle
+          date={post.data.date}
+          slug={post.data.slug}
+          summary={post.data.summary}
+          title={post.data.title}
+        />
+      ))}
+    </div>
+  ) : (
+    <p>No blog posts yet</p>
+  )}
+</Section>
+
+<style>
+.blog-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+</style>

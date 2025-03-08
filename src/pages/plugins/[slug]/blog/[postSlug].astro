@@ -1,0 +1,118 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {getPluginsJson} from "@/getPluginsJson";
+import type {ExtendedPlugin} from "@/pages/plugins/_types";
+import {getCollection, render} from "astro:content";
+import SectionHeader from "@/components/SectionHeader.astro";
+import Section from "@/components/Section.astro";
+import {formatDate, getBaseUrl} from "@/utils";
+import path from "node:path";
+import BuiltInTag from "@/components/BuiltInTag.astro";
+
+interface Props {
+  plugin: ExtendedPlugin;
+  post: any;
+}
+
+export async function getStaticPaths() {
+  const pluginsManifest = await getPluginsJson();
+  const plugins = await getCollection("plugins");
+
+  const data = await getCollection("pluginBlog");
+  return data.map((v: any) => {
+    const plugin = plugins.find(p => {
+      const pluginPath = path.resolve(p.filePath!, "..", "blog");
+      const postPath = path.resolve(v.filePath, "..");
+
+      return pluginPath === postPath;
+    });
+    const pluginManifest = pluginsManifest.find(p => p.id === plugin!.data.id);
+    return {
+      params: {
+        slug: pluginManifest!.slug,
+        postSlug: v.data.slug,
+      },
+      props: {
+        plugin: pluginManifest,
+        post: v,
+      },
+    };
+  });
+}
+
+const {plugin, post} = Astro.props;
+const {Content} = await render(post);
+
+const pluginLink = getBaseUrl(true) + `/plugins/${plugin.slug}`;
+const pluginBlogLink = pluginLink + "/blog";
+
+const title = `${post.data.title} | ${plugin.name} | Plugin Blog | Flow Launcher`;
+const description = post.data.summary;
+---
+<Layout {title} {description}>
+  <Section padding="16">
+    <div class="header">
+      <a href={pluginLink}>
+        <img src={plugin.icon} alt="Plugin icon" class="plugin-icon"/>
+      </a>
+
+      <SectionHeader flex>
+        <span><a href={pluginLink}>{plugin.name} Plugin</a> <a href={pluginBlogLink}>Blog</a></span>
+        {plugin.isBuiltIn ? <BuiltInTag /> : null}
+      </SectionHeader>
+    </div>
+  </Section>
+  <Section padding="32">
+    <div class="title">
+      <SectionHeader>{post.data.title}</SectionHeader>
+      <div class="author-date">
+        <span class="muted">by</span>
+        {post.data.author}
+        <span class="muted">on</span>
+        <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+      </div>
+    </div>
+  </Section>
+  <Section even padding="18" class="blog-content">
+    <Content />
+  </Section>
+</Layout>
+
+<style>
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.plugin-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.author-date {
+    font-size: 14px;
+}
+
+.muted {
+    opacity: 0.5;
+}
+
+.blog-content {
+    flex-grow: 1;
+}
+</style>
+
+<script>
+import 'fslightbox';
+import {addLightboxToBlogPostImages} from "@/utils";
+
+addLightboxToBlogPostImages();
+</script>

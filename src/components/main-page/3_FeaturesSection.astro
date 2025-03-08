@@ -1,0 +1,77 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import Feature from "@/components/main-page/Feature.astro";
+import Swiper from "@/components/Swiper.astro";
+
+const features = [
+  {
+    title: "Open Apps",
+    subtitle: "Search and launch apps quickly.",
+    color: "#e7d8e1",
+    image: import("@/assets/main-page/feat_apps.png")
+  },
+  {
+    title: "Search Files",
+    subtitle: "Use Everything or Windows Search to find files and file contents",
+    color: "#f4dab1",
+    image: import("@/assets/main-page/feat_files.png")
+  },
+  {
+    title: "Web Searches",
+    subtitle: "Browse the Internet with your favorite search engine.",
+    color: "#d0e7ed",
+    image: import("@/assets/main-page/feat_websearch.png")
+  },
+  {
+    title: "Search Bookmarks",
+    subtitle: "Quickly find bookmarks from different browsers.",
+    color: "#ede4cc",
+    image: import("@/assets/main-page/feat_bookmark.png")
+  },
+  {
+    title: "System Commands",
+    subtitle: "Restart, Sleep or shutdown, manage your computer with a couple of keystrokes.",
+    color: "#d7d3dc",
+    image: import("@/assets/main-page/feat_system.png")
+  },
+  {
+    title: "Shell Commands",
+    subtitle: "Easily run batch and PowerShell commands as Administrator or another user.",
+    color: "#b9b9b9",
+    image: import("@/assets/main-page/feat_cli.png")
+  },
+  {
+    title: "Calculator",
+    subtitle: "Do mathematical calculations then copy the result to clipboard for later use.",
+    color: "#c1e1df",
+    image: import("@/assets/main-page/feat_calc.png")
+  },
+  {
+    title: "Windows Settings",
+    subtitle: "Search for Windows & Control Panel settings.",
+    color: "#dddfc9",
+    image: import("@/assets/main-page/feat_windowssettings.png")
+  },
+  {
+    title: "Plugin Store",
+    subtitle: "Browse and install many different types of plugins to add new search capabilities.",
+    color: "#b09cd0",
+    image: import("@/assets/main-page/feat_store.png")
+  }
+];
+---
+<Section>
+  <SectionHeader>Features</SectionHeader>
+
+  <Swiper>
+    {features.map(v =>
+      <Feature
+        image={v.image}
+        subtitle={v.subtitle}
+        title={v.title}
+        color={v.color}
+      />
+    )}
+  </Swiper>
+</Section>

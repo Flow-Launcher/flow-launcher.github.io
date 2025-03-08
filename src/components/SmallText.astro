@@ -1,0 +1,45 @@
+---
+interface Props {
+  muted?: boolean;
+  smaller?: boolean;
+  smallest?: boolean;
+  centered?: boolean;
+  class?: string;
+}
+
+const {
+  muted = false,
+  smaller = false,
+  smallest = false,
+  centered = false,
+  class: className = "",
+  ...rest
+} = Astro.props;
+---
+<div class:list={["small-text", className, { muted, smaller, smallest, centered }]} {...rest}>
+  <slot/>
+</div>
+
+<style>
+.small-text {
+    font-size: 14px;
+    line-height: 1.5em;
+    color: var(--text);
+}
+
+.muted {
+    color: var(--muted-text);
+}
+
+.smaller {
+    font-size: 13px;
+}
+
+.smallest {
+    font-size: 11px;
+}
+
+.centered {
+    text-align: center;
+}
+</style>

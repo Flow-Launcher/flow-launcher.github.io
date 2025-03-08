@@ -1,0 +1,118 @@
+---
+interface Props {
+  id?: string;
+  variant?: "default" | "black" | "secondary";
+  shape?: "pill" | "rounded" | "rectangle";
+  centered?: boolean;
+  href?: string;
+  class?: string;
+}
+
+const {
+  id,
+  variant = "default",
+  shape = "pill",
+  centered = false,
+  href,
+  class: className = "",
+  ...rest
+} = Astro.props;
+---
+
+{!href
+  ? <button {id} class:list={["primary-button", `variant-${variant}`, `shape-${shape}`, {centered}, className]} {...rest}>
+    {!Astro.slots.has("second-line")
+      ?
+      <slot/>
+      :
+      <div class="two-line">
+        <div class="line-1"><slot/></div>
+        <div class="line-2"><slot name="second-line"/></div>
+      </div>
+    }
+  </button>
+  : <a {href} class:list={["primary-button", `variant-${variant}`, `shape-${shape}`, {centered}, className]} {...rest}>
+    {!Astro.slots.has("second-line")
+      ?
+      <slot/>
+      :
+      <div class="two-line">
+        <div class="line-1"><slot/></div>
+        <div class="line-2"><slot name="second-line"/></div>
+      </div>
+    }
+  </a>
+}
+
+<style>
+.primary-button {
+    background-color: var(--button-primary);
+    transition: background-color 0.2s;
+    padding: 12px 30px;
+    gap: 4px;
+    font-size: 16px;
+    color: var(--button-primary-text);
+    cursor: pointer;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.primary-button:hover {
+    background-color: var(--button-primary-hover);
+}
+
+.variant-black {
+    background-color: var(--button-primary-variant-black);
+}
+
+.variant-black:hover {
+    background-color: var(--button-primary-variant-black-hover);
+}
+
+.variant-secondary {
+    background-color: var(--button-primary-variant-secondary);
+}
+
+.variant-secondary:hover {
+    background-color: var(--button-primary-variant-secondary-hover);
+}
+
+.shape-pill {
+    border-radius: 1000px;
+}
+
+.shape-rounded {
+    border-radius: 6px;
+}
+
+.shape-rectangle {
+    border-radius: 0;
+}
+
+.two-line {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    text-align: center;
+    margin: 4px 0;
+}
+
+.two-line > :last-child {
+    font-size: 12px;
+}
+
+.centered {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered .two-line {
+    align-items: center;
+}
+</style>

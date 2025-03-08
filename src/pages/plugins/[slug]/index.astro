@@ -1,0 +1,199 @@
+---
+import {render, getCollection} from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/components/Section.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import {formatDate, getBaseUrl} from "@/utils";
+import Tags from "@/components/plugins/Tags.astro";
+import LabelValue from "@/components/plugins/LabelValue.astro";
+import {Picture} from "astro:assets";
+import Swiper from "@/components/Swiper.astro";
+import YouTubeEmbed from "@/components/YouTubeEmbed.astro";
+import BlogArticleCard from "@/components/blog/BlogArticleCard.astro";
+import type {ExtendedPlugin} from "@/pages/plugins/_types";
+import {getPluginBlogPosts} from "@/pages/plugins/[slug]/_get-plugin-blog-posts";
+import type {ImageMetadata} from "astro";
+import InstallPlugin from "@/components/plugins/InstallPlugin.astro";
+import BuiltInTag from "@/components/BuiltInTag.astro";
+
+export {getStaticPaths} from "@/pages/plugins/[slug]/_static-paths";
+
+interface Props {
+  plugin: ExtendedPlugin;
+}
+
+const {plugin} = Astro.props;
+
+const title = `${plugin.name} | Plugins | Flow Launcher`;
+const description = plugin.description;
+
+const pluginContent = await getCollection("plugins", v => v.data.id === plugin.id).then(v => v?.[0]);
+const {Content} = pluginContent ? await render(pluginContent) : {Content: null};
+
+const pluginLanguage = plugin.language.toLowerCase();
+let pluginType = "";
+if (pluginLanguage === "javascript" || pluginLanguage === "javascript_v2") {
+  pluginType = "JavaScript";
+} else if (pluginLanguage === "typescript" || pluginLanguage === "typescript_v2") {
+  pluginType = "TypeScript";
+} else if (pluginLanguage === "python" || pluginLanguage === "python_v2") {
+  pluginType = "Python";
+} else if (pluginLanguage === "executable" || pluginLanguage === "executable_v2") {
+  pluginType = "Executable";
+} else if (pluginLanguage === "csharp") {
+  pluginType = "C#";
+} else if (pluginLanguage === "fsharp") {
+  pluginType = "F#";
+}
+
+const sourceCodeLabel = plugin.sourceCodeUrl.startsWith("https://github.com/") ? "GitHub" : "Source Code";
+
+const videos: string[] = pluginContent?.data?.videos ?? [];
+const images: ImageMetadata[] = pluginContent?.data?.images ?? [];
+
+const pluginBlog = await getPluginBlogPosts(plugin.id);
+const latestPosts = pluginBlog.slice(0, 2).map(v => v.data);
+const viewAllBlogPostsLink = getBaseUrl(true) + `/plugins/${plugin.slug}/blog`;
+const hasCarousel = videos.length > 0 || images.length > 0;
+---
+<Layout {title} {description}>
+  <Section>
+    <div class="plugin-title">
+      <img src={plugin.icon} alt="" class="icon"/>
+
+      <div>
+        <SectionHeader flex>
+          {plugin.name}
+          {plugin.isBuiltIn ? <BuiltInTag /> : null}
+        </SectionHeader>
+        <p class="author">by {plugin.author}</p>
+      </div>
+    </div>
+
+    {hasCarousel && <Swiper noLoop class="swiper-outer">
+      {videos.map(v => <div class="swiper-slide">
+        <a href={v} data-fslightbox="plugin-carousel">
+          <YouTubeEmbed video={v} fullWidth imageOnly />
+        </a>
+      </div>)}
+      {images.map(v => <div class="swiper-slide">
+        <a data-fslightbox="plugin-carousel" href={v.src as unknown as string}>
+          <Picture alt="" src={v} formats={["avif", "webp"]} width="320" height="180" loading="eager"/>
+        </a>
+      </div>)}
+    </Swiper>}
+  </Section>
+
+  <Section even containerClass="blog-grid" fullHeight>
+    <div class="blog-content">
+      {pluginContent?.rendered?.html && Content ? <Content/> : plugin.description}
+    </div>
+
+    <aside class="plugin-info">
+      <LabelValue label="Install">
+        <InstallPlugin plugin={plugin}/>
+      </LabelValue>
+      <LabelValue label="Version" value={plugin.version}/>
+      <LabelValue label="Plugin type" value={pluginType}/>
+      <LabelValue label="Latest release date" value={formatDate(plugin.latestReleaseDate)}/>
+      <LabelValue label="Source Code">
+        <a href={plugin.sourceCodeUrl}>{sourceCodeLabel}</a>
+      </LabelValue>
+      {plugin.tags?.length > 0 ?
+        <LabelValue label="Categories">
+          <Tags tags={plugin.tags}/>
+        </LabelValue>
+        : null}
+      {latestPosts.length > 0 ?
+        <LabelValue label="Latest blog posts">
+          {latestPosts.map(post => (
+            <BlogArticleCard
+              date={post.date}
+              slug={post.slug}
+              summary={post.summary}
+              title={post.title}
+              pluginSlug={plugin.slug}
+            />
+          ))}
+          <a href={viewAllBlogPostsLink} class="view-all-blog-posts">View all blog posts</a>
+        </LabelValue>
+        : null}
+    </aside>
+  </Section>
+</Layout>
+
+<style lang="scss">
+@use "$styles/breakpoints";
+
+.plugin-title {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.author {
+    color: var(--muted-text);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+.plugin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.swiper-outer {
+    margin-top: 20px;
+}
+
+.swiper-slide {
+    height: 100% !important;
+}
+
+.swiper-slide img,
+.swiper-slide iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
+.view-all-blog-posts {
+    margin-top: 10px;
+    display: block;
+    text-align: right;
+}
+
+@include breakpoints.sm {
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .blog-content {
+    order: 2;
+  }
+
+  .plugin-info {
+    order: 1;
+  }
+}
+</style>
+
+<script>
+import 'fslightbox';
+import {addLightboxToBlogPostImages} from "@/utils";
+
+addLightboxToBlogPostImages();
+</script>

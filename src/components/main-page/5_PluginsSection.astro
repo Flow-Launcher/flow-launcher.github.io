@@ -1,0 +1,65 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import SectionSubheader from "@/components/SectionSubheader.astro";
+import Swiper from "@/components/Swiper.astro";
+import Plugin from "@/components/main-page/Plugin.astro";
+
+const plugins = [
+  {
+    color: "#1ed760",
+    title: "Spotify Premium",
+    subtitle: "Control your Spotify directly from Flow Launcher",
+    author: "fow5040",
+    icon: import("@/assets/main-page/icon_sp.png"),
+    image: import("@/assets/main-page/plugin_sp.png")
+  },
+  {
+    color: "#3a3a3a",
+    title: "Steam Search",
+    subtitle: "Search your Steam game library and launch the games",
+    author: "Garulf",
+    icon: import("@/assets/main-page/icon_st.png"),
+    image: import("@/assets/main-page/plugin_st.png")
+  },
+  {
+    color: "#4e3ba4",
+    title: "Obsidian Notes",
+    subtitle: "Search through your Obsidian notes",
+    author: "Garulf",
+    icon: import("@/assets/main-page/icon_ob.png"),
+    image: import("@/assets/main-page/plugin_ob.png")
+  },
+  {
+    color: "#c1e1df",
+    title: "GitHub Notifications",
+    subtitle: "View your GitHub notifications directly from Flow Launcher",
+    author: "Garulf",
+    icon: import("@/assets/main-page/icon_gh.png"),
+    image: import("@/assets/main-page/plugin_gh.png")
+  }
+];
+---
+<Section>
+  <SectionHeader>Community-made plugins</SectionHeader>
+  <SectionSubheader>Write your own plugins in C#, F#, Python, JavaScript, or TypeScript.</SectionSubheader>
+
+  <Swiper class="plugins">
+    {plugins.map(v =>
+      <Plugin
+        color={v.color}
+        title={v.title}
+        subtitle={v.subtitle}
+        author={v.author}
+        icon={v.icon}
+        image={v.image}
+      />
+    )}
+  </Swiper>
+</Section>
+
+<style>
+.plugins {
+    margin-top: 32px;
+}
+</style>

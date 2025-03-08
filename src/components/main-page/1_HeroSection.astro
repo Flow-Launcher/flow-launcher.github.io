@@ -1,0 +1,179 @@
+---
+import {Picture, getImage} from "astro:assets";
+import SectionHeader from "@/components/SectionHeader.astro";
+import Button from "@/components/Button.astro";
+import Sponsor from "@/components/main-page/Sponsor.astro";
+import Section from "@/components/Section.astro";
+import SectionSubheader from "@/components/SectionSubheader.astro";
+import SmallText from "@/components/SmallText.astro";
+import ScreenshotDark from "@/assets/main-page/dark_screenshot.png";
+import ScreenshotLight from "@/assets/main-page/light_screenshot.png";
+import IconDownload from "@/components/icons/Download.svg";
+import {getGitHubReleaseData} from "@/data/github-release";
+import {getBaseUrl} from "@/utils";
+
+const screenshotBackground = getBaseUrl(true) + "/screenshot_bg.png";
+
+const sponsors = [
+  {
+    href: "https://appwrite.io/",
+    src: import("@/assets/main-page/sponsor_appwrite.png"),
+    alt: "Appwrite",
+    label: undefined,
+    rounded: false,
+  },
+  {
+    href: "https://coderabbit.ai/",
+    src: import("@/assets/main-page/sponsor_coderabbit.svg"),
+    alt: "CodeRabbit",
+    label: undefined,
+    rounded: false,
+  },
+  {
+    href: "https://github.com/TheBestPessimist",
+    src: import("@/assets/main-page/sponsor_TheBestPessimist.png"),
+    alt: "",
+    label: "TheBestPessimist",
+    rounded: false,
+  },
+  {
+    href: "https://github.com/AjmalParkar006",
+    src: import("@/assets/main-page/sponsor_AjmalParkar006.jpg"),
+    alt: "",
+    label: "AjmalParkar006",
+    rounded: true,
+  },
+];
+
+const latestVersion = await getGitHubReleaseData();
+---
+
+<Section>
+  <div class="grid">
+    <div class="left-column">
+      <SectionHeader bigger>Flow Launcher</SectionHeader>
+      <SectionSubheader>Quick File Search & App Launcher for Windows</SectionSubheader>
+      <Button shape="rounded" id="hero-download-button">
+        <IconDownload class="icon" />
+        Download
+        <div slot="second-line">
+          {latestVersion.tagName}
+          -
+          {latestVersion.formattedPublishedAt}
+        </div>
+      </Button>
+    </div>
+    <div class="screenshot-container">
+      <Picture
+        src={ScreenshotDark}
+        alt="Flow Launcher screenshot"
+        formats={["avif", "webp"]}
+        class="dark screenshot"
+        loading="eager"
+      />
+      <Picture
+        src={ScreenshotLight}
+        alt="Flow Launcher screenshot"
+        formats={["avif", "webp"]}
+        class="light screenshot"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <SmallText muted centered class="sponsored-by">
+    Sponsored by
+  </SmallText>
+
+  <div class="sponsors">
+    {sponsors.map(v =>
+      <Sponsor
+        href={v.href}
+        src={v.src}
+        alt={v.alt}
+        label={v.label}
+        rounded={v.rounded}
+      />
+    )}
+  </div>
+</Section>
+
+<style define:vars={{ screenshotBackground: `url("${screenshotBackground}")` }} lang="scss">
+@use "$styles/breakpoints";
+
+.grid {
+    display: grid;
+    align-items: center;
+    gap: 120px;
+    grid-template-columns: 3.5fr 6fr;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.icon {
+    width: 16px;
+    aspect-ratio: 1;
+}
+
+.screenshot-container {
+    background: var(--screenshotBackground) no-repeat center center;
+    background-size: contain;
+    padding: 20px;
+    width: 100%;
+}
+
+.screenshot {
+    display: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 620 / 349 !important;
+}
+
+html[data-theme="dark"] .dark {
+    display: block;
+}
+
+html[data-theme="light"] .light {
+    display: block;
+}
+
+.sponsored-by {
+    margin-top: 88px;
+    margin-bottom: 16px;
+}
+
+.sponsors {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+@include breakpoints.sm {
+    .grid {
+        grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+  .left-column {
+        align-items: center;
+        text-align: center;
+  }
+
+    .screenshot-container {
+        padding: 10px;
+    }
+}
+</style>
+
+<script>
+import {setupButtonToOpenDownloadDialog} from "@/utils";
+
+setupButtonToOpenDownloadDialog("#hero-download-button");
+</script>

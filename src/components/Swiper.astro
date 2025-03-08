@@ -1,0 +1,109 @@
+---
+interface Props {
+  class?: string;
+  noLoop?: boolean;
+  containsPlugins?: boolean;
+}
+
+const {
+  class: className = "",
+  noLoop = false,
+  containsPlugins = false,
+  ...rest
+} = Astro.props;
+---
+
+<div class:list={["swiper-container", className, {containsPlugins}]} {...rest}>
+  <div class="swiper" data-no-loop={noLoop}>
+    <div class="swiper-wrapper">
+      <slot/>
+    </div>
+  </div>
+
+  <div class="swiper-button-prev"/>
+  <div class="swiper-button-next"/>
+
+  <div class="swiper-pagination"/>
+</div>
+
+<style lang="scss">
+@use "$styles/breakpoints";
+
+.swiper-container {
+    position: relative;
+    padding: 10px 50px 40px;
+}
+
+.swiper {
+    border-radius: 8px;
+}
+
+.swiper-container.containsPlugins .swiper {
+  padding: 4px 24px 32px;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+@include breakpoints.sm {
+  .swiper-container {
+    padding: 10px 0 40px;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none !important;
+    }
+  }
+}
+</style>
+
+<style is:global>
+.swiper-pagination-bullet {
+    background-color: var(--button-primary) !important;
+    transition: opacity 0.2s !important;
+}
+</style>
+
+<script>
+import Swiper from "swiper";
+import {Navigation, Pagination} from "swiper/modules";
+import type {SwiperOptions} from "swiper/types";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+const swipers = document.querySelectorAll(`.swiper`) as unknown as HTMLElement[];
+
+for (const swiper of swipers) {
+  const containsPlugins = swiper.parentElement!.classList.contains("containsPlugins");
+  new Swiper(swiper, {
+    loop: swiper.dataset.noLoop !== "true",
+
+    grabCursor: true,
+
+    slidesPerView: 1,
+    spaceBetween: containsPlugins ? 30 : 10,
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: containsPlugins ? 30 : 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+
+    modules: [Navigation, Pagination],
+
+    pagination: {
+      el: swiper.parentNode!.querySelector('.swiper-pagination'),
+      bulletClass: 'swiper-pagination-bullet',
+    },
+
+    navigation: {
+      nextEl: swiper.parentNode!.querySelector('.swiper-button-next'),
+      prevEl: swiper.parentNode!.querySelector('.swiper-button-prev'),
+    },
+  } as SwiperOptions);
+}
+</script>

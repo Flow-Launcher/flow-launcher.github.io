@@ -1,0 +1,50 @@
+---
+import Section from "@/components/Section.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import SectionSubheader from "@/components/SectionSubheader.astro";
+import {Picture} from "astro:assets";
+import ImageTheme from "@/assets/main-page/cm_theme.png";
+import ImageModern from "@/assets/main-page/cm_modern.png";
+---
+<Section even class="customizations-section">
+  <SectionHeader>Customizations</SectionHeader>
+  <SectionSubheader>Different themes, animation & sound, or simply build your own</SectionSubheader>
+
+  <div class="grid">
+    <div>
+      <Picture src={ImageModern} alt="modern" formats={["avif", "webp"]} class="grid-image"/>
+    </div>
+    <div>
+      <Picture src={ImageTheme} alt="themeable" formats={["avif", "webp"]} class="grid-image"/>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss">
+@use "$styles/breakpoints";
+
+.customizations-section {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.grid-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 992 / 632;
+    object-fit: contain;
+}
+
+@include breakpoints.sm {
+    .grid {
+        grid-template-columns: 1fr;
+      gap: 20px;
+    }
+}
+</style>

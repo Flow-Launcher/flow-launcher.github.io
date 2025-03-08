@@ -1,0 +1,56 @@
+---
+interface Props {
+  contributor: {
+    id: number;
+    login: string;
+    avatar_url: string;
+    count: number;
+  };
+}
+
+const {contributor} = Astro.props;
+const href = `https://github.com/${contributor.login}`;
+---
+
+<a {href} class="contributor" target="_blank">
+  <img src={contributor.avatar_url} alt={contributor.login} class="avatar"/>
+  <div class="info">
+    <div class="login">@{contributor.login}</div>
+    <div class="count">{contributor.count} PR{contributor.count > 1 ? "s" : ""}</div>
+  </div>
+</a>
+
+<style>
+.contributor {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: var(--bg-alternate);
+    border: 1px solid var(--sep);
+    border-radius: 100px;
+    text-decoration: none;
+}
+
+.avatar {
+    width: 64px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.login {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.count {
+    font-size: 14px;
+    color: var(--muted-text);
+}
+</style>

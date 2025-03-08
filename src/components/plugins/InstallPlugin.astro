@@ -1,0 +1,52 @@
+---
+import type {ExtendedPlugin} from "@/pages/plugins/_types";
+interface Props {
+  plugin: ExtendedPlugin;
+}
+
+const { plugin } = Astro.props;
+
+const fullCommand = `pm install ${plugin.name} by ${plugin.author}`;
+---
+<div class="plugin-install">
+  <code class="command">{fullCommand}</code>
+
+  <button type="button" class="copy-plugin-install-command" data-copy-text={fullCommand}>
+    Copy
+  </button>
+</div>
+
+<style>
+.plugin-install {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background-color: var(--bg);
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid var(--sep);
+    line-height: 1.25;
+    overflow: hidden;
+}
+
+.command {
+    padding: 9px;
+}
+
+.copy-plugin-install-command {
+    padding: 4px;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+    background-color: var(--button-copy);
+    transition: background-color 0.2s;
+    color: var(--text);
+}
+
+.copy-plugin-install-command:hover {
+    background-color: var(--button-copy-hover);
+}
+
+.copy-plugin-install-command:active {
+    background-color: var(--button-copy-active);
+}
+</style>

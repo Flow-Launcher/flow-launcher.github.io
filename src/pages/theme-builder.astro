@@ -1,0 +1,14 @@
+---
+import ThemeBuilder from "@/components/theme-builder/ThemeBuilder.svelte";
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/components/Section.astro";
+---
+
+<Layout
+  title="Theme Builder | Flow Launcher"
+  description="Build your own themes for Flow Launcher with an easy to use visual editor!"
+>
+  <Section>
+    <ThemeBuilder client:only/>
+  </Section>
+</Layout>

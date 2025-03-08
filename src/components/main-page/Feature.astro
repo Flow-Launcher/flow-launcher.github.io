@@ -1,0 +1,64 @@
+---
+import {Picture} from "astro:assets";
+import type {ImageMetadata} from "astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  image: ImageMetadata | Promise<{ default: ImageMetadata }>;
+  color: string;
+}
+
+const {
+  title,
+  subtitle,
+  image,
+  color,
+} = Astro.props;
+---
+<div class="feature swiper-slide">
+  <div class="img-container">
+    <Picture alt="" src={image} formats={['avif', 'webp']} class="img" loading="eager"/>
+  </div>
+  <div class="title">{title}</div>
+  <div class="subtitle">{subtitle}</div>
+</div>
+
+<style define:vars={{color}}>
+.feature {
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    background-color: var(--bg-alternate);
+    border: 1px solid var(--sep);
+    box-sizing: border-box;
+}
+
+.img-container {
+    padding: 10px;
+    background-color: var(--color);
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    aspect-ratio: 907 / 619;
+    object-fit: contain;
+}
+
+.title {
+    margin: 20px 20px 0;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.subtitle {
+    margin: 0 20px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+</style>

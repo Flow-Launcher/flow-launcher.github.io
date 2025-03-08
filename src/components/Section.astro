@@ -1,0 +1,53 @@
+---
+import MaxWidthContainer from "@/components/MaxWidthContainer.astro";
+
+interface Props {
+  padding?: number | string;
+  even?: boolean;
+  backgroundColor?: string;
+  class?: string;
+  containerClass?: string;
+  fullHeight?: boolean;
+}
+
+const {
+  padding = 45,
+  even = false,
+  backgroundColor = "transparent",
+  class: className = "",
+  containerClass = "",
+  fullHeight = false,
+  ...rest
+} = Astro.props;
+---
+<section class:list={["section", className, {even, "with-bg-color": !!backgroundColor, spacer: fullHeight}]} {...rest}>
+  <MaxWidthContainer class={containerClass} {...rest}>
+    <slot/>
+  </MaxWidthContainer>
+</section>
+
+<style define:vars={{padding, backgroundColor}} lang="scss">
+@use "$styles/breakpoints";
+
+.section {
+    padding: calc(var(--padding) * 1px) 30px;
+}
+
+.section + .section {
+    border-top: 1px solid var(--sep);
+}
+
+.with-bg-color {
+    background-color: var(--backgroundColor);
+}
+
+.even {
+    background-color: var(--bg-alternate);
+}
+
+@include breakpoints.sm {
+    .section {
+        padding: calc(var(--padding) * 1px) 10px;
+    }
+}
+</style>

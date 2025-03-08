@@ -1,0 +1,23 @@
+<h2 class="section-subheader">
+  <slot />
+</h2>
+
+<style lang="scss">
+@use "$styles/breakpoints";
+
+:global(.section-header) + .section-subheader {
+  margin-top: 4px;
+}
+
+.section-subheader {
+    font-size: 23px;
+    line-height: 1.33em;
+    color: var(--muted-text);
+}
+
+@include breakpoints.sm {
+    .section-subheader {
+        font-size: 16px;
+    }
+}
+</style>
