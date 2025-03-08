@@ -113,7 +113,7 @@ fine, the website will still display the following information about your plugin
    # The date of your blog post in ISO 8601 format. A few examples:
    # 2024-12-30T12:55:34Z
    # 2024-12-30T12:55:34+06:00
-   date: YYYY-MM-DDTHH:mm:ssZ
+   date: YYYY-MM-DDTHH:mm:ssZ # Replace this with the date of your blog post
 
    # The author of your blog post
    author: John Doe
@@ -124,8 +124,8 @@ fine, the website will still display the following information about your plugin
    ```
 
 5. Optional. If you'd like to test your changes before making a pull request, you can run the website locally. To do
-   this, you'll need to have Node.js installed. Once you have Node.js installed, you can run the following commands in
-   the root directory of this repository:
+   this, you'll need to have Node.js v22 or newer installed. Once you have Node.js installed, you can run the following
+   commands in the root directory of this repository:
    ```bash
    npm install
    npm run dev
