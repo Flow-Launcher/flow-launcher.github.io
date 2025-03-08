@@ -19,20 +19,30 @@ const sponsors = [
     href: "https://appwrite.io/",
     src: import("@/assets/main-page/sponsor_appwrite.png"),
     alt: "Appwrite",
-    label: undefined
+    label: undefined,
+    rounded: false,
   },
   {
     href: "https://coderabbit.ai/",
     src: import("@/assets/main-page/sponsor_coderabbit.svg"),
     alt: "CodeRabbit",
-    label: undefined
+    label: undefined,
+    rounded: false,
   },
   {
     href: "https://github.com/TheBestPessimist",
     src: import("@/assets/main-page/sponsor_TheBestPessimist.png"),
     alt: "",
-    label: "TheBestPessimist"
-  }
+    label: "TheBestPessimist",
+    rounded: false,
+  },
+  {
+    href: "https://github.com/AjmalParkar006",
+    src: import("@/assets/main-page/sponsor_AjmalParkar006.jpg"),
+    alt: "",
+    label: "AjmalParkar006",
+    rounded: true,
+  },
 ];
 
 const latestVersion = await getGitHubReleaseData();
@@ -82,6 +92,7 @@ const latestVersion = await getGitHubReleaseData();
         src={v.src}
         alt={v.alt}
         label={v.label}
+        rounded={v.rounded}
       />
     )}
   </div>

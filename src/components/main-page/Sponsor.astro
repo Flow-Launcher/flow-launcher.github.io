@@ -7,6 +7,7 @@ interface Props {
   src: ImageMetadata | Promise<{ default: ImageMetadata }>;
   href: string;
   label?: string;
+  rounded?: boolean;
 }
 
 const {
@@ -14,11 +15,12 @@ const {
   src,
   href,
   label,
+  rounded,
 } = Astro.props;
 ---
 
 <a {href} target="_blank" class="sponsor">
-  <Picture {src} {alt} class:list={["img", {square: !!label}]} formats={["avif", "webp"]} loading="eager" />
+  <Picture {src} {alt} class:list={["img", {square: !!label, rounded}]} formats={["avif", "webp"]} loading="eager" />
   {label ? <span>{label}</span> : null}
 </a>
 
@@ -47,5 +49,9 @@ const {
 .square {
     width: 34px;
     height: 34px;
+}
+
+.rounded {
+    border-radius: 50%;
 }
 </style>
