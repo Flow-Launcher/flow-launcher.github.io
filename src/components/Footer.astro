@@ -1,9 +1,11 @@
 ---
 import Section from "@/components/Section.astro";
 import SmallText from "@/components/SmallText.astro";
+
+const year = new Date().getFullYear();
 ---
 <Section padding="48" class="footer">
-  <SmallText class="footer-text">Flow Launcher Team © 2024</SmallText>
+  <SmallText class="footer-text">Flow Launcher Team © {year}</SmallText>
 </Section>
 
 <style>
