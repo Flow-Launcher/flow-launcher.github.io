@@ -5,15 +5,15 @@
     "node": ">=22.0.0"
   },
   "dependencies": {
-    "@astrojs/svelte": "^7.0.2",
-    "astro": "^5.1.0",
+    "@astrojs/svelte": "^7.0.5",
+    "astro": "^5.4.2",
     "fflate": "^0.8.2",
-    "fslightbox": "^3.4.2",
-    "sass": "^1.83.0",
-    "svelte": "^5.16.0",
+    "fslightbox": "^3.5.1",
+    "sass": "^1.85.1",
+    "svelte": "^5.22.6",
     "svelte-awesome-color-picker": "^3.1.4",
-    "swiper": "^11.1.15",
-    "typescript": "^5.7.2"
+    "swiper": "^11.2.5",
+    "typescript": "^5.8.2"
   },
   "scripts": {
     "dev": "astro dev",
@@ -25,8 +25,8 @@
   "devDependencies": {
     "@astrojs/language-server": "^2.15.4",
     "@rollup/plugin-yaml": "^4.1.2",
-    "@types/node": "^22.10.2",
-    "svelte-language-server": "^0.17.8",
-    "typescript-svelte-plugin": "^0.3.45"
+    "@types/node": "^22.13.10",
+    "svelte-language-server": "^0.17.11",
+    "typescript-svelte-plugin": "^0.3.46"
   }
 }
