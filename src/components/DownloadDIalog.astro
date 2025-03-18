@@ -46,7 +46,7 @@ const data = await getGitHubReleaseData();
   <div class="dialog-content column">
     Windows Package Manager
 
-    <PackageManagerCommand packageManager="winget" command="install 'Flow Launcher'" />
+    <PackageManagerCommand packageManager="winget" command={`install "Flow Launcher"`} />
     <PackageManagerCommand packageManager="scoop" command="install Flow-Launcher" />
     <PackageManagerCommand packageManager="choco" command="install Flow-Launcher" />
   </div>
