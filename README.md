@@ -32,6 +32,11 @@ fine, the website will still display the following information about your plugin
 - Your plugin must be approved and added to the
   [Flow.Launcher.PluginsManifest](https://github.com/Flow-Launcher/Flow.Launcher.PluginsManifest/) repository.
 - Use .png or .jpg for images. Videos should be YouTube links only.
+- You need to fork this repository. After that, you will either:
+   - Clone the fork to your computer and work with it locally using any text editor or IDE of your choice, such as
+     Notepad++, Visual Studio Code, or JetBrains IDEs,
+   - Or you can edit the files directly on GitHub. If you choose to edit the files directly on GitHub, you can skip the
+     steps that involve cloning the repository and running the website locally.
 
 ### Steps to add more information about your plugin
 
