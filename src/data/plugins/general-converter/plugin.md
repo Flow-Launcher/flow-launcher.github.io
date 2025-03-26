@@ -3,14 +3,6 @@ id: 73f2c04d-176a-4586-9ff5-69fae63321ef
 # Uncomment and fill in relevant sections if you provide videos and/or images
 #videos:
 #- https://youtu.be/dQw4w9WgXcQ
-images:
-- images/Area.png
-- images/Distance.png
-- images/Energy.png
-- images/Speed.png
-- images/Temperature.png
-- images/Volume.png
-- images/Weight.png
 tags:
 - Calculators & Converters
 ---
