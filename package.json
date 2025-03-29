@@ -5,6 +5,7 @@
     "node": ">=22.0.0"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.2.2",
     "@astrojs/svelte": "^7.0.5",
     "astro": "^5.4.2",
     "fflate": "^0.8.2",
