@@ -56,6 +56,9 @@
     --plugin-official-text: #594504;
     --font-family: "Noto Sans", "Segoe UI", "Inter", sans-serif;
     --font-family-mono: "Source Code Pro", "JetBrains Mono", "Fira Code", "Roboto Mono", monospace;
+    --table-row-bg: #fff;
+    --table-row-bg-alternate: #f7fbff;
+    --table-cell-sep: #e0e8f0;
 }
 
 :root[data-theme="dark"] {
@@ -107,4 +110,7 @@
     --theme-toggle-button-icon: #d8d8d8;
     --plugin-official-background: #594504;
     --plugin-official-text: #f2bd0c;
+    --table-row-bg: #161b22;
+    --table-row-bg-alternate: #0d1117;
+    --table-cell-sep: #3b4554;
 }
