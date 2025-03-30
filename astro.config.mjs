@@ -4,6 +4,7 @@ import yaml from '@rollup/plugin-yaml';
 import process from "node:process";
 import svelte from '@astrojs/svelte';
 import {fileURLToPath} from "node:url";
+import mdx from '@astrojs/mdx';
 
 const baseUrl = "/" + (process.env.WEBSITE_BASE?.split('/')?.slice(1)?.join('/') ?? "");
 
@@ -27,7 +28,7 @@ export default defineConfig({
     svg: true,
   },
 
-  integrations: [svelte()],
+  integrations: [svelte(), mdx()],
 
   markdown: {
     shikiConfig: {
