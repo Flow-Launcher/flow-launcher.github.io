@@ -230,6 +230,27 @@ button {
 	list-style: revert;
 }
 
+.blog-content table {
+	margin-bottom: 1em;
+}
+
+.blog-content :is(th, td) {
+	padding: 0.25em 0.5em;
+	border: 1px solid var(--table-cell-sep);
+}
+
+.blog-content thead tr :is(th, td) {
+	background-color: var(--table-row-bg);
+}
+
+.blog-content tbody tr:nth-child(odd) :is(th, td) {
+	background-color: var(--table-row-bg-alternate);
+}
+
+.blog-content tbody tr:nth-child(even) :is(th, td) {
+	background-color: var(--table-row-bg);
+}
+
 [data-theme="dark"] .astro-code,
 [data-theme="dark"] .astro-code span {
 	color: var(--shiki-dark) !important;
