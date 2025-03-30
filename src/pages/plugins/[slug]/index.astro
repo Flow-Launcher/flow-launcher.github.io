@@ -86,7 +86,7 @@ const hasCarousel = videos.length > 0 || images.length > 0;
 
   <Section even containerClass="blog-grid" fullHeight>
     <div class="blog-content">
-      {pluginContent?.rendered?.html && Content ? <Content/> : plugin.description}
+      {(pluginContent?.rendered?.html || pluginContent?.body) && Content ? <Content/> : plugin.description}
     </div>
 
     <aside class="plugin-info">
