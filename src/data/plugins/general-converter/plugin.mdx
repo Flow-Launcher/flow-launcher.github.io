@@ -6,6 +6,14 @@ id: 73f2c04d-176a-4586-9ff5-69fae63321ef
 tags:
 - Calculators & Converters
 ---
+import Distance from "./images/Distance.png";
+import Volume from "./images/Volume.png";
+import Area from "./images/Area.png";
+import Weight from "./images/Weight.png";
+import Temperature from "./images/Temperature.png";
+import Speed from "./images/Speed.png";
+import Energy from "./images/Energy.png";
+
 # General Converter (Flow.Launcher.GenConvert)
 
 General weight, volume, distance, area, temperature, speed and energy converter for the [Flow Launcher](https://github.com/Flow-Launcher/Flow.Launcher)
@@ -16,8 +24,8 @@ Currently English and Chinese language supported. Edit the .env file to change t
 
 ### Usage
 
-| Keyword                                                       | Description                                        |
-| ------------------------------------------------------------- | -------------------------------------------------- |
+| Keyword                                                       | Description                                         |
+| ------------------------------------------------------------- | --------------------------------------------------- |
 | `gc <amount> <from unit abbreviation> <to unit abbreviation>` | Convert the amount of the from unit to the to unit. |
 
 The from and to unit are case sensitive.
@@ -36,10 +44,10 @@ The following units and their abbreviations can be used (each table can only con
     <th>Subject</th>
     <th>Unit</th>
     <th>Abbreviation</th>
-    <th rowspan="10" align="center"><img src="images/Distance.png" alt="Distance Logo"></th>
+    <th rowspan="10" align="center"><img src={Distance.src} alt="Distance Logo"/></th>
   </tr>
   <tr>
-    <td rowspan="9" align="center"> Distance</td>
+    <td rowspan="9" align="center">Distance</td>
     <td>millimetre</td>
     <td>mm</td>
   </tr>
@@ -82,7 +90,7 @@ The following units and their abbreviations can be used (each table can only con
     <th>Subject</th>
     <th>Unit</th>
     <th>Abbreviation</th>
-    <th rowspan="27" align="center"><img src="images/Volume.png" alt="Volume Logo"></th>
+    <th rowspan="27" align="center"><img src={Volume.src} alt="Volume Logo"/></th>
   </tr>
   <tr>
     <td rowspan="26" align="center">Volume</td>
@@ -196,7 +204,7 @@ The following units and their abbreviations can be used (each table can only con
     <th>Subject</th>
     <th>Unit</th>
     <th>Abbreviation</th>
-    <th rowspan="10" align="center"><img src="images/Area.png" alt="Area Logo"></th>
+    <th rowspan="10" align="center"><img src={Area.src} alt="Area Logo"/></th>
   </tr>
   <tr>
     <td rowspan="9" align="center">Area</td>
@@ -242,7 +250,7 @@ The following units and their abbreviations can be used (each table can only con
     <th>Subject</th>
     <th>Unit</th>
     <th>Abbreviation</th>
-    <th rowspan="7" align="center"><img src="images/Weight.png" alt="Weight Logo"></th>
+    <th rowspan="7" align="center"><img src={Weight.src} alt="Weight Logo"/></th>
   </tr>
   <tr>
     <td rowspan="6" align="center">Weight</td>
@@ -276,7 +284,7 @@ The following units and their abbreviations can be used (each table can only con
     <th>Subject</th>
     <th>Unit</th>
     <th>Abbreviation</th>
-    <th rowspan="4" align="center"><img src="images/Temperature.png" alt="Temperature Logo"></th>
+    <th rowspan="4" align="center"><img src={Temperature.src} alt="Temperature Logo"/></th>
   </tr>
   <tr>
     <td rowspan = "3" align="center">Temperature</td>
@@ -298,7 +306,7 @@ The following units and their abbreviations can be used (each table can only con
     <th>Subject</th>
     <th>Unit</th>
     <th>Abbreviation</th>
-    <th rowspan="4" align="center"><img src="images/Speed.png" alt="Speed Logo"></th>
+    <th rowspan="4" align="center"><img src={Speed.src} alt="Speed Logo"/></th>
   </tr>
   <tr>
     <td rowspan = "3" align="center">Speed</td>
@@ -320,7 +328,7 @@ The following units and their abbreviations can be used (each table can only con
     <th>Subject</th>
     <th>Unit</th>
     <th>Abbreviation</th>
-    <th rowspan="8" align="center"><img src="images/Energy.png" alt="Energy Logo"></th>
+    <th rowspan="8" align="center"><img src={Energy.src} alt="Energy Logo"/></th>
   </tr>
   <tr>
     <td rowspan = "7" align="center">Energy</td>
