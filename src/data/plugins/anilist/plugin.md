@@ -5,7 +5,7 @@ images:
 - AnimePresentation.png
 - MangaPresentation.png
 tags:
-- Utilities
+- Multimedia
 - Search
 ---
 # Flow.Launcher.Plugin.Anilist
