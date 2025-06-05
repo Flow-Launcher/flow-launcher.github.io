@@ -211,7 +211,7 @@ export class ResultState implements IState {
     </Style>
     
     <!-- Result glyph -->
-    <Style x:Key="ItemGlyphStyle" TargetType="{x:Type TextBlock}">
+    <Style x:Key="ItemGlyph" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="${normalizeHexColorForWpf(this.regular.glyph.color)}" />
         <Setter Property="Width" Value="${this.regular.glyph.fontSize}" />
         <Setter Property="Height" Value="${this.regular.glyph.fontSize}" />
