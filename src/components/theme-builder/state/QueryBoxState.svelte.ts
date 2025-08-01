@@ -169,7 +169,7 @@ export class QueryBoxState implements IState {
         x:Key="SearchIconStyle"
         BasedOn="{StaticResource BaseSearchIconStyle}"
         TargetType="{x:Type Path}">
-    ${this.getSearchIconStyleContents()}
+        ${this.getSearchIconStyleContents()}
     </Style>
     
     <!-- Progress bar under the query text box -->
@@ -192,6 +192,8 @@ export class QueryBoxState implements IState {
       `.trim();
     return `
         <Setter Property="Visibility" Value="Collapsed" />
+        <Setter Property="Width" Value="$0" />
+        <Setter Property="Height" Value="0" />
       `.trim();
   }
 
