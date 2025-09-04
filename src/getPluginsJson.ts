@@ -23,7 +23,7 @@ let cachedData: ExtendedPlugin[] = [];
 
 export async function getPluginsJson() {
   if (!cachedData?.length) {
-    const data: FlowPlugin[] = await fetch("https://raw.githubusercontent.com/Flow-Launcher/Flow.Launcher.PluginsManifest/plugin_api_v2/plugins.json").then(v => v.json());
+    const data: FlowPlugin[] = await fetch("https://raw.githubusercontent.com/Flow-Launcher/Flow.Launcher.PluginsManifest/master/plugins.json").then(v => v.json());
     const plugins = await getCollection("plugins");
 
     cachedData = data.map(v => {
