@@ -7,12 +7,12 @@ tags:
 - Utilities
 ---
 
-![](images/fl-avd-banner.png)
+![AnyVideo Downloader plugin banner](images/fl-avd-banner.png)
 
 ## A Simple yet Powerful Flow Launcher plugin for downloading videos from literally thousands of websites.
 ### ⚡Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp) module. Thank you for this amazing tool!
 
-![](images/fl-avd-intro.gif)
+![AnyVideo Downloader plugin demo](images/fl-avd-intro.gif)
 
 ## Features 🪄
 - Supports 1000+ websites
