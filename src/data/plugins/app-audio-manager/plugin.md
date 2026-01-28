@@ -19,4 +19,4 @@ Control the volume and mute state of individual applications directly from Flow 
 ## Usage
 - Type ``am`` to list all current audio sessions (grouped by name).
 - You can then select one and follow the menu options to change its volume or mute it.
-- You can also right click to get more information about the audio session group.
+- You can also right-click to get more information about the audio session group.
