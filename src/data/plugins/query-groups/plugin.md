@@ -32,7 +32,7 @@ Query Groups can be managed in two places:
 ### Managing via Search (recommended)
 
 Typing ``qg`` lists your existing query groups and includes an option to add a new one.
-Any groups you create will show up in the defualt search as well.
+Any groups you create will show up in the default search as well.
 
 - Selecting a **group** shows the queries it contains, along with an option to add another.
 - Selecting a **query** item replaces the current input with its stored query. 
