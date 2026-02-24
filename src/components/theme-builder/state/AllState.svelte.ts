@@ -59,7 +59,7 @@ export class AllState implements IState {
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:m="http://schemas.modernwpf.com/2019"
+    xmlns:m="http://schemas.inkore.net/lib/ui/wpf/modern"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
