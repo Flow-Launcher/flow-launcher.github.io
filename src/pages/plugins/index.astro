@@ -186,7 +186,11 @@ function updateUrlParams(): void {
     url.searchParams.delete("tags");
   }
 
-  url.searchParams.set("sort", sortValue);
+  if (sortValue !== DEFAULT_PLUGIN_SORT){
+    url.searchParams.set("sort", sortValue);
+  } else {
+    url.searchParams.delete("sort");
+  }
 
   history.replaceState(null, "", url);
 }
