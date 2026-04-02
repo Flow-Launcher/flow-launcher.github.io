@@ -50,11 +50,17 @@ const hasFeaturedPlugins = featured.length > 0;
         <select aria-label="Sort by" id="sort">
           <option value="name-asc" selected>Name (A-Z)</option>
           <option value="name-desc">Name (Z-A)</option>
+          <option value="first-release-desc">Release Date</option>
+          <option value="latest-release-desc">Last Updated</option>
         </select>
       </LabelValue>
     </div>
     <div id="store" class="plugin-grid">
-      {plugins.map(v => <Plugin plugin={v}/>)}
+      {plugins.map(v => <Plugin
+        plugin={v}
+        data-first-release-date={v.firstReleaseDate}
+        data-latest-release-date={v.latestReleaseDate}
+      />)}
     </div>
     <SectionSubheader>
       <div id="not-found" style="display: none;">No plugins found</div>
@@ -115,7 +121,12 @@ const store = document.querySelector("#store") as HTMLElement;
 
 const plugins = document.querySelectorAll("#store > .plugin") as NodeListOf<HTMLElement>;
 const defaultSortValue = "name-asc";
-const allowedSortValues = ["name-asc", "name-desc"];
+const allowedSortValues = [
+  "name-asc",
+  "name-desc",
+  "latest-release-desc",
+  "first-release-desc",
+];
 
 searchInput.addEventListener("input", onFilterChange);
 tagsSelect.addEventListener("change", onFilterChange);
@@ -213,6 +224,12 @@ function filterPlugins(): void {
   }
 }
 
+function getDateTimestamp(plugin: HTMLElement, attributeName: string): number {
+  const dateValue = plugin.getAttribute(attributeName) ?? "";
+  const timestamp = Date.parse(dateValue);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
 function applySort(): void {
   const sortValue = sortSelect.value;
 
@@ -221,14 +238,32 @@ function applySort(): void {
   }
 
   const sortedPlugins = Array.from(plugins).sort((a, b) => {
-    const titleA = a.querySelector(".name")!.textContent!.trim().toLowerCase();
-    const titleB = b.querySelector(".name")!.textContent!.trim().toLowerCase();
+    switch (sortValue) {
+      case "latest-release-desc": {
+        const latestA = getDateTimestamp(a, "data-latest-release-date");
+        const latestB = getDateTimestamp(b, "data-latest-release-date");
+        return latestB - latestA;
+      }
 
-    if (sortValue === "name-desc") {
-      return titleB.localeCompare(titleA);
+      case "first-release-desc": {
+        const firstA = getDateTimestamp(a, "data-first-release-date");
+        const firstB = getDateTimestamp(b, "data-first-release-date");
+        return firstB - firstA;
+      }
+
+      case "name-desc": {
+        const titleA = a.querySelector(".name")!.textContent!.trim().toLowerCase();
+        const titleB = b.querySelector(".name")!.textContent!.trim().toLowerCase();
+        return titleB.localeCompare(titleA);
+      }
+
+      case "name-asc":
+      default: {
+        const titleA = a.querySelector(".name")!.textContent!.trim().toLowerCase();
+        const titleB = b.querySelector(".name")!.textContent!.trim().toLowerCase();
+        return titleA.localeCompare(titleB);
+      }
     }
-
-    return titleA.localeCompare(titleB);
   });
 
   // Re-appending existing plugin nodes moves them into sorted order (no duplicates) 
