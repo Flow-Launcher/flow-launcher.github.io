@@ -154,7 +154,7 @@ tagsSelect.value = tagsParam;
 sortSelect.value = sortParam;
 
 filterPlugins();
-applySort();
+if(sortParam != DEFAULT_PLUGIN_SORT){applySort();}
 updateUrlParams();
 
 function onFilterChange(): void {
