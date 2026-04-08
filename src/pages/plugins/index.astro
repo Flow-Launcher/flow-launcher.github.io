@@ -254,12 +254,6 @@ function applySort(): void {
         return firstB - firstA;
       }
 
-      case PLUGIN_SORTS.NAME_DESC.value: {
-        const titleA = a.querySelector(".name")!.textContent!.trim().toLowerCase();
-        const titleB = b.querySelector(".name")!.textContent!.trim().toLowerCase();
-        return titleB.localeCompare(titleA);
-      }
-
       case PLUGIN_SORTS.NAME_ASC.value:
       default: {
         const titleA = a.querySelector(".name")!.textContent!.trim().toLowerCase();

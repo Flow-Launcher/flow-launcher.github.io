@@ -1,11 +1,7 @@
 export const PLUGIN_SORTS = {
   NAME_ASC: {
     value: "name-asc",
-    label: "Name (A-Z)",
-  },
-  NAME_DESC: {
-    value: "name-desc",
-    label: "Name (Z-A)",
+    label: "Name",
   },
   FIRST_RELEASE_DESC: {
     value: "first-release-desc",
@@ -13,7 +9,7 @@ export const PLUGIN_SORTS = {
   },
   LATEST_RELEASE_DESC: {
     value: "latest-release-desc",
-    label: "Last Updated",
+    label: "Updated Date",
   },
 } as const;
 
