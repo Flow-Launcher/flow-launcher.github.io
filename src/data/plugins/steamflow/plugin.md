@@ -6,7 +6,7 @@ tags:
 ---
 
 ## Control Steam from Flow Launcher
-![](images/peenar.gif)
+![Plugin banner](images/peenar.gif)
 
 
 ### Commands
@@ -20,7 +20,7 @@ tags:
 ## Features
 
 ### Local library
-![](images/localgames.png)
+![Local games](images/localgames.png)
 
 - Launch installed games directly from Flow Launcher
 - Shows playtime, last played date, and achievement progress
@@ -28,14 +28,14 @@ tags:
 - Sorted by most recently played
 
 ### Steam Store search
-![](images/store.png)
+![Store](images/store.png)
 
 - Search the Steam store by game name
 - Shows review score, concurrent player count, price, and release date
-- Owned games opens directly in your library
+- Owned games open directly in your library
 
 ### Wishlist
-![](images/wishlist.png)
+![Wishlist](images/wishlist.png)
 
 - Browse and search your Steam wishlist
 - Shows current price, review score, and date added to wishlist
@@ -43,7 +43,7 @@ tags:
 
 
 ### Adaptive context menu
-![](images/contextmenu.png)
+![Adaptive context menu](images/contextmenu.png)
 
 - Open store page in Steam or [SteamDB](https://steamdb.info/)
 - Open Community Guides and Discussions
@@ -55,12 +55,12 @@ tags:
 
 
 ### Steam status
-![](images/status.png)
+![Status](images/status.png)
 
 - Switch to Online, Invisible, or Offline in one click
 
 
 ### Account switcher
-![](images/switch.png)
+![Account switcher](images/switch.png)
 
 - Switch between Steam accounts signed in on this PC and restart Steam instantly
