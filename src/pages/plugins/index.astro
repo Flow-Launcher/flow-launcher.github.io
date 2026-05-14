@@ -8,6 +8,10 @@ import SectionSubheader from "@/components/SectionSubheader.astro";
 import LabelValue from "@/components/plugins/LabelValue.astro";
 import {TAGS} from "@/constants";
 import featuredPluginIds from "@/data/featured-plugins.yml";
+import {
+  DEFAULT_PLUGIN_SORT,
+  PLUGIN_SORT_LIST,
+} from "@/pages/plugins/pluginSortOptions";
 import Swiper from "@/components/Swiper.astro";
 
 const plugins = await getPluginsJson();
@@ -45,9 +49,23 @@ const hasFeaturedPlugins = featured.length > 0;
           {TAGS.map(v => <option value={v}>{v}</option>)}
         </select>
       </LabelValue>
+
+      <LabelValue label="Sort by">
+        <select aria-label="Sort by" id="sort">
+          {PLUGIN_SORT_LIST.map(option => (
+            <option value={option.value} selected={option.value === DEFAULT_PLUGIN_SORT}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </LabelValue>
     </div>
     <div id="store" class="plugin-grid">
-      {plugins.map(v => <Plugin plugin={v}/>)}
+      {plugins.map(v => <Plugin
+        plugin={v}
+        data-first-release-date={v.firstReleaseDate}
+        data-latest-release-date={v.latestReleaseDate}
+      />)}
     </div>
     <SectionSubheader>
       <div id="not-found" style="display: none;">No plugins found</div>
@@ -60,8 +78,9 @@ const hasFeaturedPlugins = featured.length > 0;
 
 .controls {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 12px;
     margin-top: 24px;
     position: sticky;
     top: 68px;
@@ -99,39 +118,64 @@ const hasFeaturedPlugins = featured.length > 0;
 
 <script>
 import {TAGS} from "@/constants";
+import {
+  DEFAULT_PLUGIN_SORT,
+  isPluginSortValue,
+  PLUGIN_SORTS,
+} from "@/pages/plugins/pluginSortOptions";
 
 const searchInput = document.querySelector("#search") as HTMLInputElement;
 const tagsSelect = document.querySelector("#tags") as HTMLSelectElement;
+const sortSelect = document.querySelector("#sort") as HTMLSelectElement;
 const notFound = document.querySelector("#not-found") as HTMLElement;
+const store = document.querySelector("#store") as HTMLElement;
 
 const plugins = document.querySelectorAll("#store > .plugin") as NodeListOf<HTMLElement>;
-
-searchInput.addEventListener("input", filterPlugins);
-tagsSelect.addEventListener("change", filterPlugins);
+searchInput.addEventListener("input", onFilterChange);
+tagsSelect.addEventListener("change", onFilterChange);
+sortSelect.addEventListener("change", onSortChange);
 
 const url = new URL(window.location.href);
 
 const searchParam = url.searchParams.get("search") ?? "";
 let tagsParam: any = url.searchParams.get("tags") ?? "";
+let sortParam = url.searchParams.get("sort") ?? DEFAULT_PLUGIN_SORT;
 
 if (!TAGS.includes(tagsParam)) {
   tagsParam = "";
 }
 
+if (!isPluginSortValue(sortParam)) {
+  sortParam = DEFAULT_PLUGIN_SORT;
+}
+
 searchInput.value = searchParam;
 tagsSelect.value = tagsParam;
+sortSelect.value = sortParam;
 
 filterPlugins();
+if(sortParam != DEFAULT_PLUGIN_SORT){applySort();}
+updateUrlParams();
 
-function filterPlugins(): void {
-  let foundAtLeastOnePlugin = false;
+function onFilterChange(): void {
+  filterPlugins();
+  applySort();
+  updateUrlParams();
+}
 
-  const searchValue = searchInput.value.toLowerCase();
+function onSortChange(): void {
+  applySort();
+  updateUrlParams();
+}
+
+function updateUrlParams(): void {
+  const searchValue = searchInput.value;
   const tagsValue = tagsSelect.value;
+  const sortValue = sortSelect.value;
 
   const url = new URL(window.location.href);
   if (searchValue.length > 0) {
-    url.searchParams.set("search", searchInput.value);
+    url.searchParams.set("search", searchValue);
   } else {
     url.searchParams.delete("search");
   }
@@ -142,7 +186,20 @@ function filterPlugins(): void {
     url.searchParams.delete("tags");
   }
 
+  if (sortValue !== DEFAULT_PLUGIN_SORT){
+    url.searchParams.set("sort", sortValue);
+  } else {
+    url.searchParams.delete("sort");
+  }
+
   history.replaceState(null, "", url);
+}
+
+function filterPlugins(): void {
+  let foundAtLeastOnePlugin = false;
+
+  const searchValue = searchInput.value.toLowerCase();
+  const tagsValue = tagsSelect.value;
 
   for (const plugin of plugins) {
     const title = plugin.querySelector(".name")!.textContent!.toLowerCase();
@@ -168,5 +225,45 @@ function filterPlugins(): void {
   } else {
     notFound.style.display = "block";
   }
+}
+
+function getDateTimestamp(plugin: HTMLElement, attributeName: string): number {
+  const dateValue = plugin.getAttribute(attributeName) ?? "";
+  const timestamp = Date.parse(dateValue);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+function applySort(): void {
+  const sortValue = sortSelect.value;
+
+  if (!isPluginSortValue(sortValue)) {
+    return;
+  }
+
+  const sortedPlugins = Array.from(plugins).sort((a, b) => {
+    switch (sortValue) {
+      case PLUGIN_SORTS.LATEST_RELEASE_DESC.value: {
+        const latestA = getDateTimestamp(a, "data-latest-release-date");
+        const latestB = getDateTimestamp(b, "data-latest-release-date");
+        return latestB - latestA;
+      }
+
+      case PLUGIN_SORTS.FIRST_RELEASE_DESC.value: {
+        const firstA = getDateTimestamp(a, "data-first-release-date");
+        const firstB = getDateTimestamp(b, "data-first-release-date");
+        return firstB - firstA;
+      }
+
+      case PLUGIN_SORTS.NAME_ASC.value:
+      default: {
+        const titleA = a.querySelector(".name")!.textContent!.trim().toLowerCase();
+        const titleB = b.querySelector(".name")!.textContent!.trim().toLowerCase();
+        return titleA.localeCompare(titleB);
+      }
+    }
+  });
+
+  // Re-appending existing plugin nodes moves them into sorted order (no duplicates)
+  store.append(...sortedPlugins);
 }
 </script>
