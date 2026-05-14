@@ -1,4 +1,7 @@
 ---
+import { Swiper as AstroSwiper, SwiperWrapper, SwiperButtonPrev, SwiperButtonNext, SwiperPagination } from "astro-swiper";
+import type { AstroSwiperOptions } from "astro-swiper";
+
 interface Props {
   class?: string;
   noLoop?: boolean;
@@ -11,19 +14,48 @@ const {
   containsPlugins = false,
   ...rest
 } = Astro.props;
+
+const options: AstroSwiperOptions = {
+  loop: noLoop !== true,
+
+  grabCursor: true,
+
+  slidesPerView: 1,
+  spaceBetween: containsPlugins ? 30 : 10,
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: containsPlugins ? 30 : 20,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
+
+  pagination: {
+    el: '.swiper-pagination',
+    bulletClass: 'swiper-pagination-bullet',
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+};
 ---
 
-<div class:list={["swiper-container", className, {containsPlugins}]} {...rest}>
-  <div class="swiper" data-no-loop={noLoop}>
-    <div class="swiper-wrapper">
+<div class:list={["swiper-container", className]} {...rest}>
+  <AstroSwiper options={options}>
+    <SwiperWrapper>
       <slot/>
-    </div>
-  </div>
+    </SwiperWrapper>
 
-  <div class="swiper-button-prev"/>
-  <div class="swiper-button-next"/>
+  </AstroSwiper>
+  <SwiperButtonPrev/>
+  <SwiperButtonNext/>
 
-  <div class="swiper-pagination"/>
+  <SwiperPagination/>
 </div>
 
 <style lang="scss">
@@ -62,48 +94,3 @@ const {
     transition: opacity 0.2s !important;
 }
 </style>
-
-<script>
-import Swiper from "swiper";
-import {Navigation, Pagination} from "swiper/modules";
-import type {SwiperOptions} from "swiper/types";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-const swipers = document.querySelectorAll(`.swiper`) as unknown as HTMLElement[];
-
-for (const swiper of swipers) {
-  const containsPlugins = swiper.parentElement!.classList.contains("containsPlugins");
-  new Swiper(swiper, {
-    loop: swiper.dataset.noLoop !== "true",
-
-    grabCursor: true,
-
-    slidesPerView: 1,
-    spaceBetween: containsPlugins ? 30 : 10,
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-        spaceBetween: containsPlugins ? 30 : 20,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-    },
-
-    modules: [Navigation, Pagination],
-
-    pagination: {
-      el: swiper.parentNode!.querySelector('.swiper-pagination'),
-      bulletClass: 'swiper-pagination-bullet',
-    },
-
-    navigation: {
-      nextEl: swiper.parentNode!.querySelector('.swiper-button-next'),
-      prevEl: swiper.parentNode!.querySelector('.swiper-button-prev'),
-    },
-  } as SwiperOptions);
-}
-</script>

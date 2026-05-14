@@ -8,12 +8,12 @@
     "@astrojs/mdx": "^4.2.2",
     "@astrojs/svelte": "^7.0.5",
     "astro": "^5.4.2",
+    "astro-swiper": "^2.6.1",
     "fflate": "^0.8.2",
     "fslightbox": "^3.5.1",
     "sass": "^1.85.1",
     "svelte": "^5.22.6",
     "svelte-awesome-color-picker": "^3.1.4",
-    "swiper": "^11.2.5",
     "typescript": "^5.8.2"
   },
   "scripts": {
