@@ -87,6 +87,9 @@ const hasFeaturedPlugins = featured.length > 0;
     background-color: var(--bg);
     padding: 12px 0;
     z-index: 1;
+
+    // horizontal box shadow matching background to cover .plugin glow without causing layout changes or page overflow.
+    box-shadow: -24px 0 0 0 var(--bg), 24px 0 0 0 var(--bg);
 }
 
 .controls input,
