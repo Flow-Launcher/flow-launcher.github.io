@@ -9,8 +9,6 @@ tags:
 - Utilities
 ---
 
-![Layout Fallback demo](images/demo.png)
-
 Layout Fallback adds lower-priority fallback results when a Flow Launcher query was typed using the wrong keyboard layout.
 
 It does not translate, transliterate, autocorrect, or replace your query. Instead, it reinterprets the same physical key presses through the keyboard layouts installed on your Windows system and appends additional search results below the original Flow Launcher results.
