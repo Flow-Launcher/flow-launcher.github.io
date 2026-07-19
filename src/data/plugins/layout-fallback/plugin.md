@@ -1,13 +1,15 @@
 ---
 id: D1A7E9C48B6F4A5A8F963DA278F41921
 images:
-- images/demo.png
+- demo.png
 tags:
 - Productivity
 - Search
 - Text Tools
 - Utilities
 ---
+
+![Layout Fallback Demo](demo.png)
 
 Layout Fallback adds lower-priority fallback results when a Flow Launcher query was typed using the wrong keyboard layout.
 
