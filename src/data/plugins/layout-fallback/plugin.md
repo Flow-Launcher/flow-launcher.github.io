@@ -1,7 +1,5 @@
 ---
 id: D1A7E9C48B6F4A5A8F963DA278F41921
-images:
-- demo.png
 tags:
 - Productivity
 - Search
